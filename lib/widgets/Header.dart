@@ -23,11 +23,7 @@ class Header extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            hasBackButton
-                ? Icon(SFSymbols.arrow_left, size: 28)
-                : SizedBox(
-                    height: 28,
-                  ),
+            hasBackButton ? Icon(SFSymbols.arrow_left, size: 28) : Container(),
             SizedBox(
               height: 10,
             ),

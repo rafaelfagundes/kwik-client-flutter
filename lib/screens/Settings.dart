@@ -158,7 +158,7 @@ class Settings extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 26,
+                height: 12,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
