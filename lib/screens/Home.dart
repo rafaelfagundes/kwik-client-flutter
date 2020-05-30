@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 
+import './Favorites.dart';
+import './Notifications.dart';
 import './Settings.dart';
 
 class Home extends StatelessWidget {
@@ -19,15 +21,11 @@ class Home extends StatelessWidget {
             Container(
               color: Colors.yellow,
             ),
-            Container(
-              color: Colors.orange,
-            ),
+            Favorites(),
             Container(
               color: Colors.lightGreen,
             ),
-            Container(
-              color: Colors.red,
-            ),
+            Notifications(),
             Settings()
           ],
         ),

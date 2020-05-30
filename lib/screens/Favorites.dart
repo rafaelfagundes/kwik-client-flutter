@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/widgets/Header.dart';
 
 import '../widgets/StoreItem.dart';
 
-class Stores extends StatelessWidget {
+class Favorites extends StatelessWidget {
   final items = [
     StoreItem(),
     StoreItem(),
@@ -33,17 +32,15 @@ class Stores extends StatelessWidget {
     StoreItem()
   ];
 
-  Stores({
+  Favorites({
     Key key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Header(
-            'Restaurantes', false, true, null, SFSymbols.slider_horizontal_3),
+        Header('Meus Favoritos', true),
         Flexible(
-          fit: FlexFit.loose,
           child: ListView.builder(
             padding: EdgeInsets.zero,
             itemCount: items.length,

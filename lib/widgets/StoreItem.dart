@@ -8,7 +8,7 @@ class StoreItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 12),
+      margin: EdgeInsets.only(bottom: 16),
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Stack(
         children: <Widget>[
@@ -21,7 +21,7 @@ class StoreItem extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: const Color(0x0d000000),
-                  offset: Offset(0, 8),
+                  offset: Offset(0, 4),
                   blurRadius: 16,
                 ),
               ],

@@ -8,8 +8,11 @@ class Header extends StatelessWidget {
   final Function helperFunction;
   final IconData helperIcon;
 
-  Header(this.title, this.hasBackButton, this.hasHelper, this.helperFunction,
-      this.helperIcon);
+  Header(this.title,
+      [this.hasBackButton = false,
+      this.hasHelper = false,
+      this.helperFunction,
+      this.helperIcon]);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class Header extends StatelessWidget {
                   title,
                   style: TextStyle(
                     fontFamily: 'Lato',
-                    fontSize: 36,
+                    fontSize: 32,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff440044),
                   ),
