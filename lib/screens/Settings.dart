@@ -216,6 +216,51 @@ class Settings extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16),
             height: 50,
             child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Icon(SFSymbols.tag,
+                        size: 28, color: Theme.of(context).primaryColor),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Meus Cupons',
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 16,
+                        color: const Color(0xff440044),
+                        letterSpacing: 0.004,
+                      ),
+                      textAlign: TextAlign.left,
+                    )
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 5),
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                  child: Text(
+                    '8',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12),
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius:
+                          BorderRadius.all(Radius.elliptical(24.0, 24.0)),
+                      border: Border.all(color: Colors.white, width: 2)),
+                )
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            height: 50,
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
