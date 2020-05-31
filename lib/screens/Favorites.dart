@@ -37,19 +37,21 @@ class Favorites extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Header('Meus Favoritos', true),
-        Flexible(
-          child: ListView.builder(
-            padding: EdgeInsets.zero,
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              return items[index];
-            },
+    return SafeArea(
+      child: Column(
+        children: <Widget>[
+          Header('Meus Favoritos', true),
+          Flexible(
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return items[index];
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

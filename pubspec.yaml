@@ -26,6 +26,7 @@ dependencies:
   flutter_svg: ^0.17.4
   flutter_sfsymbols: ^1.0.0
   badges: ^1.1.1
+  flare_flutter: ^2.0.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -49,6 +50,7 @@ flutter:
     - assets/images/Avatar.jpg
     - assets/images/StoreBanner.jpg
     - assets/images/StoreLogo.png
+    - assets/animations/switch_daytime.flr
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

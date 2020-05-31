@@ -42,11 +42,10 @@ class StoreItem extends StatelessWidget {
               ),
             ),
           ),
-          Transform.translate(
-            offset: Offset(MediaQuery.of(context).size.width - 110, 68.0),
-            child:
-                // Adobe XD layer: 'StoreLogo' (shape)
-                Container(
+          Positioned(
+            top: 68,
+            right: 16,
+            child: Container(
               width: 64.0,
               height: 64.0,
               decoration: BoxDecoration(
