@@ -127,6 +127,13 @@ class _SettingsState extends State<Settings> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
           color: Theme.of(context).cardColor,
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0x0d000000),
+              offset: Offset(0, 4),
+              blurRadius: 16,
+            ),
+          ],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

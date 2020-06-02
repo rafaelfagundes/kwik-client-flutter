@@ -48,7 +48,20 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
+    - assets/images/Avatar.jpg
+    - assets/images/StoreBanner.jpg
+    - assets/images/StoreLogo.png
+    - assets/images/banners/Delivery-Light.png
+    - assets/images/banners/Delivery-Dark.png
+    - assets/images/business-types/Bebidas.png
+    - assets/images/business-types/Churrasco.png
+    - assets/images/business-types/Entregas.png
+    - assets/images/business-types/Farmacias.png
+    - assets/images/business-types/Lojas.png
+    - assets/images/business-types/Mercados.png
+    - assets/images/business-types/Pets.png
+    - assets/images/business-types/Restaurantes.png
+    - assets/images/business-types/Suplementos.png
     - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
