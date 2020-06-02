@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:kwik_client_flutter/widgets/header_widget.dart';
+import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/notification_item_widget.dart';
 
 class Notifications extends StatelessWidget {
@@ -64,24 +63,9 @@ class Notifications extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Header('Notificações', false, true, null,
-                SFSymbols.slider_horizontal_3),
-            Flexible(
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return items[index];
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+    return DefaultScreen(
+      'Notificações',
+      children: <Widget>[...items],
     );
   }
 }

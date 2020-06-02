@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/controllers/app_controller.dart';
+import 'package:kwik_client_flutter/screens/favorites/favorites_screen.dart';
+import 'package:kwik_client_flutter/screens/notifications/notifications_screen.dart';
+import 'package:kwik_client_flutter/screens/settings/settings_screen.dart';
 import 'package:kwik_client_flutter/themes/dark_theme.dart';
+import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
-import './screens/favorites_screen.dart';
-import './screens/notifications_screen.dart';
-import './screens/settings_screen.dart';
+import './app_controller.dart';
 import './themes/light_theme.dart';
 import './widgets/bottom_tab_navigator_widget.dart';
 
@@ -27,9 +28,7 @@ class _AppState extends State<App> {
                 child: Scaffold(
                   body: TabBarView(
                     children: [
-                      Container(
-                        color: Colors.yellow,
-                      ),
+                      DefaultScreen('Home'),
                       Favorites(),
                       Container(
                         color: Colors.lightGreen,
