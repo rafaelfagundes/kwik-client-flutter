@@ -2,8 +2,8 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-
-import '../widgets/Header.dart';
+import 'package:kwik_client_flutter/controllers/app_controller.dart';
+import 'package:kwik_client_flutter/widgets/header_widget.dart';
 
 enum THEME {
   NIGHT_IDLE,
@@ -29,16 +29,20 @@ class _SettingsState extends State<Settings> {
     'switch_night',
     'switch_day'
   ];
-  String _currentThemeAnimation =
-      _animations[1]; // TODO: [Rafael] get from system or saved preferences
+  String _currentThemeAnimation = AppController.instance.themeSwitch.value
+      ? _animations[0]
+      : _animations[1]; // TODO: [Rafael] get from system or saved preferences
+  // String _currentThemeAnimation = _animations[0];
 
   void _handleThemeSwitch() {
     if (_currentThemeAnimation == 'day_idle') {
+      AppController.instance.changeTheme(true);
       _controls.play(_animations[THEME.SWITCH_NIGHT.index]);
       setState(() {
         _currentThemeAnimation = _animations[THEME.NIGHT_IDLE.index];
       });
     } else {
+      AppController.instance.changeTheme(false);
       _controls.play(_animations[THEME.SWITCH_DAY.index]);
       setState(() {
         _currentThemeAnimation = _animations[THEME.DAY_IDLE.index];
@@ -95,7 +99,7 @@ class _SettingsState extends State<Settings> {
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 18,
-                            color: const Color(0xff440044),
+                            color: Theme.of(context).primaryColor,
                             letterSpacing: 0.0045000000000000005,
                             fontWeight: FontWeight.w700,
                           ),
@@ -109,7 +113,7 @@ class _SettingsState extends State<Settings> {
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 14,
-                            color: const Color(0xff440044),
+                            color: Theme.of(context).primaryColor,
                             letterSpacing: 0.0035,
                           ),
                           textAlign: TextAlign.left,
@@ -129,7 +133,7 @@ class _SettingsState extends State<Settings> {
               height: 60.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: const Color(0xffa1e8af),
+                color: Theme.of(context).cardColor,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,7 +155,7 @@ class _SettingsState extends State<Settings> {
                             style: TextStyle(
                               fontFamily: 'Lato',
                               fontSize: 12,
-                              color: const Color(0xff440044),
+                              color: Theme.of(context).primaryColor,
                               letterSpacing: 0.003,
                             ),
                             textAlign: TextAlign.left,
@@ -162,7 +166,7 @@ class _SettingsState extends State<Settings> {
                             style: TextStyle(
                               fontFamily: 'Lato',
                               fontSize: 14,
-                              color: const Color(0xff440044),
+                              color: Theme.of(context).primaryColor,
                               letterSpacing: 0.0035,
                               fontWeight: FontWeight.w700,
                             ),
@@ -183,7 +187,7 @@ class _SettingsState extends State<Settings> {
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 14,
-                            color: const Color(0xff800080),
+                            color: Theme.of(context).accentColor,
                             letterSpacing: 0.0035,
                             // fontWeight: FontWeight.w700,
                           ),
@@ -215,7 +219,7 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 16,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.004,
                         ),
                         textAlign: TextAlign.left,
@@ -242,7 +246,7 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 16,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.004,
                         ),
                         textAlign: TextAlign.left,
@@ -271,7 +275,7 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 16,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.004,
                         ),
                         textAlign: TextAlign.left,
@@ -316,7 +320,7 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 16,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.004,
                         ),
                         textAlign: TextAlign.left,
@@ -358,7 +362,7 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 16,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.004,
                         ),
                         textAlign: TextAlign.left,
@@ -386,7 +390,7 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 16,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.004,
                         ),
                         textAlign: TextAlign.left,

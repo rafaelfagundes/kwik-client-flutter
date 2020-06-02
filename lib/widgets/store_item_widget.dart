@@ -17,7 +17,7 @@ class StoreItem extends StatelessWidget {
             height: 200.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0),
-              color: const Color(0xffffffff),
+              color: Theme.of(context).cardColor,
               boxShadow: [
                 BoxShadow(
                   color: const Color(0x0d000000),
@@ -54,7 +54,8 @@ class StoreItem extends StatelessWidget {
                   image: const AssetImage('assets/images/StoreLogo.png'),
                   fit: BoxFit.cover,
                 ),
-                border: Border.all(width: 2.0, color: const Color(0xffffffff)),
+                border:
+                    Border.all(width: 2.0, color: Theme.of(context).cardColor),
                 boxShadow: [
                   BoxShadow(
                     color: const Color(0x0d000000),
@@ -108,7 +109,7 @@ class StoreItem extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 17,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.00425,
                           fontWeight: FontWeight.w700,
                           height: 2.1176470588235294,
@@ -160,7 +161,7 @@ class StoreItem extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 12,
-                          color: const Color(0xff440044),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.003,
                           fontWeight: FontWeight.w700,
                           height: 3,
@@ -182,10 +183,9 @@ class StoreItem extends StatelessWidget {
                       SizedBox(width: 10),
                       Container(
                         padding: EdgeInsets.only(top: 15),
-                        child: SvgPicture.string(
-                          _svg_jslkou,
-                          allowDrawingOutsideViewBox: true,
-                        ),
+                        child: SvgPicture.string(_svg_jslkou,
+                            allowDrawingOutsideViewBox: true,
+                            color: Theme.of(context).primaryColor),
                       ),
                       SizedBox(width: 3),
                       Text(
@@ -193,7 +193,7 @@ class StoreItem extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 12,
-                          color: const Color(0xff7b7b7b),
+                          color: Theme.of(context).primaryColor,
                           letterSpacing: 0.003,
                           fontWeight: FontWeight.w700,
                           height: 3,
@@ -203,88 +203,6 @@ class StoreItem extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                // Stack(
-                //   children: <Widget>[
-                //     Transform.translate(
-                //       offset: Offset(33.19, 308.97),
-                //       child:
-                //           // Adobe XD layer: 'StarIcon' (shape)
-                //           SvgPicture.string(
-                //         _svg_noz4np,
-                //         allowDrawingOutsideViewBox: true,
-                //       ),
-                //     ),
-                //     Transform.translate(
-                //       offset: Offset(53.0, 291.0),
-                //       child:
-                //           // Adobe XD layer: 'RatingValue' (text)
-                //           Text(
-                //         '4.8',
-                //         style: TextStyle(
-                //           fontFamily: 'Lato',
-                //           fontSize: 12,
-                //           color: const Color(0xff440044),
-                //           letterSpacing: 0.003,
-                //           fontWeight: FontWeight.w700,
-                //           height: 3,
-                //         ),
-                //         textAlign: TextAlign.left,
-                //       ),
-                //     ),
-                //     Transform.translate(
-                //       offset: Offset(75.0, 291.0),
-                //       child:
-                //           // Adobe XD layer: 'RatingCount' (text)
-                //           Text(
-                //         '(500+)',
-                //         style: TextStyle(
-                //           fontFamily: 'Lato',
-                //           fontSize: 12,
-                //           color: const Color(0xffa8a8a8),
-                //           letterSpacing: 0.003,
-                //           height: 3,
-                //         ),
-                //         textAlign: TextAlign.left,
-                //       ),
-                //     ),
-                //   ],
-                // ),
-                // Transform.translate(
-                //   offset: Offset(5.0, 0.0),
-                //   child:
-                //       // Adobe XD layer: 'DeliveryTIme' (group)
-                //       Stack(
-                //     children: <Widget>[
-                //       Transform.translate(
-                //         offset: Offset(136.0, 291.0),
-                //         child:
-                //             // Adobe XD layer: 'DeliveryTimeText' (text)
-                //             Text(
-                //           '15-60min',
-                //           style: TextStyle(
-                //             fontFamily: 'Lato',
-                //             fontSize: 12,
-                //             color: const Color(0xff7b7b7b),
-                //             letterSpacing: 0.003,
-                //             fontWeight: FontWeight.w700,
-                //             height: 3,
-                //           ),
-                //           textAlign: TextAlign.left,
-                //         ),
-                //       ),
-                //       Transform.translate(
-                //         offset: Offset(115.0, 311.0),
-                //         child:
-                //             // Adobe XD layer: 'DeliveryTimeIcon' (shape)
-                //             SvgPicture.string(
-                //           _svg_jslkou,
-                //           allowDrawingOutsideViewBox: true,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           ),

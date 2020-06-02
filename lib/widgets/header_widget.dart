@@ -39,7 +39,7 @@ class Header extends StatelessWidget {
                     fontFamily: 'Lato',
                     fontSize: 32,
                     fontWeight: FontWeight.w400,
-                    color: const Color(0xff440044),
+                    color: Theme.of(context).primaryColor,
                   ),
                   textAlign: TextAlign.left,
                 ),

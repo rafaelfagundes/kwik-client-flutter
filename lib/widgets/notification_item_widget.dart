@@ -27,7 +27,7 @@ class NotificationItem extends StatelessWidget {
         height: 90.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
-          color: const Color(0xffffffff).withOpacity(isRead ? 0.5 : 1),
+          color: Theme.of(context).cardColor.withOpacity(isRead ? 0.5 : 1),
           boxShadow: [
             BoxShadow(
               color: const Color(0x0d000000),
@@ -65,8 +65,8 @@ class NotificationItem extends StatelessWidget {
                     fontFamily: 'Lato',
                     fontSize: 18,
                     color: isNegative
-                        ? const Color(0xffef5d60)
-                        : const Color(0xff440044),
+                        ? Theme.of(context).errorColor
+                        : Theme.of(context).primaryColor,
                     letterSpacing: 0.0045000000000000005,
                     fontWeight: FontWeight.w700,
                   ),

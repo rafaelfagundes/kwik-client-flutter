@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:kwik_client_flutter/widgets/Header.dart';
-
-import '../widgets/StoreItem.dart';
+import 'package:kwik_client_flutter/widgets/header_widget.dart';
+import 'package:kwik_client_flutter/widgets/store_item_widget.dart';
 
 class Stores extends StatelessWidget {
   final items = [
