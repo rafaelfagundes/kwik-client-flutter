@@ -23,6 +23,9 @@ class CurvedNavigationWidget extends StatelessWidget {
               : Color(0xffEEEEEE).withOpacity(.98),
           child: SafeArea(
             child: CurvedNavigationBar(
+              height: MediaQuery.of(context).padding.bottom > 0
+                  ? 75 - MediaQuery.of(context).padding.bottom
+                  : 50,
               animationDuration: Duration(milliseconds: 200),
               // backgroundColor: isDark
               //     ? Color(0xff444444).withOpacity(.8)
@@ -30,7 +33,6 @@ class CurvedNavigationWidget extends StatelessWidget {
               backgroundColor: Colors.transparent,
               buttonBackgroundColor: Theme.of(context).accentColor,
               color: Theme.of(context).cardColor,
-              height: 40,
               items: <Widget>[
                 CustomIcon(
                   isActive: index == 0,
