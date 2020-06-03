@@ -18,8 +18,8 @@ class TitleWithActionWidget extends StatelessWidget {
               title,
               style: TextStyle(
                   fontFamily: 'Lato',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
                   color: Theme.of(context).primaryColor),
             ),
             Text(

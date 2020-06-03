@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 final ThemeData lightTheme = ThemeData(
     accentColor: Color(0xfffb6b4c),
     accentColorBrightness: Brightness.light,
-    backgroundColor: Color(0xfff5f5f5),
+    backgroundColor: Color(0xfff0f0f0),
     bottomAppBarColor: Color(0xffffffff),
     brightness: Brightness.light,
     buttonColor: Color(0xffe0e0e0),

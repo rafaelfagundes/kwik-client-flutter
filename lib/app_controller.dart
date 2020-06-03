@@ -12,6 +12,7 @@ class AppController {
   }
 
   bool get isDark => changeThemeViewModel.config.themeSwitch.value;
+
   ValueNotifier<bool> get themeSwitch =>
       changeThemeViewModel.config.themeSwitch;
 

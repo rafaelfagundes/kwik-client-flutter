@@ -28,6 +28,7 @@ dependencies:
   badges: ^1.1.1
   flare_flutter: ^2.0.3
   shared_preferences: ^0.5.7+3
+  curved_navigation_bar: ^0.3.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -62,6 +63,14 @@ flutter:
     - assets/images/business-types/Pets.png
     - assets/images/business-types/Restaurantes.png
     - assets/images/business-types/Suplementos.png
+    - assets/images/fundo_claro.png
+    - assets/images/fundo.png
+    - assets/images/logo_branco.png
+    - assets/images/logo_roxo.png
+    - assets/images/logo.png
+    - assets/images/no_picture.png
+    - assets/images/splash.png
+    - assets/images/icon.png
     - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,82 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:kwik_client_flutter/app_controller.dart';
-import 'package:kwik_client_flutter/widgets/business_type_button_widget.dart';
+import 'package:kwik_client_flutter/screens/home/banner_widget.dart';
+import 'package:kwik_client_flutter/screens/home/business_type_widget.dart';
+import 'package:kwik_client_flutter/screens/home/simulated_search_bar_widget.dart';
+import 'package:kwik_client_flutter/screens/home/store_horizontal_list_widget.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
-import 'package:kwik_client_flutter/widgets/title_with_action_widget.dart';
 
 class Home extends StatelessWidget {
-  final bool _isDark = AppController.instance.isDark;
-
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(
       'Olá, Rafael',
       children: <Widget>[
+        SimulatedSearchBarWidget(),
         SizedBox(
           height: 10,
         ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 16),
-          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-          decoration: BoxDecoration(
-              color: Theme.of(context).backgroundColor,
-              borderRadius: BorderRadius.all(Radius.circular(8))),
-          child: Row(
-            children: <Widget>[
-              Icon(SFSymbols.search,
-                  color: _isDark ? Color(0xFFBBBBBB) : Color(0xFF666666)),
-              SizedBox(
-                width: 5,
-              ),
-              Text(
-                'O que você vai querer hoje?',
-                style: TextStyle(
-                    color: _isDark ? Color(0xFFBBBBBB) : Color(0xFF666666)),
-              )
-            ],
-          ),
-        ),
+        BannerWidget(),
         SizedBox(
-          height: 10,
+          height: 20,
         ),
-        GestureDetector(
-            onTap: () {
-              print('Delivery');
-            },
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: _isDark
-                    ? Image.asset('assets/images/banners/Delivery-Dark.png')
-                    : Image.asset('assets/images/banners/Delivery-Light.png'))),
+        BusinessTypeWidget(),
         SizedBox(
-          height: 15,
+          height: 5,
         ),
-        TitleWithActionWidget('Seções', 'Ver Todas'),
+        StoreHorizontalListWidget('Restaurantes'),
         SizedBox(
-          height: 10,
+          height: 30,
         ),
-        Container(
-          height: 90,
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              BusinessTypeButtonWidget(),
-              BusinessTypeButtonWidget(),
-              BusinessTypeButtonWidget(),
-              BusinessTypeButtonWidget(),
-              BusinessTypeButtonWidget(),
-              BusinessTypeButtonWidget(),
-              BusinessTypeButtonWidget(),
-            ],
-          ),
-        ),
+        StoreHorizontalListWidget('Lojas'),
         SizedBox(
-          height: 25,
+          height: 30,
         ),
-        TitleWithActionWidget('Restaurantes', 'Ver Todos'),
+        StoreHorizontalListWidget('Visitados Recentemente'),
+        SizedBox(
+          height: 120,
+        ),
       ],
     );
   }

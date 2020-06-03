@@ -5,7 +5,7 @@ class BusinessTypeButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 80,
-      margin: EdgeInsets.only(right: 8),
+      margin: EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
           color: Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(8))),
