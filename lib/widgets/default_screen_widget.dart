@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class DefaultScreen extends StatelessWidget {
   final List<Widget> children;
   final String title;
+  final String previousPageTitle;
 
-  DefaultScreen(this.title, {this.children = const []});
+  DefaultScreen(this.title,
+      {this.previousPageTitle = "", this.children = const []});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +15,7 @@ class DefaultScreen extends StatelessWidget {
       body: Container(
         child: CustomScrollView(slivers: <Widget>[
           CupertinoSliverNavigationBar(
+              actionsForegroundColor: Theme.of(context).primaryColor,
               automaticallyImplyTitle: true,
               automaticallyImplyLeading: true,
               transitionBetweenRoutes: true,
