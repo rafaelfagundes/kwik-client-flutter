@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:kwik_client_flutter/screens/home/home_screen.dart';
 import 'package:kwik_client_flutter/screens/notifications/notifications_screen.dart';
 import 'package:kwik_client_flutter/screens/orders/orders_screen.dart';
+import 'package:kwik_client_flutter/screens/rating/rating_screen.dart';
 import 'package:kwik_client_flutter/screens/settings/settings_screen.dart';
 import 'package:kwik_client_flutter/screens/stores/stores_screen.dart';
 import 'package:kwik_client_flutter/stores/app_store.dart';
@@ -19,7 +19,7 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   static final _screens = <Widget>[
-    Home(),
+    Rating(),
     Orders(),
     Stores(),
     Notifications(),
