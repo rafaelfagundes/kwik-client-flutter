@@ -29,7 +29,7 @@ class App extends StatelessWidget {
                   title: 'Kwik',
                   theme: store.isDark ? darkTheme : lightTheme,
                   debugShowCheckedModeBanner: false,
-                  initialRoute: '/rating',
+                  initialRoute: '/',
                   routes: {
                     '/': (context) => TabbedMain(),
                     '/favorites': (context) => Favorites(),

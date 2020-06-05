@@ -27,7 +27,7 @@ class CurvedNavigationWidget extends StatelessWidget {
                   height: MediaQuery.of(context).padding.bottom > 0
                       ? 75 - MediaQuery.of(context).padding.bottom
                       : 50,
-                  animationDuration: Duration(milliseconds: 200),
+                  animationDuration: Duration(milliseconds: 350),
                   backgroundColor: Colors.transparent,
                   buttonBackgroundColor: Theme.of(context).accentColor,
                   color: Theme.of(context).cardColor,

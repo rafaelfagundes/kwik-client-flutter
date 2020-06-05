@@ -25,7 +25,6 @@ class _RatingState extends State<Rating> {
     return DefaultScreen(
       'Avaliação',
       children: <Widget>[
-        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[RoundedStoreLogoWidget(size: 64)],
