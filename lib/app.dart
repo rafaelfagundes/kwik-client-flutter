@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kwik_client_flutter/screens/coupons/coupons_screen.dart';
@@ -26,16 +27,30 @@ class App extends StatelessWidget {
                 }
               },
               child: MaterialApp(
-                  title: 'Kwik',
-                  theme: store.isDark ? darkTheme : lightTheme,
-                  debugShowCheckedModeBanner: false,
-                  initialRoute: '/',
-                  routes: {
-                    '/': (context) => TabbedMain(),
-                    '/favorites': (context) => Favorites(),
-                    '/coupons': (context) => Coupons(),
-                    '/rating': (context) => Rating(),
-                  }),
+                title: 'Kwik',
+                theme: store.isDark ? darkTheme : lightTheme,
+                debugShowCheckedModeBanner: false,
+                initialRoute: '/',
+                onGenerateRoute: (settings) {
+                  switch (settings.name) {
+                    case '/':
+                      return CupertinoPageRoute(
+                          builder: (_) => TabbedMain(), settings: settings);
+                    case '/favorites':
+                      return CupertinoPageRoute(
+                          builder: (_) => Favorites(), settings: settings);
+                    case '/coupons':
+                      return CupertinoPageRoute(
+                          builder: (_) => Coupons(), settings: settings);
+                    case '/rating':
+                      return CupertinoPageRoute(
+                          builder: (_) => Rating(), settings: settings);
+                    default:
+                      return CupertinoPageRoute(
+                          builder: (_) => TabbedMain(), settings: settings);
+                  }
+                },
+              ),
             ));
   }
 }

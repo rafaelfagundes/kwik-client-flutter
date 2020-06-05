@@ -165,6 +165,7 @@ class _SettingsState extends State<Settings> {
         height: 12,
       ),
       Container(
+        color: Colors.grey.withOpacity(0),
         padding: EdgeInsets.symmetric(horizontal: 16),
         height: 50,
         child: Row(
@@ -196,6 +197,7 @@ class _SettingsState extends State<Settings> {
           Navigator.pushNamed(context, "/favorites");
         },
         child: Container(
+          color: Colors.grey.withOpacity(0),
           padding: EdgeInsets.symmetric(horizontal: 16),
           height: 50,
           child: Row(
@@ -228,6 +230,7 @@ class _SettingsState extends State<Settings> {
           Navigator.pushNamed(context, "/coupons");
         },
         child: Container(
+          color: Colors.grey.withOpacity(0),
           padding: EdgeInsets.symmetric(horizontal: 16),
           height: 50,
           child: Row(
@@ -276,6 +279,7 @@ class _SettingsState extends State<Settings> {
       Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         height: 50,
+        color: Colors.grey.withOpacity(0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -308,6 +312,7 @@ class _SettingsState extends State<Settings> {
       Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         height: 50,
+        color: Colors.grey.withOpacity(0),
         child: Row(
           children: <Widget>[
             Row(
