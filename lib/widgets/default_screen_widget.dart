@@ -12,6 +12,8 @@ class DefaultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Container(
         child: CustomScrollView(slivers: <Widget>[
           CupertinoSliverNavigationBar(

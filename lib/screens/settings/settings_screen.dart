@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:kwik_client_flutter/screens/coupons/coupons_screen.dart';
-import 'package:kwik_client_flutter/screens/favorites/favorites_screen.dart';
 import 'package:kwik_client_flutter/screens/settings/dark_mode_switch.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
@@ -195,10 +193,7 @@ class _SettingsState extends State<Settings> {
       ),
       GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Favorites()),
-          );
+          Navigator.pushNamed(context, "/favorites");
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
@@ -230,10 +225,7 @@ class _SettingsState extends State<Settings> {
       ),
       GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Coupons()),
-          );
+          Navigator.pushNamed(context, "/coupons");
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
