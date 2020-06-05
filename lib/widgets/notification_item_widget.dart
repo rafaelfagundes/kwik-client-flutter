@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/utils/date_utils.dart';
 
 class NotificationItem extends StatelessWidget {
   final DateTime createdAt;
@@ -46,7 +47,7 @@ class NotificationItem extends StatelessWidget {
                   height: 6,
                 ),
                 Text(
-                  createdAt.toString(),
+                  DateUtils.verboseDate(createdAt).toUpperCase(),
                   style: TextStyle(
                     fontFamily: 'Lato',
                     fontSize: 9,

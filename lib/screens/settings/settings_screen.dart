@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
+import 'package:kwik_client_flutter/screens/coupons/coupons_screen.dart';
 import 'package:kwik_client_flutter/screens/favorites/favorites_screen.dart';
 import 'package:kwik_client_flutter/screens/settings/dark_mode_switch.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
@@ -227,48 +228,57 @@ class _SettingsState extends State<Settings> {
           ),
         ),
       ),
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        height: 50,
-        child: Row(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(SFSymbols.tag,
-                    size: 28, color: Theme.of(context).primaryColor),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'Meus Cupons',
-                  style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontSize: 16,
-                    color: Theme.of(context).primaryColor,
-                    letterSpacing: 0.004,
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Coupons()),
+          );
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          height: 50,
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Icon(SFSymbols.tag,
+                      size: 28, color: Theme.of(context).primaryColor),
+                  SizedBox(
+                    width: 5,
                   ),
-                  textAlign: TextAlign.left,
-                )
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 5),
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-              child: Text(
-                '8',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 12),
+                  Text(
+                    'Meus Cupons',
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 16,
+                      color: Theme.of(context).primaryColor,
+                      letterSpacing: 0.004,
+                    ),
+                    textAlign: TextAlign.left,
+                  )
+                ],
               ),
-              decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.all(Radius.elliptical(24.0, 24.0)),
-                  border: Border.all(color: Colors.white, width: 1)),
-            )
-          ],
+              Container(
+                margin: EdgeInsets.only(left: 5),
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                child: Text(
+                  '8',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius:
+                        BorderRadius.all(Radius.elliptical(24.0, 24.0)),
+                    border: Border.all(color: Colors.white, width: 1)),
+              )
+            ],
+          ),
         ),
       ),
       Container(

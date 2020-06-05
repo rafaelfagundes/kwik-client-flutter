@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/screens/orders/order_status_widget.dart';
+import 'package:kwik_client_flutter/utils/date_utils.dart';
 
 class OrderItem extends StatelessWidget {
   final DateTime createdAt;
@@ -53,7 +54,7 @@ class OrderItem extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Text(
-                      createdAt.toString(),
+                      DateUtils.verboseDate(createdAt).toUpperCase(),
                       style: TextStyle(
                         fontFamily: 'Lato',
                         fontSize: 9,

@@ -25,7 +25,7 @@ class Coupons extends StatelessWidget {
         isValid: false,
         couponType: CouponType.PERCENTAGE,
         couponValue: 5),
-    CouponItem(ValueKey('#gfgfgffdsa'),
+    CouponItem(ValueKey('#gfgXXXfdsa'),
         title: 'Cupom de 10%',
         couponCode: "DEZAO",
         validUntil: new DateTime(2020, 12, 31),

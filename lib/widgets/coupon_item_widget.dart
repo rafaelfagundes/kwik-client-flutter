@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 enum CouponType { VALUE, PERCENTAGE }
 
@@ -53,7 +54,7 @@ class CouponItem extends StatelessWidget {
                   height: 6,
                 ),
                 Text(
-                  'VÁLIDO ATÉ ' + validUntil.toString(),
+                  'VÁLIDO ATÉ ${DateFormat('dd/MM/yyyy - hh:mm').format(validUntil)}',
                   style: TextStyle(
                     fontFamily: 'Lato',
                     fontSize: 9,
