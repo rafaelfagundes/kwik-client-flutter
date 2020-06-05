@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
         ),
         StoreHorizontalListWidget('Visitados Recentemente'),
         SizedBox(
-          height: 120,
+          height: 16,
         ),
       ],
     );

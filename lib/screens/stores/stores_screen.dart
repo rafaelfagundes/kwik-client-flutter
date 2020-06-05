@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/store_item_widget.dart';
 
 class Stores extends StatelessWidget {
@@ -33,21 +34,12 @@ class Stores extends StatelessWidget {
   Stores({
     Key key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Flexible(
-          fit: FlexFit.loose,
-          child: ListView.builder(
-            padding: EdgeInsets.zero,
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              return items[index];
-            },
-          ),
-        ),
-      ],
+    return DefaultScreen(
+      'Restaurantes',
+      children: <Widget>[...items],
     );
   }
 }

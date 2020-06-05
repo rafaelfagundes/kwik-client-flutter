@@ -29,8 +29,11 @@ class DefaultScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400),
               )),
           SliverList(
-              delegate: SliverChildListDelegate(
-                  <Widget>[SizedBox(height: 20), ...children])),
+              delegate: SliverChildListDelegate(<Widget>[
+            SizedBox(height: 20),
+            ...children,
+            SizedBox(height: 72)
+          ])),
         ]),
       ),
     );

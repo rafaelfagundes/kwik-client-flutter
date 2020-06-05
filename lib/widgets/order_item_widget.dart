@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/screens/orders/order_status_widget.dart';
 
-class NotificationItem extends StatelessWidget {
+class OrderItem extends StatelessWidget {
   final DateTime createdAt;
   final String title;
   final String description;
   final bool isNegative;
-  final bool isRead;
+  final OrderStatusType status;
 
-  NotificationItem(
-      Key key, this.title, this.description, this.createdAt, this.isRead,
-      {this.isNegative = false})
-      : super(key: key);
+  OrderItem(
+    Key key, {
+    @required this.title,
+    @required this.description,
+    @required this.createdAt,
+    @required this.status,
+    this.isNegative = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,7 @@ class NotificationItem extends StatelessWidget {
         height: 90.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
-          color: Theme.of(context).cardColor.withOpacity(isRead ? 0.5 : 1),
+          color: Theme.of(context).cardColor,
           boxShadow: [
             BoxShadow(
               color: const Color(0x0d000000),
@@ -45,16 +50,24 @@ class NotificationItem extends StatelessWidget {
                 SizedBox(
                   height: 6,
                 ),
-                Text(
-                  createdAt.toString(),
-                  style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontSize: 9,
-                    color: const Color(0xffa8a8a8),
-                    letterSpacing: 0.0022500000000000003,
-                    fontWeight: FontWeight.w900,
-                  ),
-                  textAlign: TextAlign.left,
+                Row(
+                  children: <Widget>[
+                    Text(
+                      createdAt.toString(),
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 9,
+                        color: const Color(0xffa8a8a8),
+                        letterSpacing: 0.0022500000000000003,
+                        fontWeight: FontWeight.w900,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    OrderStatusWidget(status)
+                  ],
                 ),
                 SizedBox(
                   height: 6,
