@@ -14,7 +14,7 @@ class Orders extends StatelessWidget {
     ),
     OrderItem(
       ValueKey('#908YHG99H'),
-      title: 'McDonald\'s',
+      title: 'Carvalho, Souza and Santos',
       description: '2x Big Mac, 2x Coca-Cola 600ml',
       status: OrderStatusType.CONFIRMED,
       createdAt: new DateTime(2020, 06, 03, 20, 01, 00),

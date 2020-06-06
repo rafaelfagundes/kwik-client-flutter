@@ -19,6 +19,7 @@ class CustomMultilineTextField extends StatelessWidget {
       minLines: 3,
       maxLines: 6,
       keyboardType: TextInputType.multiline,
+      style: TextStyle(fontFamily: 'Lato'),
       decoration: InputDecoration(
         filled: true,
         fillColor: isDark ? Color(0xff232323) : Colors.white,

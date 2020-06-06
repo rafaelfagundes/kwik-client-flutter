@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class RoundedStoreLogoWidget extends StatelessWidget {
+class RoundedAvatarWidget extends StatelessWidget {
   final int animationDuration;
   final double size;
   final String url;
 
-  const RoundedStoreLogoWidget({
+  const RoundedAvatarWidget({
     Key key,
     this.animationDuration,
     this.size,

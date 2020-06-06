@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/screens/settings/dark_mode_switch.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
+import 'package:kwik_client_flutter/widgets/rounded_avatar_widget.dart';
 
 class Settings extends StatefulWidget {
   Settings({
@@ -18,63 +19,55 @@ class _SettingsState extends State<Settings> {
     return DefaultScreen('Ajustes', children: <Widget>[
       Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Row(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 48.0,
-                  height: 48.0,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.elliptical(24.0, 24.0)),
-                    image: DecorationImage(
-                      image: const AssetImage('assets/images/Avatar.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0x0d000000),
-                        offset: Offset(0, 4),
-                        blurRadius: 8,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                )
-              ],
-            ),
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, "/profile");
+          },
+          child: Row(
+            children: <Widget>[
+              Row(
                 children: <Widget>[
-                  Text(
-                    'Michael Scott',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 18,
-                      color: Theme.of(context).primaryColor,
-                      letterSpacing: 0.0045000000000000005,
-                      fontWeight: FontWeight.w700,
-                    ),
-                    textAlign: TextAlign.left,
+                  RoundedAvatarWidget(
+                    size: 50,
+                    url:
+                        'https://s3.amazonaws.com/uifaces/faces/twitter/alessandroribe/128.jpg',
+                    animationDuration: 100,
                   ),
                   SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    'Editar perfil, senha, imagem',
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      color: Theme.of(context).primaryColor,
-                      letterSpacing: 0.0035,
+                    width: 10,
+                  )
+                ],
+              ),
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Michael Scott',
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 18,
+                        color: Theme.of(context).primaryColor,
+                        letterSpacing: 0.0045000000000000005,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.left,
                     ),
-                    textAlign: TextAlign.left,
-                  ),
-                ])
-          ],
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      'Editar perfil, senha, imagem',
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 14,
+                        color: Theme.of(context).primaryColor,
+                        letterSpacing: 0.0035,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ])
+            ],
+          ),
         ),
       ),
       SizedBox(

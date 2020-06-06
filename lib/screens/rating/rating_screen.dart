@@ -27,7 +27,13 @@ class _RatingState extends State<Rating> {
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[RoundedStoreLogoWidget(size: 64)],
+          children: <Widget>[
+            RoundedStoreLogoWidget(
+                animationDuration: 100,
+                url:
+                    'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                size: 64)
+          ],
         ),
         SizedBox(height: 10),
         Row(

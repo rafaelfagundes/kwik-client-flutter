@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
 class StoreHorizontalItemWidget extends StatelessWidget {
   @override
@@ -25,13 +26,12 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    ClipOval(
-                      child: Container(
-                        width: 72,
-                        height: 72,
-                        child: Image.asset('assets/images/StoreLogo.png'),
-                      ),
-                    ),
+                    RoundedStoreLogoWidget(
+                      size: 72,
+                      animationDuration: 100,
+                      url:
+                          "https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png",
+                    )
                   ],
                 ),
               )

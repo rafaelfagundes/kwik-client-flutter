@@ -17,6 +17,7 @@ class CustomTextField extends StatelessWidget {
       autocorrect: true,
       textCapitalization: TextCapitalization.words,
       keyboardType: TextInputType.text,
+      style: TextStyle(fontFamily: 'Lato'),
       decoration: InputDecoration(
         filled: true,
         fillColor: isDark ? Color(0xff232323) : Colors.white,

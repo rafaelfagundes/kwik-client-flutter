@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
 class StoreItem extends StatelessWidget {
   StoreItem({
@@ -44,29 +45,14 @@ class StoreItem extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 68,
-            right: 16,
-            child: Container(
-              width: 64.0,
-              height: 64.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.elliptical(32.0, 32.0)),
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/StoreLogo.png'),
-                  fit: BoxFit.cover,
-                ),
-                border:
-                    Border.all(width: 2.0, color: Theme.of(context).cardColor),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x0d000000),
-                    offset: Offset(0, 4),
-                    blurRadius: 16,
-                  ),
-                ],
-              ),
-            ),
-          ),
+              top: 68,
+              right: 16,
+              child: RoundedStoreLogoWidget(
+                size: 64,
+                animationDuration: 100,
+                url:
+                    'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+              )),
           Transform.translate(
             offset: Offset(-16.0, -137.0),
             child:
