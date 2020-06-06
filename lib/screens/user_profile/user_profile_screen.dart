@@ -8,7 +8,7 @@ import 'package:kwik_client_flutter/widgets/gender_switch_widget.dart';
 enum Gender { male, female, other }
 
 class UserProfile extends StatelessWidget {
-  Gender gender = Gender.female;
+  final Gender gender = Gender.female;
 
   @override
   Widget build(BuildContext context) {
@@ -25,32 +25,6 @@ class UserProfile extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: CustomTextField(labelText: 'Sobrenome')),
         SizedBox(height: 20),
-        // Padding(
-        //   padding: const EdgeInsets.only(left: 16),
-        //   child: Text('Sexo',
-        //       style: TextStyle(
-        //           fontFamily: 'Lato',
-        //           fontWeight: FontWeight.bold,
-        //           color: Theme.of(context).primaryColor)),
-        // ),
-        // RadioListTile<Gender>(
-        //     title: const Text('Feminino', style: TextStyle(fontFamily: 'Lato')),
-        //     value: Gender.female,
-        //     groupValue: gender,
-        //     onChanged: null),
-        // RadioListTile<Gender>(
-        //     title:
-        //         const Text('Masculino', style: TextStyle(fontFamily: 'Lato')),
-        //     value: Gender.male,
-        //     groupValue: gender,
-        //     onChanged: null),
-        // RadioListTile<Gender>(
-        //     title:
-        //         const Text('Não-Binário', style: TextStyle(fontFamily: 'Lato')),
-        //     value: Gender.other,
-        //     groupValue: gender,
-        //     onChanged: null),
-        //
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: GenderSwitchWidget(),

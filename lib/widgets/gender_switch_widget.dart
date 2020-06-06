@@ -13,58 +13,75 @@ class _GenderSwitchWidgetState extends State<GenderSwitchWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
+
     return Container(
       height: 60,
       child: CupertinoTabBar(
-          const Color(0xFF232323),
-          const Color(0xFF800080), //_foregroundColor
+          isDark ? Color(0xFF232323) : Color(0xFFE7E7E7),
+          isDark ? Color(0xFF800080) : Color(0xFF440044),
           [
             Container(
               height: 60,
-              padding: EdgeInsets.only(top: 21),
-              child: Text(
-                "Feminino",
-                style: TextStyle(
-                  color: cupertinoTabBarValue == 0
-                      ? Colors.white
-                      : Color(0xFF939393),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Lato",
-                ),
-                textAlign: TextAlign.center,
+              color: Colors.transparent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Feminino",
+                    style: TextStyle(
+                      color: cupertinoTabBarValue == 0
+                          ? Colors.white
+                          : Color(0xFF939393),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Lato",
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
             Container(
               height: 60,
-              padding: EdgeInsets.only(top: 21),
-              child: Text(
-                "Masculino",
-                style: TextStyle(
-                  color: cupertinoTabBarValue == 1
-                      ? Colors.white
-                      : Color(0xFF939393),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Lato",
-                ),
-                textAlign: TextAlign.center,
+              color: Colors.transparent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Masculino",
+                    style: TextStyle(
+                      color: cupertinoTabBarValue == 1
+                          ? Colors.white
+                          : Color(0xFF939393),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Lato",
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
             Container(
               height: 60,
-              padding: EdgeInsets.only(top: 21),
-              child: Text(
-                "Não-Binário",
-                style: TextStyle(
-                  color: cupertinoTabBarValue == 2
-                      ? Colors.white
-                      : Color(0xFF939393),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Lato",
-                ),
-                textAlign: TextAlign.center,
+              color: Colors.transparent,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Não-Binário",
+                    style: TextStyle(
+                      color: cupertinoTabBarValue == 2
+                          ? Colors.white
+                          : Color(0xFF939393),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Lato",
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
           ], //_widgets
