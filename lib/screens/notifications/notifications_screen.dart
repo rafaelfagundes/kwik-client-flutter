@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
-import 'package:kwik_client_flutter/widgets/notification_item_widget.dart';
+
+import './notification_item_widget.dart';
 
 class Notifications extends StatelessWidget {
   final items = [

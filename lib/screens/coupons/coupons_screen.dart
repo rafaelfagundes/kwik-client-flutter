@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/widgets/coupon_item_widget.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
+
+import './coupon_item_widget.dart';
 
 class Coupons extends StatelessWidget {
   final items = [

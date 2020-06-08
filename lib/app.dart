@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:kwik_client_flutter/screens/adresses/adresses_screen.dart';
 import 'package:kwik_client_flutter/screens/coupons/coupons_screen.dart';
 import 'package:kwik_client_flutter/screens/favorites/favorites_screen.dart';
 import 'package:kwik_client_flutter/screens/rating/rating_screen.dart';
@@ -49,6 +50,9 @@ class App extends StatelessWidget {
                     case '/profile':
                       return CupertinoPageRoute(
                           builder: (_) => UserProfile(), settings: settings);
+                    case '/adresses':
+                      return CupertinoPageRoute(
+                          builder: (_) => Adresses(), settings: settings);
                     default:
                       return CupertinoPageRoute(
                           builder: (_) => TabbedMain(), settings: settings);

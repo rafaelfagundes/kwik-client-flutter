@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/widgets/business_type_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/title_with_action_widget.dart';
+
+import './business_type_button_widget.dart';
 
 class BusinessTypeWidget extends StatelessWidget {
   @override

@@ -160,32 +160,37 @@ class _SettingsState extends State<Settings> {
       SizedBox(
         height: 12,
       ),
-      Container(
-        color: Colors.transparent,
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        height: 50,
-        child: Row(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(SFSymbols.map,
-                    size: 28, color: Theme.of(context).primaryColor),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'Meus Endereços',
-                  style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontSize: 16,
-                    color: Theme.of(context).primaryColor,
-                    letterSpacing: 0.004,
+      GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, "/adresses");
+        },
+        child: Container(
+          color: Colors.transparent,
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          height: 50,
+          child: Row(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Icon(SFSymbols.map,
+                      size: 28, color: Theme.of(context).primaryColor),
+                  SizedBox(
+                    width: 5,
                   ),
-                  textAlign: TextAlign.left,
-                )
-              ],
-            )
-          ],
+                  Text(
+                    'Meus Endereços',
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 16,
+                      color: Theme.of(context).primaryColor,
+                      letterSpacing: 0.004,
+                    ),
+                    textAlign: TextAlign.left,
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
       GestureDetector(
