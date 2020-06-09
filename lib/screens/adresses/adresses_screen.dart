@@ -26,7 +26,9 @@ class Adresses extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: AddButton(
             buttonText: 'Adicionar Endereço',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/add-edit-address");
+            },
           ),
         )
       ],

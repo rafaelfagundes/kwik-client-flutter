@@ -21,7 +21,7 @@ class AddButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(SFSymbols.plus_circle),
+          Icon(SFSymbols.plus_circle, color: Color(0xFF440044)),
           SizedBox(width: 5),
           Text(
             buttonText,

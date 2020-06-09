@@ -310,32 +310,37 @@ class _SettingsState extends State<Settings> {
         ),
       ),
 
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        height: 50,
-        color: Colors.transparent,
-        child: Row(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(SFSymbols.question_circle,
-                    size: 28, color: Theme.of(context).primaryColor),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'Ajuda',
-                  style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontSize: 16,
-                    color: Theme.of(context).primaryColor,
-                    letterSpacing: 0.004,
+      GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, "/help");
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          height: 50,
+          color: Colors.transparent,
+          child: Row(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Icon(SFSymbols.question_circle,
+                      size: 28, color: Theme.of(context).primaryColor),
+                  SizedBox(
+                    width: 5,
                   ),
-                  textAlign: TextAlign.left,
-                )
-              ],
-            )
-          ],
+                  Text(
+                    'Ajuda',
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 16,
+                      color: Theme.of(context).primaryColor,
+                      letterSpacing: 0.004,
+                    ),
+                    textAlign: TextAlign.left,
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
       SizedBox(

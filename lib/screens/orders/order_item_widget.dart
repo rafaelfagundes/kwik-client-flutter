@@ -3,7 +3,14 @@ import 'package:kwik_client_flutter/screens/orders/order_status_widget.dart';
 import 'package:kwik_client_flutter/utils/date_utils.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
+class OrderItemArguments {
+  final String id;
+
+  OrderItemArguments(this.id);
+}
+
 class OrderItem extends StatelessWidget {
+  final String id;
   final DateTime createdAt;
   final String title;
   final String description;
@@ -12,6 +19,7 @@ class OrderItem extends StatelessWidget {
 
   OrderItem(
     Key key, {
+    @required this.id,
     @required this.title,
     @required this.description,
     @required this.createdAt,
@@ -23,7 +31,11 @@ class OrderItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Tapped');
+        Navigator.pushNamed(
+          context,
+          '/order-details',
+          arguments: OrderItemArguments(id),
+        );
       },
       onHorizontalDragStart: (details) => print(details),
       onHorizontalDragEnd: (details) => print(details),
