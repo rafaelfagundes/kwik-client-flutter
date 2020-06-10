@@ -15,7 +15,7 @@ class ConfirmationButton extends StatelessWidget {
       elevation: 0,
       fillColor: isDark ? Color(0xff79C881) : Color(0xff6BC273),
       splashColor: Color(0xff000000),
-      constraints: BoxConstraints(minHeight: 60),
+      constraints: BoxConstraints(minHeight: 44),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),

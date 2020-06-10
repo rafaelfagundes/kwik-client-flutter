@@ -8,6 +8,8 @@ import 'package:kwik_client_flutter/screens/favorites/favorites_screen.dart';
 import 'package:kwik_client_flutter/screens/help/help_screen.dart';
 import 'package:kwik_client_flutter/screens/order_details/order_details_screen.dart';
 import 'package:kwik_client_flutter/screens/rating/rating_screen.dart';
+import 'package:kwik_client_flutter/screens/store/store_screen.dart';
+import 'package:kwik_client_flutter/screens/stores/stores_screen.dart';
 import 'package:kwik_client_flutter/screens/tabbed_main/tabbed_main_screen.dart';
 import 'package:kwik_client_flutter/screens/user_profile/user_profile_screen.dart';
 import 'package:kwik_client_flutter/stores/app_store.dart';
@@ -35,7 +37,7 @@ class App extends StatelessWidget {
                 title: 'Kwik',
                 theme: store.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
-                initialRoute: '/order-details',
+                initialRoute: '/stores',
                 onGenerateRoute: (settings) {
                   switch (settings.name) {
                     case '/':
@@ -44,6 +46,9 @@ class App extends StatelessWidget {
                     case '/favorites':
                       return CupertinoPageRoute(
                           builder: (_) => Favorites(), settings: settings);
+                    case '/stores':
+                      return CupertinoPageRoute(
+                          builder: (_) => Stores(), settings: settings);
                     case '/coupons':
                       return CupertinoPageRoute(
                           builder: (_) => Coupons(), settings: settings);
@@ -65,6 +70,9 @@ class App extends StatelessWidget {
                     case '/order-details':
                       return CupertinoPageRoute(
                           builder: (_) => OrderDetails(), settings: settings);
+                    case '/store':
+                      return CupertinoPageRoute(
+                          builder: (_) => Store(), settings: settings);
                     default:
                       return CupertinoPageRoute(
                           builder: (_) => TabbedMain(), settings: settings);

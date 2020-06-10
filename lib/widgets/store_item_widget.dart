@@ -9,42 +9,51 @@ class StoreItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 16),
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: Stack(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            height: 200.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.0),
-              color: Theme.of(context).cardColor,
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(0x0d000000),
-                  offset: Offset(0, 4),
-                  blurRadius: 16,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/store');
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              height: 200.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16.0),
+                color: Theme.of(context).cardColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x0d000000),
+                    offset: Offset(0, 4),
+                    blurRadius: 16,
+                  ),
+                ],
+              ),
+            ),
+            // Adobe XD layer: 'StoreBanner' (shape)
+            Hero(
+              tag: '#1',
+              transitionOnUserGestures: true,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16.0),
+                    topRight: Radius.circular(16.0),
+                  ),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://res.cloudinary.com/kardappio/image/upload/c_scale,q_auto:low,w_1080/v1591753846/kwik/assets/examples/dan-gold-E6HjQaB7UEA-unsplash.jpg'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ],
-            ),
-          ),
-          // Adobe XD layer: 'StoreBanner' (shape)
-          Container(
-            width: double.infinity,
-            height: 100.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(16.0),
-                topRight: Radius.circular(16.0),
-              ),
-              image: DecorationImage(
-                image: const AssetImage('assets/images/StoreBanner.jpg'),
-                fit: BoxFit.cover,
               ),
             ),
-          ),
-          Positioned(
+            Positioned(
               top: 68,
               right: 16,
               child: RoundedStoreLogoWidget(
@@ -52,148 +61,150 @@ class StoreItem extends StatelessWidget {
                 animationDuration: 100,
                 url:
                     'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
-              )),
-          Transform.translate(
-            offset: Offset(-16.0, -137.0),
-            child:
-                // Adobe XD layer: 'StoreInfo' (group)
-                Stack(
-              children: <Widget>[
-                Transform.translate(
-                  offset: Offset(16.0, 237.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 100.0,
-                    decoration: BoxDecoration(),
+              ),
+            ),
+            Transform.translate(
+              offset: Offset(-16.0, -137.0),
+              child:
+                  // Adobe XD layer: 'StoreInfo' (group)
+                  Stack(
+                children: <Widget>[
+                  Transform.translate(
+                    offset: Offset(16.0, 237.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 100.0,
+                      decoration: BoxDecoration(),
+                    ),
                   ),
-                ),
-                // Adobe XD layer: 'StoreData' (group)
-                Stack(
-                  children: <Widget>[
-                    Transform.translate(
-                      offset: Offset(32.0, 228.0),
-                      child:
-                          // Adobe XD layer: 'StoreStatus' (text)
-                          Text(
-                        'ABERTO',
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 10,
-                          color: const Color(0xff6bc273),
-                          letterSpacing: 0.0025,
-                          fontWeight: FontWeight.w700,
-                          height: 3.6,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Transform.translate(
-                      offset: Offset(32.0, 249.0),
-                      child:
-                          // Adobe XD layer: 'StoreName' (text)
-                          Text(
-                        'McDonald\'s',
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 17,
-                          color: Theme.of(context).primaryColor,
-                          letterSpacing: 0.00425,
-                          fontWeight: FontWeight.w700,
-                          height: 2.1176470588235294,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Transform.translate(
-                      offset: Offset(32.0, 268.0),
-                      child:
-                          // Adobe XD layer: 'StoreSpecialties' (text)
-                          Container(
-                        padding: EdgeInsets.only(right: 32),
-                        child: Text(
-                          'Hamburgueria, Milk Shake, Lanches, Hamburgueria, Milk Shake, Lanches',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
+                  // Adobe XD layer: 'StoreData' (group)
+                  Stack(
+                    children: <Widget>[
+                      Transform.translate(
+                        offset: Offset(32.0, 228.0),
+                        child:
+                            // Adobe XD layer: 'StoreStatus' (text)
+                            Text(
+                          'ABERTO',
                           style: TextStyle(
                             fontFamily: 'Lato',
-                            fontSize: 13,
-                            color: const Color(0xff7b7b7b),
-                            letterSpacing: 0.0032500000000000003,
+                            fontSize: 10,
+                            color: const Color(0xff6bc273),
+                            letterSpacing: 0.0025,
                             fontWeight: FontWeight.w700,
-                            height: 2.769230769230769,
+                            height: 3.6,
                           ),
                           textAlign: TextAlign.left,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                // Adobe XD layer: 'Rating' (group)
-                Transform.translate(
-                  offset: Offset(33.19, 292),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      // Adobe XD layer: 'StarIcon' (shape)
-                      Container(
-                        padding: EdgeInsets.only(top: 12),
-                        child: SvgPicture.string(
-                          starIconSVG,
-                          allowDrawingOutsideViewBox: true,
+                      Transform.translate(
+                        offset: Offset(32.0, 249.0),
+                        child:
+                            // Adobe XD layer: 'StoreName' (text)
+                            Text(
+                          'McDonald\'s',
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: 17,
+                            color: Theme.of(context).primaryColor,
+                            letterSpacing: 0.00425,
+                            fontWeight: FontWeight.w700,
+                            height: 2.1176470588235294,
+                          ),
+                          textAlign: TextAlign.left,
                         ),
                       ),
-                      SizedBox(width: 3),
-                      Text(
-                        '4.8',
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 12,
-                          color: Theme.of(context).primaryColor,
-                          letterSpacing: 0.003,
-                          fontWeight: FontWeight.w700,
-                          height: 3,
+                      Transform.translate(
+                        offset: Offset(32.0, 268.0),
+                        child:
+                            // Adobe XD layer: 'StoreSpecialties' (text)
+                            Container(
+                          padding: EdgeInsets.only(right: 32),
+                          child: Text(
+                            'Hamburgueria, Milk Shake, Lanches',
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: TextStyle(
+                              fontFamily: 'Lato',
+                              fontSize: 13,
+                              color: const Color(0xff7b7b7b),
+                              letterSpacing: 0.0032500000000000003,
+                              fontWeight: FontWeight.w700,
+                              height: 2.769230769230769,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                        textAlign: TextAlign.left,
-                      ),
-                      SizedBox(width: 3),
-                      Text(
-                        '(500+)',
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 12,
-                          color: const Color(0xffa8a8a8),
-                          letterSpacing: 0.003,
-                          height: 3,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                      SizedBox(width: 10),
-                      Container(
-                        padding: EdgeInsets.only(top: 15),
-                        child: SvgPicture.string(deliveryTimeSVG,
-                            allowDrawingOutsideViewBox: true,
-                            color: Theme.of(context).primaryColor),
-                      ),
-                      SizedBox(width: 3),
-                      Text(
-                        '15-60min',
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 12,
-                          color: Theme.of(context).primaryColor,
-                          letterSpacing: 0.003,
-                          fontWeight: FontWeight.w700,
-                          height: 3,
-                        ),
-                        textAlign: TextAlign.left,
                       ),
                     ],
                   ),
-                ),
-              ],
+                  // Adobe XD layer: 'Rating' (group)
+                  Transform.translate(
+                    offset: Offset(33.19, 292),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        // Adobe XD layer: 'StarIcon' (shape)
+                        Container(
+                          padding: EdgeInsets.only(top: 12),
+                          child: SvgPicture.string(
+                            starIconSVG,
+                            allowDrawingOutsideViewBox: true,
+                          ),
+                        ),
+                        SizedBox(width: 3),
+                        Text(
+                          '4.8',
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: 12,
+                            color: Theme.of(context).primaryColor,
+                            letterSpacing: 0.003,
+                            fontWeight: FontWeight.w700,
+                            height: 3,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        SizedBox(width: 3),
+                        Text(
+                          '(500+)',
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: 12,
+                            color: const Color(0xffa8a8a8),
+                            letterSpacing: 0.003,
+                            height: 3,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        SizedBox(width: 10),
+                        Container(
+                          padding: EdgeInsets.only(top: 15),
+                          child: SvgPicture.string(deliveryTimeSVG,
+                              allowDrawingOutsideViewBox: true,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                        SizedBox(width: 3),
+                        Text(
+                          '15-60min',
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: 12,
+                            color: Theme.of(context).primaryColor,
+                            letterSpacing: 0.003,
+                            fontWeight: FontWeight.w700,
+                            height: 3,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

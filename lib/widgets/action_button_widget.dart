@@ -15,7 +15,7 @@ class ActionButton extends StatelessWidget {
       elevation: 0,
       fillColor: isDark ? Color(0xff800080) : Color(0xff440044),
       splashColor: Color(0xff000000),
-      constraints: BoxConstraints(minHeight: 60),
+      constraints: BoxConstraints(minHeight: 44),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),

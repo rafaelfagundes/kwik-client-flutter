@@ -6,124 +6,129 @@ import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 class StoreHorizontalItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 10),
-      child: Column(
-        children: <Widget>[
-          Stack(
-            children: <Widget>[
-              Container(
-                width: 140,
-                height: 90,
-                decoration: BoxDecoration(
-                    color: Colors.yellow[400],
-                    borderRadius: BorderRadius.all(Radius.circular(8))),
-              ),
-              Container(
-                width: 140,
-                height: 90,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    RoundedStoreLogoWidget(
-                      size: 72,
-                      animationDuration: 100,
-                      url:
-                          "https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png",
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          Container(
-            width: 140,
-            height: 40,
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/store');
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 10),
+        child: Column(
+          children: <Widget>[
+            Stack(
               children: <Widget>[
-                SizedBox(
-                  height: 5,
+                Container(
+                  width: 140,
+                  height: 90,
+                  decoration: BoxDecoration(
+                      color: Colors.yellow[400],
+                      borderRadius: BorderRadius.all(Radius.circular(8))),
                 ),
-                Text(
-                  'McDonald\'s',
-                  style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      child: Icon(
-                        SFSymbols.star_fill,
-                        size: 14,
-                        color: Colors.yellow[700],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 2),
-                      child: Text('4.3',
-                          style: TextStyle(
-                              fontFamily: 'Lato',
-                              fontSize: 11,
-                              fontWeight: FontWeight.w700)),
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 2),
-                      child: Text('(500+)',
-                          style: TextStyle(
-                              fontFamily: 'Lato',
-                              fontSize: 11,
-                              fontWeight: FontWeight.w700,
-                              color: Theme.of(context)
-                                  .primaryColor
-                                  .withOpacity(0.5))),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 2),
-                      width: 15,
-                      height: 15,
-                      child: SvgPicture.string(deliveryTimeSVG,
-                          allowDrawingOutsideViewBox: true,
-                          color: Theme.of(context).primaryColor),
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 2),
-                      child: Text('15-60"',
-                          style: TextStyle(
-                              fontFamily: 'Lato',
-                              fontSize: 11,
-                              fontWeight: FontWeight.w700)),
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                  ],
+                Container(
+                  width: 140,
+                  height: 90,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      RoundedStoreLogoWidget(
+                        size: 72,
+                        animationDuration: 100,
+                        url:
+                            "https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png",
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
-          )
-        ],
+            Container(
+              width: 140,
+              height: 40,
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'McDonald\'s',
+                    style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        child: Icon(
+                          SFSymbols.star_fill,
+                          size: 14,
+                          color: Colors.yellow[700],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 2),
+                        child: Text('4.3',
+                            style: TextStyle(
+                                fontFamily: 'Lato',
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700)),
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 2),
+                        child: Text('(500+)',
+                            style: TextStyle(
+                                fontFamily: 'Lato',
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                color: Theme.of(context)
+                                    .primaryColor
+                                    .withOpacity(0.5))),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top: 2),
+                        width: 15,
+                        height: 15,
+                        child: SvgPicture.string(deliveryTimeSVG,
+                            allowDrawingOutsideViewBox: true,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 2),
+                        child: Text('15-60"',
+                            style: TextStyle(
+                                fontFamily: 'Lato',
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700)),
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

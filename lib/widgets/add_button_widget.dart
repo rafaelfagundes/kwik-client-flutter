@@ -9,27 +9,30 @@ class AddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
+
     return RawMaterialButton(
       onPressed: onPressed,
       elevation: 0,
-      fillColor: Color(0xffA1E8AF),
-      splashColor: Color(0xff6BC273),
-      constraints: BoxConstraints(minHeight: 60),
+      // fillColor: Color(0xffA1E8AF),
+      splashColor: isDark ? Color(0xff6BC273) : Color(0xffA1E8AF),
+      constraints: BoxConstraints(minHeight: 44),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(SFSymbols.plus_circle, color: Color(0xFF440044)),
+          Icon(SFSymbols.plus_circle,
+              color: isDark ? Color(0xffA1E8AF) : Color(0xff6BC273)),
           SizedBox(width: 5),
           Text(
             buttonText,
             style: TextStyle(
                 fontFamily: 'Lato',
-                fontSize: 18,
+                fontSize: 14,
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF440044)),
+                color: isDark ? Color(0xffA1E8AF) : Color(0xff6BC273)),
           ),
         ],
       ),

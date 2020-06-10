@@ -28,11 +28,11 @@ class Home extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        StoreHorizontalListWidget('Lojas'),
+        // StoreHorizontalListWidget('Lojas'),
         SizedBox(
           height: 30,
         ),
-        StoreHorizontalListWidget('Visitados Recentemente'),
+        // StoreHorizontalListWidget('Visitados Recentemente'),
         SizedBox(
           height: 16,
         ),

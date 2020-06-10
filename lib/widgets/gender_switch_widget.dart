@@ -16,13 +16,13 @@ class _GenderSwitchWidgetState extends State<GenderSwitchWidget> {
     var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
 
     return Container(
-      height: 60,
+      height: 46,
       child: CupertinoTabBar(
           isDark ? Color(0xFF232323) : Color(0xFFE7E7E7),
           isDark ? Color(0xFF800080) : Color(0xFF440044),
           [
             Container(
-              height: 60,
+              height: 46,
               color: Colors.transparent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
