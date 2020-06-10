@@ -3,6 +3,8 @@ import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
+import 'screen_details_menu_widget.dart';
+
 class StoreDetailsWidget extends StatefulWidget {
   const StoreDetailsWidget({
     Key key,
@@ -201,51 +203,7 @@ class _StoreDetailsWidgetState extends State<StoreDetailsWidget>
               Positioned(
                 top: 80,
                 width: MediaQuery.of(context).size.width - 64,
-                child: Container(
-                  // color: Colors.yellow,
-                  height: 50,
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Text('Destaques',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontFamily: 'Lato',
-                              fontSize: 14,
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.w700,
-                            )),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text('Cardápio',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Lato',
-                              fontSize: 14,
-                              color: Theme.of(context)
-                                  .primaryColor
-                                  .withOpacity(.6),
-                              fontWeight: FontWeight.w400,
-                            )),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text('Informações',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              fontFamily: 'Lato',
-                              fontSize: 14,
-                              color: Theme.of(context)
-                                  .primaryColor
-                                  .withOpacity(.6),
-                              fontWeight: FontWeight.w400,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
+                child: ScreenDetailsMenuWidget(),
               )
             ],
           )),

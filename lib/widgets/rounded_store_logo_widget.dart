@@ -17,6 +17,7 @@ class RoundedStoreLogoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Hero(
       tag: url,
+      transitionOnUserGestures: true,
       child: AnimatedContainer(
         duration: Duration(
           milliseconds: animationDuration,

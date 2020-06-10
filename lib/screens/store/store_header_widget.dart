@@ -4,12 +4,12 @@ import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'shadow_widget.dart';
 import 'store_details_widget.dart';
 
-class StoreHeader extends SliverPersistentHeaderDelegate {
+class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final double collapsedHeight;
   final String title;
 
-  StoreHeader(
+  StoreHeaderWidget(
       {@required this.expandedHeight,
       @required this.collapsedHeight,
       @required this.title});
@@ -43,7 +43,7 @@ class StoreHeader extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     // print('expandedHeight ${expandedHeight}');
-    print('shrinkOffset ${shrinkOffset}');
+    // print('shrinkOffset ${shrinkOffset}');
 
     return Stack(
       // fit: StackFit.expand,
@@ -68,33 +68,45 @@ class StoreHeader extends SliverPersistentHeaderDelegate {
           child: ShadowWidget(),
         ),
         Positioned(
-          top: 10,
+          top: MediaQuery.of(context).padding.top,
           width: MediaQuery.of(context).size.width,
-          height: collapsedHeight,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          height: 48,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              IconButton(
-                  icon: Icon(SFSymbols.chevron_left, color: Colors.white),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
-              Opacity(
-                opacity: _getHeaderTitle(shrinkOffset, expandedHeight),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18,
-                      fontFamily: 'Lato'),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                      icon: Icon(SFSymbols.chevron_left, color: Colors.white),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                  Opacity(
+                    opacity: _getHeaderTitle(shrinkOffset, expandedHeight),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          shadows: [
+                            Shadow(
+                              blurRadius: 6.0,
+                              color: Colors.black,
+                              offset: Offset(0, 0),
+                            ),
+                          ],
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          fontFamily: 'Lato'),
+                    ),
+                  ),
+                  IconButton(
+                      icon: Icon(SFSymbols.heart, color: Colors.white),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                ],
               ),
-              IconButton(
-                  icon: Icon(SFSymbols.heart, color: Colors.white),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
             ],
           ),
         ),

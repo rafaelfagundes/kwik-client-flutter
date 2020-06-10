@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kwik_client_flutter/screens/store/store_header.dart';
+
+import 'store_header_widget.dart';
 
 class Store extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class Store extends StatelessWidget {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverPersistentHeader(
-              delegate: StoreHeader(
+              delegate: StoreHeaderWidget(
                 title: 'McDonald\'s',
                 expandedHeight: expandedHeight,
                 collapsedHeight: collapsedHeight,

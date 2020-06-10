@@ -4,31 +4,9 @@ import 'package:kwik_client_flutter/widgets/store_item_widget.dart';
 
 class Favorites extends StatelessWidget {
   final items = [
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem(),
-    StoreItem()
+    StoreItem(
+      key: ValueKey('#1'),
+    ),
   ];
 
   Favorites({
