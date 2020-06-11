@@ -3,12 +3,17 @@ import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
-import 'screen_details_menu_widget.dart';
-
 class StoreDetailsWidget extends StatefulWidget {
-  const StoreDetailsWidget({
-    Key key,
-  }) : super(key: key);
+  final String logo;
+  final String heroId;
+  final bool isOpen;
+
+  const StoreDetailsWidget(
+      {Key key,
+      @required this.logo,
+      @required this.heroId,
+      @required this.isOpen})
+      : super(key: key);
 
   @override
   _StoreDetailsWidgetState createState() => _StoreDetailsWidgetState();
@@ -51,7 +56,7 @@ class _StoreDetailsWidgetState extends State<StoreDetailsWidget>
       child: Container(
           margin: EdgeInsets.only(left: 16, right: 16, bottom: 16),
           padding: EdgeInsets.only(top: 8, bottom: 8, left: 16, right: 16),
-          height: 136.0,
+          height: 93.0,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.0),
             color: Theme.of(context).cardColor,
@@ -168,8 +173,8 @@ class _StoreDetailsWidgetState extends State<StoreDetailsWidget>
                 child: RoundedStoreLogoWidget(
                   size: 64,
                   animationDuration: 100,
-                  url:
-                      'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                  url: this.widget.logo,
+                  heroId: this.widget.heroId,
                 ),
               ),
               Positioned(
@@ -179,32 +184,28 @@ class _StoreDetailsWidgetState extends State<StoreDetailsWidget>
                   width: 60,
                   height: 16,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xFF6BC273), width: 1),
+                      border: Border.all(
+                          color: this.widget.isOpen
+                              ? Color(0xff6bc273)
+                              : Color(0xffEF5D60),
+                          width: 1),
                       borderRadius: BorderRadius.all(Radius.circular(4))),
                   child: Center(
                     child: Text(
-                      'ABERTO',
+                      this.widget.isOpen ? 'ABERTO' : 'FECHADO',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Lato',
                         fontSize: 10,
-                        color: Color(0xFF6BC273),
+                        color: this.widget.isOpen
+                            ? Color(0xff6bc273)
+                            : Color(0xffEF5D60),
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                   ),
                 ),
               ),
-              Positioned(
-                top: 80,
-                width: MediaQuery.of(context).size.width - 64,
-                child: Divider(),
-              ),
-              Positioned(
-                top: 80,
-                width: MediaQuery.of(context).size.width - 64,
-                child: ScreenDetailsMenuWidget(),
-              )
             ],
           )),
     );

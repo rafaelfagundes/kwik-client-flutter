@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:kwik_client_flutter/screen_arguments/order_arguments.dart';
 import 'package:kwik_client_flutter/utils/date_utils.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
@@ -8,16 +9,21 @@ import './order_status_widget.dart';
 import 'list_item_widget.dart';
 
 class OrderDetails extends StatelessWidget {
+  final String id;
   final String title;
   final String orderValue;
   final DateTime createdAt;
 
-  const OrderDetails({Key key, this.title, this.orderValue, this.createdAt})
+  const OrderDetails(
+      {Key key, this.id, this.title, this.orderValue, this.createdAt})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
+
+    final OrderArguments args = ModalRoute.of(context).settings.arguments;
+    print(args.id);
 
     return DefaultScreen(
       'Detalhes do Pedido',
@@ -110,9 +116,9 @@ class OrderDetails extends StatelessWidget {
                   ),
                   RoundedStoreLogoWidget(
                     size: 64,
-                    url:
-                        'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                    url: args.logo,
                     animationDuration: 100,
+                    heroId: args.id,
                   )
                 ],
               ),

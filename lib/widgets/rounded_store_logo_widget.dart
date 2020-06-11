@@ -5,18 +5,20 @@ class RoundedStoreLogoWidget extends StatelessWidget {
   final int animationDuration;
   final double size;
   final String url;
+  final String heroId;
 
   const RoundedStoreLogoWidget({
     Key key,
-    this.animationDuration,
-    this.size,
-    this.url,
+    this.animationDuration = 1000,
+    this.size = 64,
+    @required this.url,
+    @required this.heroId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: url,
+      tag: heroId,
       transitionOnUserGestures: true,
       child: AnimatedContainer(
         duration: Duration(

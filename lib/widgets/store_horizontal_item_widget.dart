@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:kwik_client_flutter/screen_arguments/store_arguments.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
 class StoreHorizontalItemWidget extends StatelessWidget {
+  final String id;
+  final String title;
+  final double rating;
+  final int numberOfRatings;
+  final List<int> deliveryTimes;
+  final String logo;
+  final Color color;
+
+  const StoreHorizontalItemWidget({
+    Key key,
+    @required this.id,
+    @required this.title,
+    @required this.rating,
+    @required this.numberOfRatings,
+    @required this.deliveryTimes,
+    @required this.logo,
+    @required this.color,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/store');
+        Navigator.pushNamed(context, '/store',
+            arguments: StoreArguments(id: id, logo: logo));
       },
       child: Container(
         margin: EdgeInsets.only(right: 10),
@@ -20,7 +41,7 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                   width: 140,
                   height: 90,
                   decoration: BoxDecoration(
-                      color: Colors.yellow[400],
+                      color: color,
                       borderRadius: BorderRadius.all(Radius.circular(8))),
                 ),
                 Container(
@@ -33,8 +54,8 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                       RoundedStoreLogoWidget(
                         size: 72,
                         animationDuration: 100,
-                        url:
-                            "https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png",
+                        url: logo,
+                        heroId: id,
                       )
                     ],
                   ),
@@ -52,7 +73,7 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    'McDonald\'s',
+                    title,
                     style: TextStyle(
                         fontFamily: 'Lato',
                         fontSize: 13,
@@ -77,7 +98,7 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 2),
-                        child: Text('4.3',
+                        child: Text(rating.toStringAsPrecision(2),
                             style: TextStyle(
                                 fontFamily: 'Lato',
                                 fontSize: 11,
@@ -88,7 +109,7 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 2),
-                        child: Text('(500+)',
+                        child: Text('($numberOfRatings)',
                             style: TextStyle(
                                 fontFamily: 'Lato',
                                 fontSize: 11,
@@ -113,7 +134,7 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 2),
-                        child: Text('15-60"',
+                        child: Text('${deliveryTimes[0]}-${deliveryTimes[1]}"',
                             style: TextStyle(
                                 fontFamily: 'Lato',
                                 fontSize: 11,

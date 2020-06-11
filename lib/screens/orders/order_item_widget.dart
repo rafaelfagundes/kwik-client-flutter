@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/screen_arguments/order_arguments.dart';
 import 'package:kwik_client_flutter/screens/orders/order_status_widget.dart';
 import 'package:kwik_client_flutter/utils/date_utils.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
-
-class OrderItemArguments {
-  final String id;
-
-  OrderItemArguments(this.id);
-}
 
 class OrderItem extends StatelessWidget {
   final String id;
@@ -16,6 +11,7 @@ class OrderItem extends StatelessWidget {
   final String description;
   final bool isNegative;
   final OrderStatusType status;
+  final String logo;
 
   OrderItem(
     Key key, {
@@ -24,6 +20,7 @@ class OrderItem extends StatelessWidget {
     @required this.description,
     @required this.createdAt,
     @required this.status,
+    @required this.logo,
     this.isNegative = false,
   }) : super(key: key);
 
@@ -34,7 +31,7 @@ class OrderItem extends StatelessWidget {
         Navigator.pushNamed(
           context,
           '/order-details',
-          arguments: OrderItemArguments(id),
+          arguments: OrderArguments(id: id, logo: logo),
         );
       },
       onHorizontalDragStart: (details) => print(details),
@@ -118,8 +115,8 @@ class OrderItem extends StatelessWidget {
             RoundedStoreLogoWidget(
               size: 64,
               animationDuration: 100,
-              url:
-                  'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+              url: logo,
+              heroId: id,
             )
           ],
         ),

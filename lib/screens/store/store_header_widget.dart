@@ -8,11 +8,20 @@ class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final double collapsedHeight;
   final String title;
+  final String heroId;
+  final String logo;
+  final String banner;
+  final bool isOpen;
 
-  StoreHeaderWidget(
-      {@required this.expandedHeight,
-      @required this.collapsedHeight,
-      @required this.title});
+  StoreHeaderWidget({
+    @required this.expandedHeight,
+    @required this.collapsedHeight,
+    @required this.title,
+    @required this.heroId,
+    @required this.logo,
+    this.isOpen = false,
+    this.banner,
+  });
 
   double _getHeaderOpacity(double shrinkOffset) {
     if (shrinkOffset > 75) {
@@ -46,19 +55,30 @@ class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
     // print('shrinkOffset ${shrinkOffset}');
 
     return Stack(
-      // fit: StackFit.expand,
+      fit: StackFit.loose,
       overflow: Overflow.visible,
       children: [
         Hero(
-          tag: '#1',
+          tag: banner != null ? banner : 'N/D',
           transitionOnUserGestures: true,
           child: Container(
             height: 200,
             width: MediaQuery.of(context).size.width,
             child: Image.network(
-              'https://res.cloudinary.com/kardappio/image/upload/c_scale,q_auto:low,w_1080/v1591753846/kwik/assets/examples/dan-gold-E6HjQaB7UEA-unsplash.jpg',
+              banner != null
+                  ? banner
+                  : 'https://res.cloudinary.com/kardappio/image/upload/c_scale,q_auto:low,w_1080/v1591753846/kwik/assets/examples/dan-gold-E6HjQaB7UEA-unsplash.jpg',
               fit: BoxFit.cover,
             ),
+          ),
+        ),
+        Positioned(
+          top: (200 - 18.0) - shrinkOffset,
+          width: MediaQuery.of(context).size.width,
+          child: Opacity(
+            opacity: _getHeaderOpacity(shrinkOffset),
+            child:
+                StoreDetailsWidget(logo: logo, heroId: heroId, isOpen: isOpen),
           ),
         ),
         Positioned(
@@ -108,14 +128,6 @@ class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
                 ],
               ),
             ],
-          ),
-        ),
-        Positioned(
-          top: (200 - 18.0) - shrinkOffset,
-          width: MediaQuery.of(context).size.width,
-          child: Opacity(
-            opacity: _getHeaderOpacity(shrinkOffset),
-            child: StoreDetailsWidget(),
           ),
         ),
       ],

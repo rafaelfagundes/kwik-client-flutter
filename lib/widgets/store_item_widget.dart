@@ -1,17 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kwik_client_flutter/screen_arguments/store_arguments.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
 class StoreItem extends StatelessWidget {
+  final String id;
+  final bool isOpen;
+  final String title;
+  final String description;
+  final double rating;
+  final int numberOfRatings;
+  final List<int> deliveryTimes;
+  final double distance; // in meters
+  final String logo;
+  final String banner;
+
   StoreItem({
     Key key,
+    @required this.id,
+    @required this.isOpen,
+    @required this.title,
+    @required this.description,
+    @required this.rating,
+    @required this.numberOfRatings,
+    @required this.deliveryTimes,
+    @required this.distance,
+    @required this.logo,
+    @required this.banner,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/store');
+        Navigator.pushNamed(context, '/store',
+            arguments: StoreArguments(id: id, logo: logo, banner: banner));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 16),
@@ -35,7 +59,7 @@ class StoreItem extends StatelessWidget {
             ),
             // Adobe XD layer: 'StoreBanner' (shape)
             Hero(
-              tag: '#1',
+              tag: banner,
               transitionOnUserGestures: true,
               child: Container(
                 width: MediaQuery.of(context).size.width,
@@ -46,8 +70,7 @@ class StoreItem extends StatelessWidget {
                     topRight: Radius.circular(16.0),
                   ),
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://res.cloudinary.com/kardappio/image/upload/c_scale,q_auto:low,w_1080/v1591753846/kwik/assets/examples/dan-gold-E6HjQaB7UEA-unsplash.jpg'),
+                    image: NetworkImage(banner),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -59,8 +82,8 @@ class StoreItem extends StatelessWidget {
               child: RoundedStoreLogoWidget(
                 size: 64,
                 animationDuration: 100,
-                url:
-                    'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                url: logo,
+                heroId: id,
               ),
             ),
             Transform.translate(
@@ -85,11 +108,12 @@ class StoreItem extends StatelessWidget {
                         child:
                             // Adobe XD layer: 'StoreStatus' (text)
                             Text(
-                          'ABERTO',
+                          isOpen ? 'ABERTO' : 'FECHADO',
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 10,
-                            color: const Color(0xff6bc273),
+                            color:
+                                isOpen ? Color(0xff6bc273) : Color(0xffEF5D60),
                             letterSpacing: 0.0025,
                             fontWeight: FontWeight.w700,
                             height: 3.6,
@@ -102,7 +126,7 @@ class StoreItem extends StatelessWidget {
                         child:
                             // Adobe XD layer: 'StoreName' (text)
                             Text(
-                          'McDonald\'s',
+                          title,
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 17,
@@ -121,7 +145,7 @@ class StoreItem extends StatelessWidget {
                             Container(
                           padding: EdgeInsets.only(right: 32),
                           child: Text(
-                            'Hamburgueria, Milk Shake, Lanches',
+                            description,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: TextStyle(
@@ -154,7 +178,7 @@ class StoreItem extends StatelessWidget {
                         ),
                         SizedBox(width: 3),
                         Text(
-                          '4.8',
+                          rating.toStringAsPrecision(2),
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 12,
@@ -167,7 +191,7 @@ class StoreItem extends StatelessWidget {
                         ),
                         SizedBox(width: 3),
                         Text(
-                          '(500+)',
+                          '($numberOfRatings)',
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 12,
@@ -186,7 +210,29 @@ class StoreItem extends StatelessWidget {
                         ),
                         SizedBox(width: 3),
                         Text(
-                          '15-60min',
+                          '${deliveryTimes[0]}-${deliveryTimes[1]}min',
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: 12,
+                            color: Theme.of(context).primaryColor,
+                            letterSpacing: 0.003,
+                            fontWeight: FontWeight.w700,
+                            height: 3,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        SizedBox(width: 10),
+                        Container(
+                          padding: EdgeInsets.only(top: 15),
+                          child: Icon(
+                            SFSymbols.location_fill,
+                            color: Theme.of(context).primaryColor,
+                            size: 14,
+                          ),
+                        ),
+                        SizedBox(width: 3),
+                        Text(
+                          '${distance}km',
                           style: TextStyle(
                             fontFamily: 'Lato',
                             fontSize: 12,

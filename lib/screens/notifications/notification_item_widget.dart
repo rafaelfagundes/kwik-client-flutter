@@ -3,15 +3,20 @@ import 'package:kwik_client_flutter/utils/date_utils.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
 class NotificationItem extends StatelessWidget {
+  final String id;
   final DateTime createdAt;
   final String title;
   final String description;
   final bool isNegative;
   final bool isRead;
 
-  NotificationItem(
-      Key key, this.title, this.description, this.createdAt, this.isRead,
-      {this.isNegative = false})
+  NotificationItem(Key key,
+      {@required this.id,
+      @required this.title,
+      @required this.description,
+      @required this.createdAt,
+      @required this.isRead,
+      this.isNegative = false})
       : super(key: key);
 
   @override
@@ -95,6 +100,7 @@ class NotificationItem extends StatelessWidget {
               url:
                   'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
               animationDuration: 100,
+              heroId: id,
             )
           ],
         ),
