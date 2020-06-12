@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/screen_arguments/stores_list_arguments.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/store_item_widget.dart';
 
@@ -42,8 +43,14 @@ class Stores extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final StoresListArguments args = ModalRoute.of(context).settings.arguments;
+    print(args.id);
+    print(args.icon);
+    print(args.title);
+
     return DefaultScreen(
-      'Restaurantes',
+      args.title,
+      icon: args.icon,
       children: <Widget>[...items],
     );
   }

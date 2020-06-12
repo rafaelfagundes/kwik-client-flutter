@@ -37,7 +37,7 @@ class App extends StatelessWidget {
                 title: 'Kwik',
                 theme: store.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
-                initialRoute: '/stores',
+                initialRoute: '/',
                 onGenerateRoute: (settings) {
                   switch (settings.name) {
                     case '/':

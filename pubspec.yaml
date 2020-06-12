@@ -63,12 +63,14 @@ flutter:
     - assets/images/StoreLogo.png
     - assets/images/banners/Delivery-Light.png
     - assets/images/banners/Delivery-Dark.png
+    - assets/images/business-types/AguaGas.png
     - assets/images/business-types/Bebidas.png
     - assets/images/business-types/Churrasco.png
     - assets/images/business-types/Entregas.png
     - assets/images/business-types/Farmacias.png
     - assets/images/business-types/Lojas.png
     - assets/images/business-types/Mercados.png
+    - assets/images/business-types/Papelaria.png
     - assets/images/business-types/Pets.png
     - assets/images/business-types/Restaurantes.png
     - assets/images/business-types/Suplementos.png
