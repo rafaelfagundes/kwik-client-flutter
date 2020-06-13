@@ -39,10 +39,12 @@ class _ShadowWidgetState extends State<ShadowWidget>
       opacity: _animation,
       child: Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.black, Colors.transparent])),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.black, Colors.transparent],
+          ),
+        ),
       ),
     );
   }

@@ -7,7 +7,7 @@ class Adresses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(
-      'Meus Endereços',
+      'Endereços',
       children: <Widget>[
         AddressItemWidget(
           title: 'Rua Frederico Ozanan, 150',

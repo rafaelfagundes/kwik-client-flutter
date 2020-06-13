@@ -26,8 +26,8 @@ class BusinessTypeButtonWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: 80,
-              height: 80,
+              width: 72,
+              height: 72,
               decoration: BoxDecoration(
                   color: Theme.of(context).backgroundColor,
                   borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -39,7 +39,7 @@ class BusinessTypeButtonWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: 'Lato',
-                  fontSize: 12,
+                  fontSize: 11,
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).primaryColor),
             )

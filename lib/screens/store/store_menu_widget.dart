@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ScreenDetailsMenuWidget extends StatelessWidget {
+class StoreMenuWidget extends StatelessWidget {
   final Function onChangeScreen;
   final int index;
 
-  const ScreenDetailsMenuWidget(
+  const StoreMenuWidget(
       {Key key, @required this.onChangeScreen, @required this.index})
       : super(key: key);
 

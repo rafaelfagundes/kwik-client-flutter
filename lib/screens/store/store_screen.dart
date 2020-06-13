@@ -5,7 +5,7 @@ import 'package:kwik_client_flutter/screens/store/inner_screens/highlights_inner
 import 'package:kwik_client_flutter/screens/store/inner_screens/information_inner_screen.dart';
 import 'package:kwik_client_flutter/screens/store/inner_screens/products_inner_screen.dart';
 import 'package:kwik_client_flutter/screens/store/inner_screens/ratings_inner_screen.dart';
-import 'package:kwik_client_flutter/screens/store/screen_details_menu_widget.dart';
+import 'package:kwik_client_flutter/screens/store/store_menu_widget.dart';
 
 import 'store_header_widget.dart';
 
@@ -26,7 +26,8 @@ class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     // double expandedHeight = (200 + MediaQuery.of(context).padding.top + 120);
-    double expandedHeight = (200 + MediaQuery.of(context).padding.top + 50);
+    // double expandedHeight = (200 + MediaQuery.of(context).padding.top + 50);
+    double expandedHeight = 280;
     double collapsedHeight = MediaQuery.of(context).padding.top + 48;
 
     final StoreArguments args = ModalRoute.of(context).settings.arguments;
@@ -55,7 +56,7 @@ class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
                 delegate: SliverChildListDelegate(<Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: ScreenDetailsMenuWidget(
+                child: StoreMenuWidget(
                   onChangeScreen: _onChangeScreen,
                   index: _innerScreenIndex,
                 ),

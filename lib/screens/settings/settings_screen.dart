@@ -26,11 +26,11 @@ class _SettingsState extends State<Settings> {
       SelectedCityWidget(),
       SizedBox(height: 12),
       MenuItemWidget(
-          title: 'Meus Endereços', route: '/adresses', icon: SFSymbols.map),
+          title: 'Endereços', route: '/adresses', icon: SFSymbols.map),
       MenuItemWidget(
-          title: 'Meus Favoritos', route: '/favorites', icon: SFSymbols.heart),
+          title: 'Favoritos', route: '/favorites', icon: SFSymbols.heart),
       MenuItemWidget(
-          title: 'Meus Cupons',
+          title: 'Cupons',
           route: '/coupons',
           icon: SFSymbols.tag,
           badgeCount: 8),

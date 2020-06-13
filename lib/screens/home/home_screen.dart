@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/screens/home/banner_widget.dart';
 import 'package:kwik_client_flutter/screens/home/business_type_widget.dart';
 import 'package:kwik_client_flutter/screens/home/simulated_search_bar_widget.dart';
 import 'package:kwik_client_flutter/screens/home/store_horizontal_list_widget.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
+
+import 'banner_widget.dart';
 
 class Home extends StatelessWidget {
   @override

@@ -18,7 +18,7 @@ final ThemeData darkTheme = ThemeData(
     hintColor: Color(0x80ffffff),
     hoverColor: Color(0xfffb6b4c),
     indicatorColor: Color(0xff64ffda),
-    primaryColor: Color(0xfffafafa),
+    primaryColor: Color(0xffFFFFFF),
     primaryColorBrightness: Brightness.dark,
     primaryColorDark: Color(0xff000000),
     primaryColorLight: Color(0xff9e9e9e),

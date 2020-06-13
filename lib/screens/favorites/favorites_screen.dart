@@ -43,7 +43,7 @@ class Favorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(
-      'Meus Favoritos',
+      'Favoritos',
       children: <Widget>[...items],
     );
   }

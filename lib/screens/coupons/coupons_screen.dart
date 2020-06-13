@@ -38,7 +38,7 @@ class Coupons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(
-      'Meus Cupons',
+      'Cupons',
       children: <Widget>[...items],
     );
   }
