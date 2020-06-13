@@ -71,11 +71,14 @@ class ProductItemWidget extends StatelessWidget {
           Positioned(
             top: 99,
             left: 12,
+            width: 190,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   'Cheeseburger Monster',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Lato',
