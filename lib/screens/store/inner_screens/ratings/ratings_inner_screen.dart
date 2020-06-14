@@ -13,7 +13,7 @@ class RatingsInner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double margin = 24.0;
+    double margin = 16.0;
 
     return Container(
       width: width - (2 * margin),

@@ -10,6 +10,7 @@ class RatingDataWidget extends StatelessWidget {
     double barSpacer = 7.0;
 
     return Container(
+      margin: EdgeInsets.only(left: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,

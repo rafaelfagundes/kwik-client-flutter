@@ -7,9 +7,9 @@ class UserRatingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 304,
-      margin: EdgeInsets.only(bottom: 24, right: 24),
-      width: MediaQuery.of(context).size.width - 48,
+      margin: EdgeInsets.only(bottom: 24, right: 16),
+      padding: EdgeInsets.only(bottom: 16),
+      width: MediaQuery.of(context).size.width - 32,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.0),
         color: Theme.of(context).cardColor,
@@ -121,7 +121,7 @@ class UserUploadedPhotos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: (MediaQuery.of(context).size.width - 80),
+      width: (MediaQuery.of(context).size.width - 62),
       child: Wrap(
         spacing: 10.0,
         children: <Widget>[...items],
@@ -141,7 +141,7 @@ class ProductUserPhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: (MediaQuery.of(context).size.width - 80 - 20) / 3,
+      width: (MediaQuery.of(context).size.width - 62 - 20) / 3,
       height: 95,
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -185,7 +185,6 @@ class RatingHeader extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(14, 16, 16, 10),
@@ -201,7 +200,7 @@ class RatingHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                width: MediaQuery.of(context).size.width - 136,
+                width: MediaQuery.of(context).size.width - 120,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
