@@ -3,7 +3,7 @@ import 'package:kwik_client_flutter/widgets/custom_expansion_tile_widget.dart';
 import 'package:kwik_client_flutter/widgets/product_menu_item_widget.dart';
 
 class ProductsInner extends StatelessWidget {
-  var items = [
+  final items = [
     ProductMenuItem(),
     ProductMenuItem(),
     ProductMenuItem(),

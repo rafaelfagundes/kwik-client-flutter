@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/widgets/product_item_widget.dart';
 
+import 'highlights_title_widget.dart';
+
 class HighlightsInner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,7 @@ class HighlightsInner extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SizedBox(height: 10),
-          HighlightsTitle(
+          HighlightsTitleWidget(
             title: 'Promoções',
             icon: SFSymbols.percent,
             iconColor: Color(0xffFFFFFF),
@@ -30,7 +32,7 @@ class HighlightsInner extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30),
-          HighlightsTitle(
+          HighlightsTitleWidget(
             title: 'Recomendado',
             icon: SFSymbols.star_fill,
             iconColor: Theme.of(context).cardColor,
@@ -51,7 +53,7 @@ class HighlightsInner extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30),
-          HighlightsTitle(
+          HighlightsTitleWidget(
             title: 'Mais Vendidos',
             icon: SFSymbols.money_dollar,
             iconColor: Theme.of(context).cardColor,
@@ -72,55 +74,6 @@ class HighlightsInner extends StatelessWidget {
             ),
           ),
           SizedBox(height: 36)
-        ],
-      ),
-    );
-  }
-}
-
-class HighlightsTitle extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Color iconColor;
-  final Color color;
-
-  const HighlightsTitle({
-    Key key,
-    this.title,
-    this.icon,
-    this.iconColor,
-    this.color,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 24),
-      child: Row(
-        children: <Widget>[
-          Container(
-            width: 20,
-            height: 20,
-            decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.all(Radius.circular(4))),
-            child: Center(
-                child: Icon(
-              icon,
-              color: iconColor,
-              size: 12,
-            )),
-          ),
-          SizedBox(width: 5),
-          Text(
-            title,
-            style: TextStyle(
-              fontFamily: 'Lato',
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
         ],
       ),
     );

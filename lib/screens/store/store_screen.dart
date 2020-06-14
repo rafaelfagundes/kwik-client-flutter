@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kwik_client_flutter/screen_arguments/store_arguments.dart';
-import 'package:kwik_client_flutter/screens/store/inner_screens/highlights_inner_screen.dart';
-import 'package:kwik_client_flutter/screens/store/inner_screens/information_inner_screen.dart';
-import 'package:kwik_client_flutter/screens/store/inner_screens/products_inner_screen.dart';
-import 'package:kwik_client_flutter/screens/store/inner_screens/ratings_inner_screen.dart';
+import 'package:kwik_client_flutter/screens/store/inner_screens/highlights/highlights_inner_screen.dart';
+import 'package:kwik_client_flutter/screens/store/inner_screens/information/information_inner_screen.dart';
+import 'package:kwik_client_flutter/screens/store/inner_screens/products/products_inner_screen.dart';
+import 'package:kwik_client_flutter/screens/store/inner_screens/ratings/ratings_inner_screen.dart';
 import 'package:kwik_client_flutter/screens/store/store_menu_widget.dart';
 
 import 'store_header_widget.dart';
@@ -15,6 +15,13 @@ class Store extends StatefulWidget {
 }
 
 class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
+  final List<Widget> items = [
+    HighlightsInner(),
+    ProductsInner(),
+    RatingsInner(),
+    InformationInner()
+  ];
+
   int _innerScreenIndex = 0;
 
   void _onChangeScreen(int index) {
@@ -61,15 +68,7 @@ class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
                   index: _innerScreenIndex,
                 ),
               ),
-              IndexedStack(
-                index: _innerScreenIndex,
-                children: <Widget>[
-                  HighlightsInner(),
-                  ProductsInner(),
-                  RatingsInner(),
-                  InformationInner()
-                ],
-              )
+              items[_innerScreenIndex]
             ]))
           ],
         ),

@@ -8,9 +8,9 @@ class RoundedAvatarWidget extends StatelessWidget {
 
   const RoundedAvatarWidget({
     Key key,
-    this.animationDuration,
-    this.size,
-    this.url,
+    this.animationDuration = 1000,
+    this.size = 64,
+    @required this.url,
   }) : super(key: key);
 
   @override
