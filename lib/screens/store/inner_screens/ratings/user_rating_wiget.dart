@@ -173,7 +173,7 @@ class RatingText extends StatelessWidget {
           fontFamily: 'Lato',
           fontSize: 14,
           fontWeight: FontWeight.normal,
-          color: Color(0xff5b5b5b),
+          color: Theme.of(context).primaryColor.withOpacity(0.8),
         ),
       ),
     );

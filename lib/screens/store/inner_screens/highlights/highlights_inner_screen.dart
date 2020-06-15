@@ -73,7 +73,7 @@ class HighlightsInner extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 36)
+          SizedBox(height: 72)
         ],
       ),
     );

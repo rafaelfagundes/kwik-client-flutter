@@ -23,7 +23,8 @@ class RatingsInner extends StatelessWidget {
           SizedBox(height: 16),
           RatingDataWidget(),
           SizedBox(height: 36),
-          ...items
+          ...items,
+          SizedBox(height: 72),
         ],
       ),
     );

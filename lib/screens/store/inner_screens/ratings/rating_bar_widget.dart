@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
+import 'package:kwik_client_flutter/utils/theme_utils.dart';
 
 class RatingBarWidget extends StatelessWidget {
   final int numberOfStars;
@@ -18,6 +19,8 @@ class RatingBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = ThemeUtils.isDark(context);
+
     return Container(
       child: Row(
         children: <Widget>[
@@ -54,7 +57,7 @@ class RatingBarWidget extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 4),
                 decoration: BoxDecoration(
-                  color: Color(0xffE8E8E8),
+                  color: isDark ? Color(0xff3F3F3F) : Color(0xffE7E7E7),
                   borderRadius: BorderRadius.all(
                     Radius.circular(5),
                   ),

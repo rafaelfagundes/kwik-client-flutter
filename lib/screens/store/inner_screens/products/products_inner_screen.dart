@@ -69,6 +69,7 @@ class ProductsInner extends StatelessWidget {
             ),
             children: <Widget>[...items],
           ),
+          SizedBox(height: 72),
         ],
       ),
     );
