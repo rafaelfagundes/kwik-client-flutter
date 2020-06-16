@@ -47,8 +47,8 @@ class CurvedNavigationWidget extends StatelessWidget {
                     CustomIcon(
                       isActive: index == 2,
                       buttonSize: _buttonSize,
-                      activeIcon: SFSymbols.bag_fill,
-                      inactiveIcon: SFSymbols.bag,
+                      activeIcon: SFSymbols.cart_fill,
+                      inactiveIcon: SFSymbols.cart,
                     ),
                     CustomIcon(
                       isActive: index == 3,

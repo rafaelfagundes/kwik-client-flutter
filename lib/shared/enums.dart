@@ -1,0 +1,23 @@
+enum CouponType { VALUE, PERCENTAGE }
+
+enum OrderStatusType {
+  OPEN,
+  CONFIRMED,
+  ON_DELIVERY,
+  READY_FOR_PICKUP,
+  CANCELED_BY_USER,
+  CANCELED_BY_STORE,
+  EXPIRED,
+  DELIVERED,
+}
+
+enum SwitchTheme {
+  NIGHT_IDLE,
+  DAY_IDLE,
+  SWITCH_NIGHT,
+  SWITCH_DAY,
+}
+
+enum Gender { MALE, FEMALE, OTHER }
+
+enum DiscountType { PERCENTAGE, VALUE }

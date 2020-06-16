@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-enum CouponType { VALUE, PERCENTAGE }
+import 'package:kwik_client_flutter/shared/enums.dart';
 
 class CouponItem extends StatelessWidget {
   final DateTime validUntil;

@@ -15,13 +15,6 @@ class Store extends StatefulWidget {
 }
 
 class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
-  final List<Widget> items = [
-    HighlightsInner(),
-    ProductsInner(),
-    RatingsInner(),
-    InformationInner()
-  ];
-
   int _innerScreenIndex = 0;
 
   void _onChangeScreen(int index) {
@@ -38,6 +31,13 @@ class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
     double collapsedHeight = MediaQuery.of(context).padding.top + 48;
 
     final StoreArguments args = ModalRoute.of(context).settings.arguments;
+
+    final List<Widget> items = [
+      HighlightsInner(logo: args.logo),
+      ProductsInner(),
+      RatingsInner(),
+      InformationInner()
+    ];
 
     return Scaffold(
         body: AnnotatedRegion<SystemUiOverlayStyle>(

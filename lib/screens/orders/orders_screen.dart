@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/screens/orders/order_status_widget.dart';
+import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
 import './order_item_widget.dart';

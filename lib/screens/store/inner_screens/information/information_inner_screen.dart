@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/screens/store/inner_screens/information/credit_cards_list_widget.dart';
 import 'package:kwik_client_flutter/screens/store/inner_screens/information/working_hours_table_widget.dart';
-import 'package:kwik_client_flutter/utils/theme_utils.dart';
+import 'package:kwik_client_flutter/widgets/section_subtitle_widget.dart';
+import 'package:kwik_client_flutter/widgets/section_title_widget.dart';
 
 class InformationInner extends StatelessWidget {
   @override
@@ -48,51 +49,6 @@ class InformationInner extends StatelessWidget {
           WorkingHoursTableWidget(),
           SizedBox(height: 72),
         ],
-      ),
-    );
-  }
-}
-
-class SectionTitle extends StatelessWidget {
-  final String title;
-
-  const SectionTitle(
-    this.title, {
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    var isDark = ThemeUtils.isDark(context);
-    return Text(
-      title.toUpperCase(),
-      style: TextStyle(
-        fontFamily: 'Lato',
-        fontSize: 13,
-        fontWeight: FontWeight.w900,
-        color: isDark ? Color(0xffB0B0B0) : Color(0xff7B7B7B),
-      ),
-    );
-  }
-}
-
-class SectionSubTitle extends StatelessWidget {
-  final String title;
-
-  const SectionSubTitle(
-    this.title, {
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      title.toUpperCase(),
-      style: TextStyle(
-        fontFamily: 'Lato',
-        fontSize: 11,
-        fontWeight: FontWeight.w900,
-        color: Theme.of(context).primaryColor,
       ),
     );
   }

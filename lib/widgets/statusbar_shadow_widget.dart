@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ShadowWidget extends StatefulWidget {
-  const ShadowWidget({
+class StatusBarShadowWidget extends StatefulWidget {
+  const StatusBarShadowWidget({
     Key key,
   }) : super(key: key);
 
   @override
-  _ShadowWidgetState createState() => _ShadowWidgetState();
+  _StatusBarShadowWidgetState createState() => _StatusBarShadowWidgetState();
 }
 
-class _ShadowWidgetState extends State<ShadowWidget>
+class _StatusBarShadowWidgetState extends State<StatusBarShadowWidget>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _animation;

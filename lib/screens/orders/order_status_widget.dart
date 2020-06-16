@@ -1,15 +1,5 @@
 import 'package:flutter/material.dart';
-
-enum OrderStatusType {
-  OPEN,
-  CONFIRMED,
-  ON_DELIVERY,
-  READY_FOR_PICKUP,
-  CANCELED_BY_USER,
-  CANCELED_BY_STORE,
-  EXPIRED,
-  DELIVERED,
-}
+import 'package:kwik_client_flutter/shared/enums.dart';
 
 class StatusType {
   final String statusText;

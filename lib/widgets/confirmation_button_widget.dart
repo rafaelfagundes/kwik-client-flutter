@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class ConfirmationButton extends StatelessWidget {
   final String buttonText;
+  final Icon icon;
   final Function onPressed;
 
-  const ConfirmationButton({Key key, this.buttonText, this.onPressed})
+  const ConfirmationButton(
+      {Key key, this.buttonText, this.onPressed, this.icon})
       : super(key: key);
 
   @override
@@ -19,13 +21,20 @@ class ConfirmationButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      child: Text(
-        buttonText,
-        style: TextStyle(
-            fontFamily: 'Lato',
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
-            color: Colors.white),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          if (icon != null) icon,
+          if (icon != null) SizedBox(width: 10),
+          Text(
+            buttonText,
+            style: TextStyle(
+                fontFamily: 'Lato',
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                color: Colors.white),
+          ),
+        ],
       ),
     );
   }

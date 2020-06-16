@@ -7,6 +7,7 @@ import 'package:kwik_client_flutter/screens/coupons/coupons_screen.dart';
 import 'package:kwik_client_flutter/screens/favorites/favorites_screen.dart';
 import 'package:kwik_client_flutter/screens/help/help_screen.dart';
 import 'package:kwik_client_flutter/screens/order_details/order_details_screen.dart';
+import 'package:kwik_client_flutter/screens/product/product_screen.dart';
 import 'package:kwik_client_flutter/screens/rating/rating_screen.dart';
 import 'package:kwik_client_flutter/screens/store/store_screen.dart';
 import 'package:kwik_client_flutter/screens/stores/stores_screen.dart';
@@ -73,6 +74,9 @@ class App extends StatelessWidget {
                     case '/store':
                       return CupertinoPageRoute(
                           builder: (_) => Store(), settings: settings);
+                    case '/product':
+                      return CupertinoPageRoute(
+                          builder: (_) => Product(), settings: settings);
                     default:
                       return CupertinoPageRoute(
                           builder: (_) => TabbedMain(), settings: settings);

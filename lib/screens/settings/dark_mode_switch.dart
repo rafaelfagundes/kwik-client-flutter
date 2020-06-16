@@ -4,15 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kwik_client_flutter/controllers/app_controller.dart';
 import 'package:kwik_client_flutter/services/local_storage_service.dart';
+import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/stores/app_store.dart';
 import 'package:provider/provider.dart';
-
-enum THEME {
-  NIGHT_IDLE,
-  DAY_IDLE,
-  SWITCH_NIGHT,
-  SWITCH_DAY,
-}
 
 class DarkModeSwitch extends StatefulWidget {
   static const _animations = [
@@ -32,9 +26,10 @@ class _DarkModeSwitchState extends State<DarkModeSwitch> {
 
   void _handleThemeSwitch(bool value) async {
     if (value) {
-      _controls.play(DarkModeSwitch._animations[THEME.SWITCH_NIGHT.index]);
+      _controls
+          .play(DarkModeSwitch._animations[SwitchTheme.SWITCH_NIGHT.index]);
     } else {
-      _controls.play(DarkModeSwitch._animations[THEME.SWITCH_DAY.index]);
+      _controls.play(DarkModeSwitch._animations[SwitchTheme.SWITCH_DAY.index]);
     }
     await _appController.setTheme(value);
     var result = await _appController.getTheme('isDark');

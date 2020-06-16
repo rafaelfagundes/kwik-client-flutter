@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/screen_arguments/order_arguments.dart';
 import 'package:kwik_client_flutter/screens/orders/order_status_widget.dart';
+import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/utils/date_utils.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 

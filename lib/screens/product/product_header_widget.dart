@@ -1,32 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
+import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/widgets/statusbar_shadow_widget.dart';
 
-import 'store_details_widget.dart';
+import 'product_details_widget.dart';
 
-class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
+class ProductHeaderWidget extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final double collapsedHeight;
   final String title;
   final String heroId;
   final String logo;
   final String banner;
-  final bool isOpen;
+  final bool hasDiscount;
+  final double oldValue;
+  final double value;
+  final double discountValue;
+  final DiscountType discountType;
 
-  StoreHeaderWidget({
+  ProductHeaderWidget({
+    @required this.discountValue,
+    @required this.discountType,
+    @required this.hasDiscount,
+    @required this.oldValue,
+    @required this.value,
     @required this.expandedHeight,
     @required this.collapsedHeight,
     @required this.title,
     @required this.heroId,
     @required this.logo,
-    this.isOpen = false,
     this.banner,
   });
 
   double _getHeaderOpacity(double shrinkOffset) {
-    if (shrinkOffset > 75) {
+    print(shrinkOffset);
+    if (shrinkOffset > 57) {
       // X is how much the opacity will decrease
-      double x = shrinkOffset - 75;
+      double x = shrinkOffset - 57;
       double opacity = (100 - x * 5) / 100;
       if (opacity < 0) {
         return 0;
@@ -59,7 +69,7 @@ class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
       overflow: Overflow.visible,
       children: [
         Hero(
-          tag: banner != null ? banner : 'N/D',
+          tag: heroId,
           transitionOnUserGestures: true,
           child: Container(
             height: 200,
@@ -77,8 +87,18 @@ class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
           width: MediaQuery.of(context).size.width,
           child: Opacity(
             opacity: _getHeaderOpacity(shrinkOffset),
-            child:
-                StoreDetailsWidget(logo: logo, heroId: heroId, isOpen: isOpen),
+            child: ProductDetailsWidget(
+              logo: logo,
+              heroId: 'N/A',
+              description:
+                  'Sit voluptatem sint. Sunt quia qui ab natus sequi quo magnam.',
+              title: title,
+              hasDiscount: hasDiscount,
+              oldValue: oldValue,
+              value: value,
+              discountType: discountType,
+              discountValue: discountValue,
+            ),
           ),
         ),
         Positioned(
@@ -120,11 +140,9 @@ class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
                           fontFamily: 'Lato'),
                     ),
                   ),
-                  IconButton(
-                      icon: Icon(SFSymbols.heart, color: Colors.white),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }),
+                  SizedBox(
+                    width: 48,
+                  )
                 ],
               ),
             ],
