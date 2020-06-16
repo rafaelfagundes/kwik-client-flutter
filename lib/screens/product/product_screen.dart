@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:intl/intl.dart';
 import 'package:kwik_client_flutter/screen_arguments/product_arguments.dart';
-import 'package:kwik_client_flutter/widgets/confirmation_button_widget.dart';
+import 'package:kwik_client_flutter/shared/enums.dart';
+import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/integer_qty_widget.dart';
 import 'package:kwik_client_flutter/widgets/section_title_widget.dart';
 
@@ -18,8 +19,6 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
   int _productQty = 1;
 
   void _onChange(qty) {
-    print('Teste');
-    print(qty);
     setState(() {
       _productQty = qty;
     });
@@ -27,8 +26,6 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // double expandedHeight = (200 + MediaQuery.of(context).padding.top + 120);
-    // double expandedHeight = (200 + MediaQuery.of(context).padding.top + 50);
     double expandedHeight = 280;
     double collapsedHeight = MediaQuery.of(context).padding.top + 48;
 
@@ -127,16 +124,16 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
                       qty: 0,
                       value: 8.0,
                     ),
-                    SizedBox(height: 22),
+                    SizedBox(height: 32),
                     Container(
                       width: double.infinity,
-                      child: ConfirmationButton(
-                          buttonText: 'Adicionar ao Carrinho',
-                          onPressed: () {},
-                          icon: Icon(
-                            SFSymbols.cart_badge_plus,
-                            color: Colors.white,
-                          )),
+                      child: CustomButtonWidget(
+                        buttonType: ButtonType.CONFIRMATION,
+                        buttonText: 'Adicionar ao Carrinho',
+                        onPressed: () {},
+                        icon: SFSymbols.cart_badge_plus,
+                        verticalIconAjustment: -0.75,
+                      ),
                     ),
                     SizedBox(height: 72),
                   ],

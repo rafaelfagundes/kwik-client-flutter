@@ -69,7 +69,7 @@ class HighlightsInner extends StatelessWidget {
                   logo: logo,
                   discountType: DiscountType.PERCENTAGE,
                   discountValue: 7,
-                  hasDiscount: false,
+                  hasDiscount: true,
                   oldValue: 23.99,
                   value: 17.4,
                 ),

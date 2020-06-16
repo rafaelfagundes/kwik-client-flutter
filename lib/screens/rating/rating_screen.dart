@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/screens/rating/rating_stars_widget.dart';
-import 'package:kwik_client_flutter/widgets/action_button_widget.dart';
+import 'package:kwik_client_flutter/shared/enums.dart';
+import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_multiline_text_field.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
@@ -69,8 +70,9 @@ class _RatingState extends State<Rating> {
         SizedBox(height: 30),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: ActionButton(
-            buttonText: 'Enviar',
+          child: CustomButtonWidget(
+            buttonType: ButtonType.DEFAULT,
+            buttonText: 'Enviar Avaliação',
             onPressed: () {},
           ),
         )

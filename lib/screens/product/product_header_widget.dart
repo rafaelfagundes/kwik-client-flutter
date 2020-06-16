@@ -33,7 +33,6 @@ class ProductHeaderWidget extends SliverPersistentHeaderDelegate {
   });
 
   double _getHeaderOpacity(double shrinkOffset) {
-    print(shrinkOffset);
     if (shrinkOffset > 57) {
       // X is how much the opacity will decrease
       double x = shrinkOffset - 57;
@@ -61,9 +60,6 @@ class ProductHeaderWidget extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    // print('expandedHeight ${expandedHeight}');
-    // print('shrinkOffset ${shrinkOffset}');
-
     return Stack(
       fit: StackFit.loose,
       overflow: Overflow.visible,

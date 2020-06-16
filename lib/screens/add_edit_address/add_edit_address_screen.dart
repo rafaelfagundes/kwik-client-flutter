@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/widgets/confirmation_button_widget.dart';
+import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_multiline_text_field.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
@@ -41,11 +41,9 @@ class AddEditAddress extends StatelessWidget {
         SizedBox(height: 30),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
-          child: ConfirmationButton(
+          child: CustomButtonWidget(
             buttonText: 'Salvar',
-            onPressed: () {
-              print('Save Profile');
-            },
+            onPressed: () {},
           ),
         )
       ],

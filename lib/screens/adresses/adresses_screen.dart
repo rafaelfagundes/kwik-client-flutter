@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/screens/adresses/address_item_widget.dart';
-import 'package:kwik_client_flutter/widgets/add_button_widget.dart';
+import 'package:kwik_client_flutter/shared/enums.dart';
+import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
 class Adresses extends StatelessWidget {
@@ -24,8 +26,11 @@ class Adresses extends StatelessWidget {
         SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: AddButton(
+          child: CustomButtonWidget(
+            buttonFillType: ButtonFillType.EMPTY,
+            buttonType: ButtonType.CONFIRMATION,
             buttonText: 'Adicionar Endereço',
+            icon: SFSymbols.plus_circle,
             onPressed: () {
               Navigator.pushNamed(context, "/add-edit-address");
             },

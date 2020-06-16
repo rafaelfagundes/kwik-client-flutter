@@ -1,4 +1,7 @@
-enum CouponType { VALUE, PERCENTAGE }
+enum CouponType {
+  VALUE,
+  PERCENTAGE,
+}
 
 enum OrderStatusType {
   OPEN,
@@ -18,6 +21,23 @@ enum SwitchTheme {
   SWITCH_DAY,
 }
 
-enum Gender { MALE, FEMALE, OTHER }
+enum Gender {
+  MALE,
+  FEMALE,
+  OTHER,
+}
 
-enum DiscountType { PERCENTAGE, VALUE }
+enum DiscountType {
+  PERCENTAGE,
+  VALUE,
+}
+
+enum ButtonType {
+  DEFAULT,
+  CONFIRMATION,
+  CANCEL,
+  CALL_TO_ACTION,
+  CALL_TO_ACTION_ALTERNATIVE,
+}
+
+enum ButtonFillType { FILLED, BORDER, EMPTY }

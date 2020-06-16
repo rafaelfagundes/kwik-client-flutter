@@ -51,9 +51,6 @@ class StoreHeaderWidget extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    // print('expandedHeight ${expandedHeight}');
-    // print('shrinkOffset ${shrinkOffset}');
-
     return Stack(
       fit: StackFit.loose,
       overflow: Overflow.visible,
