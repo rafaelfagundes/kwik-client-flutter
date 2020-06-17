@@ -30,7 +30,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
   double buttonFontSize = 12;
   double buttonIconSize = 22;
   double buttonSpacer = 5;
-  Color shadowColor = Colors.black38;
+  Color shadowColor = Colors.black12;
   double topPosition;
 
   @override
@@ -134,7 +134,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
       buttonHeight = 45;
       buttonMargin = 0;
       buttonFontSize = 12;
-      shadowColor = Colors.black38;
+      shadowColor = Colors.black12;
       buttonIconSize = 22;
       buttonSpacer = 5;
       topPosition = widget.verticalIconAjustment;

@@ -5,7 +5,7 @@ class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(
-      'Cesta',
+      'Carrinho',
       children: <Widget>[],
     );
   }

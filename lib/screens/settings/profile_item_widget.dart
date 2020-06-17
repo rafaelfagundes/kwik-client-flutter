@@ -23,7 +23,7 @@ class ProfileItemWidget extends StatelessWidget {
                   RoundedAvatarWidget(
                     size: 56,
                     url:
-                        'https://s3.amazonaws.com/uifaces/faces/twitter/alessandroribe/128.jpg',
+                        'https://vignette.wikia.nocookie.net/chespirito/images/a/ac/ImagemRaraRam%C3%B3nValdes.png/revision/latest?cb=20180710004410&path-prefix=pt',
                     animationDuration: 100,
                   ),
                   SizedBox(
@@ -35,7 +35,7 @@ class ProfileItemWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Michael Scott',
+                      'Ramón Valdés',
                       style: TextStyle(
                         fontFamily: 'Lato',
                         fontSize: 18,

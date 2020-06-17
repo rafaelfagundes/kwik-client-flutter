@@ -27,7 +27,7 @@ class Stores extends StatelessWidget {
       title: 'Maria Fumaça Lanches',
       description: 'Fast Food, Pizzas, Churrasquinho',
       rating: 3.7,
-      numberOfRatings: 587,
+      numberOfRatings: 456,
       deliveryTimes: [12, 50],
       distance: 2.4,
       banner:
