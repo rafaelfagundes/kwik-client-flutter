@@ -1,23 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:kwik_client_flutter/screens/add_edit_address/add_edit_address_screen.dart';
-import 'package:kwik_client_flutter/screens/adresses/adresses_screen.dart';
-import 'package:kwik_client_flutter/screens/coupons/coupons_screen.dart';
-import 'package:kwik_client_flutter/screens/favorites/favorites_screen.dart';
-import 'package:kwik_client_flutter/screens/help/help_screen.dart';
-import 'package:kwik_client_flutter/screens/order_details/order_details_screen.dart';
-import 'package:kwik_client_flutter/screens/product/product_screen.dart';
-import 'package:kwik_client_flutter/screens/rating/rating_screen.dart';
-import 'package:kwik_client_flutter/screens/store/store_screen.dart';
-import 'package:kwik_client_flutter/screens/stores/stores_screen.dart';
-import 'package:kwik_client_flutter/screens/tabbed_main/tabbed_main_screen.dart';
-import 'package:kwik_client_flutter/screens/user_profile/user_profile_screen.dart';
 import 'package:kwik_client_flutter/stores/app_store.dart';
 import 'package:kwik_client_flutter/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
 
 import './themes/light_theme.dart';
+import 'screens/add_edit_address/add_edit_address_screen.dart';
+import 'screens/adresses/adresses_screen.dart';
+import 'screens/coupons/coupons_screen.dart';
+import 'screens/favorites/favorites_screen.dart';
+import 'screens/help/help_screen.dart';
+import 'screens/order_details/order_details_screen.dart';
+import 'screens/product/product_screen.dart';
+import 'screens/rating/rating_screen.dart';
+import 'screens/search/search_screen.dart';
+import 'screens/store/store_screen.dart';
+import 'screens/stores/stores_screen.dart';
+import 'screens/tabbed_main/tabbed_main_screen.dart';
+import 'screens/user_profile/user_profile_screen.dart';
 
 class App extends StatelessWidget {
   @override
@@ -77,6 +78,9 @@ class App extends StatelessWidget {
                     case '/product':
                       return CupertinoPageRoute(
                           builder: (_) => Product(), settings: settings);
+                    case '/search':
+                      return CupertinoPageRoute(
+                          builder: (_) => Search(), settings: settings);
                     default:
                       return CupertinoPageRoute(
                           builder: (_) => TabbedMain(), settings: settings);

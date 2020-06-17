@@ -12,25 +12,33 @@ class CustomMultilineTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
-    return TextField(
-      onChanged: onChanged,
-      autocorrect: true,
-      textCapitalization: TextCapitalization.words,
-      minLines: 3,
-      maxLines: 6,
-      keyboardType: TextInputType.multiline,
-      style: TextStyle(fontFamily: 'Lato'),
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: isDark ? Color(0xff232323) : Colors.white,
-        border: isDark
-            ? UnderlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.all(Radius.circular(8)))
-            : OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8))),
-        labelText: labelText,
-        helperText: helperText,
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+            blurRadius: 8,
+            offset: Offset(0, 4),
+            color: Colors.black.withOpacity(0.05))
+      ]),
+      child: TextField(
+        onChanged: onChanged,
+        autocorrect: true,
+        textCapitalization: TextCapitalization.words,
+        minLines: 3,
+        maxLines: 6,
+        keyboardType: TextInputType.multiline,
+        style: TextStyle(fontFamily: 'Lato'),
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: isDark ? Color(0xff232323) : Colors.white,
+          border: UnderlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(
+              Radius.circular(8),
+            ),
+          ),
+          labelText: labelText,
+          helperText: helperText,
+        ),
       ),
     );
   }
