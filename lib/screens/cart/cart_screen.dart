@@ -54,13 +54,13 @@ class Cart extends StatelessWidget {
           ],
         ),
         Positioned(
-          bottom: bottomBarSize,
+          bottom: 0,
           child: ClipRect(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 65,
+                height: 112,
                 color: Colors.transparent,
               ),
             ),

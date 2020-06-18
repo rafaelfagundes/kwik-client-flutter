@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:kwik_client_flutter/utils/theme_utils.dart';
 
 class CurvedNavigationWidget extends StatelessWidget {
   // final Function setPageIndex = null;
@@ -16,28 +15,24 @@ class CurvedNavigationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = ThemeUtils.isDark(context);
-
     return Stack(
       overflow: Overflow.visible,
       children: <Widget>[
-        Positioned(
-          bottom: 0,
-          child: ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 50,
-                color: isDark ? Colors.transparent : Colors.transparent,
+        if (index != 2)
+          Positioned(
+            bottom: 0,
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 50,
+                  color: Colors.transparent,
+                ),
               ),
             ),
           ),
-        ),
         Container(
-          // color: store.isDark
-          //     ? Color(0xff444444).withOpacity(.98)
-          //     : Color(0xffEEEEEE).withOpacity(.98),
           child: SafeArea(
             child: CurvedNavigationBar(
               height: MediaQuery.of(context).padding.bottom > 0
