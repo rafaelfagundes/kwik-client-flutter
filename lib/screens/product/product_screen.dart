@@ -73,6 +73,10 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
                                 SizedBox(height: 10),
                                 Text(
                                   'Voluptas ipsum doloremque. Id voluptatum aspernatur exercitationem. Nesciunt omnis nulla. Earum veniam ipsum aut sunt occaecati. Iste omnis temporibus. Ad sequi et et officiis aut sunt explicabo minus. Quo ut aperiam occaecati repellat error ut amet enim nobis. Voluptatem quam amet omnis quam. Dolorum dolores earum numquam minus. Sequi voluptas rem quos aut magni adipisci. Blanditiis saepe assumenda autem. Qui beatae molestias nihil placeat eveniet. Aut ducimus illo et. Earum reprehenderit sit voluptatem commodi ad aut et placeat quis. Reiciendis velit unde aut dolor. Inventore ut suscipit. Eius ut perspiciatis praesentium voluptatem tempora nam. Aut quam ut excepturi. Necessitatibus aut omnis quia sit temporibus sapiente nemo. Hic autem exercitationem in assumenda nostrum.',
+                                  style: TextStyle(
+                                      fontFamily: 'Lato',
+                                      fontSize: 14,
+                                      color: Theme.of(context).primaryColor),
                                   maxLines: 5,
                                   overflow: TextOverflow.ellipsis,
                                 ),
