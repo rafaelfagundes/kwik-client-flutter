@@ -37,13 +37,14 @@ class ValueAndAddFooterWidget extends StatelessWidget {
               valueSize: valueSize,
             ),
             Container(
-              width: 210,
+              width: 130,
               child: CustomButtonWidget(
-                buttonType: ButtonType.CONFIRMATION,
-                buttonText: 'Adicionar ao Carrinho',
+                buttonType: ButtonType.DEFAULT,
+                buttonText: 'Continuar',
                 onPressed: onPressed,
-                icon: SFSymbols.cart_badge_plus,
+                icon: SFSymbols.arrow_right,
                 verticalIconAjustment: -0.75,
+                iconOnRight: true,
               ),
             ),
           ],

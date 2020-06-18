@@ -8,6 +8,7 @@ class CustomButtonWidget extends StatefulWidget {
   final ButtonType buttonType;
   final ButtonFillType buttonFillType;
   final double verticalIconAjustment;
+  final bool iconOnRight;
 
   const CustomButtonWidget(
       {Key key,
@@ -16,7 +17,8 @@ class CustomButtonWidget extends StatefulWidget {
       this.icon,
       this.buttonType = ButtonType.DEFAULT,
       this.buttonFillType = ButtonFillType.FILLED,
-      this.verticalIconAjustment = -1})
+      this.verticalIconAjustment = -1,
+      this.iconOnRight = false})
       : super(key: key);
 
   @override
@@ -171,7 +173,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (widget.icon != null)
+            if (widget.icon != null && widget.iconOnRight == false)
               AnimatedContainer(
                 curve: Curves.linear,
                 duration: Duration(milliseconds: 50),
@@ -212,7 +214,36 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
                 child: Text(
                   widget.buttonText.toUpperCase(),
                 ),
-              )
+              ),
+            if (widget.icon != null && widget.iconOnRight)
+              AnimatedContainer(
+                curve: Curves.linear,
+                duration: Duration(milliseconds: 50),
+                width: buttonIconSize,
+                height: buttonIconSize,
+                // color: Colors.black,
+                child: Stack(
+                  overflow: Overflow.visible,
+                  children: <Widget>[
+                    AnimatedPositioned(
+                      curve: Curves.linear,
+                      top: topPosition,
+                      right: -5,
+                      duration: Duration(milliseconds: 50),
+                      width: buttonIconSize,
+                      height: buttonIconSize,
+                      child: LayoutBuilder(
+                        builder: (context, constraint) {
+                          return Icon(widget.icon,
+                              size: constraint.biggest.height,
+                              color: _getFontColor(isDark, widget.buttonType,
+                                  widget.buttonFillType));
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
           ],
         ),
       ),
