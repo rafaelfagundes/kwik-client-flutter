@@ -116,7 +116,7 @@ class Search extends StatelessWidget {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
                   child: Container(
-                    width: double.infinity,
+                    width: MediaQuery.of(context).size.width,
                     height: headerSize + 5,
                     color: Colors.transparent,
                   ),

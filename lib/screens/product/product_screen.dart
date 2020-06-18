@@ -1,16 +1,16 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
+import 'package:kwik_client_flutter/models/product_option_model.dart';
 import 'package:kwik_client_flutter/screen_arguments/product_arguments.dart';
-import 'package:kwik_client_flutter/shared/enums.dart';
-import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/integer_qty_widget.dart';
 import 'package:kwik_client_flutter/widgets/section_title_widget.dart';
-import 'package:kwik_client_flutter/widgets/total_value_widget.dart';
 
 import 'aditional_widget.dart';
 import 'option_widget.dart';
 import 'product_header_widget.dart';
+import 'value_and_add_footer_widget.dart';
 
 class Product extends StatefulWidget {
   @override
@@ -78,25 +78,69 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
                                 ),
                                 SizedBox(height: 32),
                                 SectionTitle('Opções'),
-                                SizedBox(height: 10),
-                                OptionWidget(
-                                    label: 'Light',
-                                    groupValue: false,
-                                    onChange: null,
-                                    value: true,
-                                    optionValue: 15),
-                                OptionWidget(
-                                    label: 'Normal',
-                                    groupValue: 'Normal' == 'Normal',
-                                    onChange: null,
-                                    value: true,
-                                    optionValue: 17.40),
-                                OptionWidget(
-                                    label: 'Duplo',
-                                    groupValue: true,
-                                    onChange: null,
-                                    value: false,
-                                    optionValue: 20.99),
+                                SizedBox(height: 16),
+                                OptionWidget(title: 'Tipo de Carne', items: [
+                                  ProductOption(
+                                    label: 'Boi',
+                                    value:
+                                        '5cce428c-6900-436e-a235-9a09277eac68',
+                                    optionPrice: 0,
+                                  ),
+                                  ProductOption(
+                                    label: 'Frango',
+                                    value:
+                                        '5cce428c-6900-4561-a235-9a09277eac68',
+                                    optionPrice: 3.0,
+                                  ),
+                                  ProductOption(
+                                    label: 'Porco',
+                                    value:
+                                        '5cce428c-6900-1234-a235-9a09277eac68',
+                                    optionPrice: 3.5,
+                                  ),
+                                ]),
+                                SizedBox(height: 16),
+                                OptionWidget(title: 'Tipo de Queijo', items: [
+                                  ProductOption(
+                                    label: 'Cheddar',
+                                    value:
+                                        '5cce428c-6900-436e-a235-9a09277eac68',
+                                    optionPrice: 0,
+                                  ),
+                                  ProductOption(
+                                    label: 'Muçarela',
+                                    value:
+                                        '5cce428c-6900-4561-a235-9a09277eac68',
+                                    optionPrice: 3.0,
+                                  ),
+                                  ProductOption(
+                                    label: 'Catupiry',
+                                    value:
+                                        '5cce428c-6900-1234-a235-9a09277eac68',
+                                    optionPrice: 2.5,
+                                  ),
+                                ]),
+                                SizedBox(height: 16),
+                                OptionWidget(title: 'Molho', items: [
+                                  ProductOption(
+                                    label: 'Da Casa',
+                                    value:
+                                        '5cce428c-6900-436e-a235-9a09277eac68',
+                                    optionPrice: 0,
+                                  ),
+                                  ProductOption(
+                                    label: 'Barbecue',
+                                    value:
+                                        '5cce428c-6900-4561-a235-9a09277eac68',
+                                    optionPrice: 4.0,
+                                  ),
+                                  ProductOption(
+                                    label: 'Especial',
+                                    value:
+                                        '5cce428c-6900-1234-a235-9a09277eac68',
+                                    optionPrice: 5.5,
+                                  ),
+                                ]),
                                 SizedBox(height: 32),
                                 SectionTitle('Adicionais'),
                                 SizedBox(height: 10),
@@ -144,6 +188,19 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
               ],
             ),
           ),
+          Positioned(
+            bottom: 0,
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 65,
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
+          ),
           ValueAndAddFooterWidget(
             label: 'Total',
             value: 45.0,
@@ -153,60 +210,5 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
         ],
       ),
     ));
-  }
-}
-
-class ValueAndAddFooterWidget extends StatelessWidget {
-  final String label;
-  final double value;
-  final double valueSize;
-  final Function onPressed;
-
-  const ValueAndAddFooterWidget(
-      {Key key,
-      @required this.label,
-      @required this.value,
-      @required this.valueSize,
-      @required this.onPressed})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 0,
-      child: Container(
-        height: 65,
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: 8,
-                  offset: Offset(0, 0),
-                  color: Colors.black.withOpacity(.05))
-            ]),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            TotalValueWidget(
-              label: label,
-              value: value,
-              valueSize: valueSize,
-            ),
-            Container(
-              width: 210,
-              child: CustomButtonWidget(
-                buttonType: ButtonType.CONFIRMATION,
-                buttonText: 'Adicionar ao Carrinho',
-                onPressed: onPressed,
-                icon: SFSymbols.cart_badge_plus,
-                verticalIconAjustment: -0.75,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
