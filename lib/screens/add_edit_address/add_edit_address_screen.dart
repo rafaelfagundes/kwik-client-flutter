@@ -4,7 +4,7 @@ import 'package:kwik_client_flutter/widgets/custom_multiline_text_field.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
-class AddEditAddress extends StatelessWidget {
+class AddEditAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(

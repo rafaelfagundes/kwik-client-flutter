@@ -61,6 +61,7 @@ class ProductItemWidget extends StatelessWidget {
           children: <Widget>[
             Hero(
               tag: heroId,
+              transitionOnUserGestures: true,
               child: Container(
                 width: 190,
                 height: 140,

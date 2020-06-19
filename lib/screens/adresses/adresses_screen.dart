@@ -5,7 +5,7 @@ import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
-class Adresses extends StatelessWidget {
+class AdressesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(

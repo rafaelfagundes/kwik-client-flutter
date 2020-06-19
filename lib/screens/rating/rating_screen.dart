@@ -7,12 +7,12 @@ import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 
-class Rating extends StatefulWidget {
+class RatingScreen extends StatefulWidget {
   @override
-  _RatingState createState() => _RatingState();
+  _RatingScreenState createState() => _RatingScreenState();
 }
 
-class _RatingState extends State<Rating> {
+class _RatingScreenState extends State<RatingScreen> {
   int _starsSelected = 0;
 
   void handleStarsSelection(int starQty) {

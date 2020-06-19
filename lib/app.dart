@@ -47,40 +47,44 @@ class App extends StatelessWidget {
                           builder: (_) => TabbedMain(), settings: settings);
                     case '/favorites':
                       return CupertinoPageRoute(
-                          builder: (_) => Favorites(), settings: settings);
+                          builder: (_) => FavoritesScreen(),
+                          settings: settings);
                     case '/stores':
                       return CupertinoPageRoute(
-                          builder: (_) => Stores(), settings: settings);
+                          builder: (_) => StoresScreen(), settings: settings);
                     case '/coupons':
                       return CupertinoPageRoute(
-                          builder: (_) => Coupons(), settings: settings);
+                          builder: (_) => CouponsScreen(), settings: settings);
                     case '/rating':
                       return CupertinoPageRoute(
-                          builder: (_) => Rating(), settings: settings);
+                          builder: (_) => RatingScreen(), settings: settings);
                     case '/profile':
                       return CupertinoPageRoute(
-                          builder: (_) => UserProfile(), settings: settings);
+                          builder: (_) => UserProfileScreen(),
+                          settings: settings);
                     case '/adresses':
                       return CupertinoPageRoute(
-                          builder: (_) => Adresses(), settings: settings);
+                          builder: (_) => AdressesScreen(), settings: settings);
                     case '/add-edit-address':
                       return CupertinoPageRoute(
-                          builder: (_) => AddEditAddress(), settings: settings);
+                          builder: (_) => AddEditAddressScreen(),
+                          settings: settings);
                     case '/help':
                       return CupertinoPageRoute(
-                          builder: (_) => Help(), settings: settings);
+                          builder: (_) => HelpScreen(), settings: settings);
                     case '/order-details':
                       return CupertinoPageRoute(
-                          builder: (_) => OrderDetails(), settings: settings);
+                          builder: (_) => OrderDetailsScreen(),
+                          settings: settings);
                     case '/store':
                       return CupertinoPageRoute(
-                          builder: (_) => Store(), settings: settings);
+                          builder: (_) => StoreScreen(), settings: settings);
                     case '/product':
                       return CupertinoPageRoute(
-                          builder: (_) => Product(), settings: settings);
+                          builder: (_) => ProductScreen(), settings: settings);
                     case '/search':
                       return CupertinoPageRoute(
-                          builder: (_) => Search(), settings: settings);
+                          builder: (_) => SearchScreen(), settings: settings);
                     default:
                       return CupertinoPageRoute(
                           builder: (_) => TabbedMain(), settings: settings);

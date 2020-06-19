@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kwik_client_flutter/widgets/integer_qty_widget.dart';
 
-class AditionalWidget extends StatelessWidget {
+class ProductAditionalWidget extends StatelessWidget {
   final String label;
   final double value;
   final int qty;
   final Function onChange;
 
-  const AditionalWidget({
+  const ProductAditionalWidget({
     Key key,
     @required this.label,
     @required this.value,
@@ -31,13 +31,18 @@ class AditionalWidget extends StatelessWidget {
                 size: 22,
               ),
               SizedBox(width: 10),
-              Text(
-                label,
-                style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: Theme.of(context).primaryColor),
+              Container(
+                width: MediaQuery.of(context).size.width - 200,
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Theme.of(context).primaryColor),
+                ),
               ),
             ],
           ),

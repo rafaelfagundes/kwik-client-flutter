@@ -9,12 +9,13 @@ import 'package:kwik_client_flutter/screens/store/store_menu_widget.dart';
 
 import 'store_header_widget.dart';
 
-class Store extends StatefulWidget {
+class StoreScreen extends StatefulWidget {
   @override
-  _StoreState createState() => _StoreState();
+  _StoreScreenState createState() => _StoreScreenState();
 }
 
-class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
+class _StoreScreenState extends State<StoreScreen>
+    with SingleTickerProviderStateMixin {
   int _innerScreenIndex = 0;
 
   void _onChangeScreen(int index) {
@@ -34,7 +35,7 @@ class _StoreState extends State<Store> with SingleTickerProviderStateMixin {
 
     final List<Widget> items = [
       HighlightsInner(logo: args.logo),
-      ProductsInner(),
+      ProductsInner(logo: args.logo),
       RatingsInner(),
       InformationInner()
     ];

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/store_item_widget.dart';
 
-class Favorites extends StatelessWidget {
+class FavoritesScreen extends StatelessWidget {
   final items = [
     StoreItem(
       key: ValueKey('ec3beb36-a38e-43d9-a15f-eb6e98baf408'),
@@ -36,7 +36,7 @@ class Favorites extends StatelessWidget {
     ),
   ];
 
-  Favorites({
+  FavoritesScreen({
     Key key,
   }) : super(key: key);
 

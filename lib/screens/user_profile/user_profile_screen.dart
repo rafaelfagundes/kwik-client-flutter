@@ -6,7 +6,7 @@ import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/gender_switch_widget.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfileScreen extends StatelessWidget {
   final Gender gender = Gender.FEMALE;
 
   @override

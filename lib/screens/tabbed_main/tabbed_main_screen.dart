@@ -13,11 +13,11 @@ class TabbedMain extends StatefulWidget {
 
 class _TabbedMainState extends State<TabbedMain> {
   static final _screens = <Widget>[
-    Home(),
-    Orders(),
-    Cart(),
-    Notifications(),
-    Settings()
+    HomeScreen(),
+    OrdersScreen(),
+    CartScreen(),
+    NotificationsScreen(),
+    SettingsScreen()
   ];
 
   int _index = 0;

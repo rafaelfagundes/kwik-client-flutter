@@ -5,19 +5,20 @@ import 'package:flutter/services.dart';
 import 'package:kwik_client_flutter/models/product_option_model.dart';
 import 'package:kwik_client_flutter/screen_arguments/product_arguments.dart';
 import 'package:kwik_client_flutter/widgets/integer_qty_widget.dart';
+import 'package:kwik_client_flutter/widgets/product_aditional_widget.dart';
 import 'package:kwik_client_flutter/widgets/section_title_widget.dart';
 
-import 'aditional_widget.dart';
 import 'option_widget.dart';
 import 'product_header_widget.dart';
 import 'value_and_add_footer_widget.dart';
 
-class Product extends StatefulWidget {
+class ProductScreen extends StatefulWidget {
   @override
-  _ProductState createState() => _ProductState();
+  _ProductScreenState createState() => _ProductScreenState();
 }
 
-class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
+class _ProductScreenState extends State<ProductScreen>
+    with SingleTickerProviderStateMixin {
   int _productQty = 1;
 
   void _onChange(qty) {
@@ -148,25 +149,25 @@ class _ProductState extends State<Product> with SingleTickerProviderStateMixin {
                                 SizedBox(height: 32),
                                 SectionTitle('Adicionais'),
                                 SizedBox(height: 10),
-                                AditionalWidget(
+                                ProductAditionalWidget(
                                   label: 'Bacon',
                                   onChange: () {},
                                   qty: 2,
                                   value: 4.0,
                                 ),
-                                AditionalWidget(
+                                ProductAditionalWidget(
                                   label: 'Picles',
                                   onChange: () {},
                                   qty: 1,
                                   value: 4.0,
                                 ),
-                                AditionalWidget(
+                                ProductAditionalWidget(
                                   label: 'Molho Especial',
                                   onChange: () {},
                                   qty: 0,
                                   value: 3.0,
                                 ),
-                                AditionalWidget(
+                                ProductAditionalWidget(
                                   label: 'Batata Frita',
                                   onChange: () {},
                                   qty: 0,

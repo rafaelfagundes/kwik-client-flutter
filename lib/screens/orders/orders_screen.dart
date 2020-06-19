@@ -4,7 +4,7 @@ import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
 import './order_item_widget.dart';
 
-class Orders extends StatelessWidget {
+class OrdersScreen extends StatelessWidget {
   final items = [
     OrderItem(
       ValueKey('b1aa37b9-4499-4b6d-ba3d-232181f3344f'),

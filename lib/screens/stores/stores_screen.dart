@@ -3,7 +3,7 @@ import 'package:kwik_client_flutter/screen_arguments/stores_list_arguments.dart'
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/store_item_widget.dart';
 
-class Stores extends StatelessWidget {
+class StoresScreen extends StatelessWidget {
   final items = [
     StoreItem(
       key: ValueKey('ec3beb36-a38e-43d9-a15f-eb6e98baf408'),
@@ -37,7 +37,7 @@ class Stores extends StatelessWidget {
     ),
   ];
 
-  Stores({
+  StoresScreen({
     Key key,
   }) : super(key: key);
 

@@ -3,7 +3,7 @@ import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
 import './notification_item_widget.dart';
 
-class Notifications extends StatelessWidget {
+class NotificationsScreen extends StatelessWidget {
   final items = [
     NotificationItem(
       new ValueKey('b1aa37b9-4499-4b6d-ba3d-232181f3344f'),
@@ -64,7 +64,7 @@ class Notifications extends StatelessWidget {
     // NotificationItem(),
   ];
 
-  Notifications({
+  NotificationsScreen({
     Key key,
   }) : super(key: key);
 

@@ -4,7 +4,7 @@ import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
 import './coupon_item_widget.dart';
 
-class Coupons extends StatelessWidget {
+class CouponsScreen extends StatelessWidget {
   final items = [
     CouponItem(ValueKey('#09gujokn9ij'),
         title: 'Cupom de 20%',

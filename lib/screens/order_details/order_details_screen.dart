@@ -8,13 +8,13 @@ import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 import './order_status_widget.dart';
 import 'list_item_widget.dart';
 
-class OrderDetails extends StatelessWidget {
+class OrderDetailsScreen extends StatelessWidget {
   final String id;
   final String title;
   final String orderValue;
   final DateTime createdAt;
 
-  const OrderDetails(
+  const OrderDetailsScreen(
       {Key key, this.id, this.title, this.orderValue, this.createdAt})
       : super(key: key);
 

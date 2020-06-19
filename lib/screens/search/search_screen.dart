@@ -8,7 +8,7 @@ import 'search_header_widget.dart';
 import 'store_search_item_widget.dart';
 import 'store_type_search_item_widget.dart';
 
-class Search extends StatelessWidget {
+class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mq = MediaQuery.of(context);

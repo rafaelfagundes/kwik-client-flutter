@@ -7,16 +7,16 @@ import 'profile_item_widget.dart';
 import 'selected_city_widget.dart';
 import 'theme_item_widget.dart';
 
-class Settings extends StatefulWidget {
-  Settings({
+class SettingsScreen extends StatefulWidget {
+  SettingsScreen({
     Key key,
   }) : super(key: key);
 
   @override
-  _SettingsState createState() => _SettingsState();
+  _SettingsScreenState createState() => _SettingsScreenState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen('Ajustes', children: <Widget>[
