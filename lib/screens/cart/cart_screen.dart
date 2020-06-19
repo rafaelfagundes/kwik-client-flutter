@@ -5,6 +5,7 @@ import 'package:kwik_client_flutter/models/cart_item.dart';
 import 'package:kwik_client_flutter/models/cart_model.dart';
 import 'package:kwik_client_flutter/models/product_aditional_model.dart';
 import 'package:kwik_client_flutter/models/product_option_model.dart';
+import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
 import 'cart_item_widget.dart';
@@ -26,7 +27,7 @@ class CartScreen extends StatelessWidget {
           itemTotalPrice: 45,
           itemQty: 1,
           urlImage:
-              'https://res.cloudinary.com/kardappio/image/upload/v1588916689/nmnff7aiogoshq6gscu4.jpg',
+              'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
           productOptions: [
             ProductOption(
               label: 'Carne de Boi',
@@ -63,7 +64,7 @@ class CartScreen extends StatelessWidget {
           itemTotalPrice: 5,
           itemQty: 2,
           urlImage:
-              'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+              'https://res.cloudinary.com/kardappio/image/upload/v1588916689/nmnff7aiogoshq6gscu4.jpg',
           productOptions: [
             ProductOption(
                 label: 'Lata - 350 ml',
@@ -90,6 +91,9 @@ class CartScreen extends StatelessWidget {
     );
 
     var bottomBarSize = 48.0;
+
+    var isDark = ThemeUtils.isDark(context);
+
     return Stack(
       children: <Widget>[
         DefaultScreen(
@@ -109,7 +113,10 @@ class CartScreen extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: 112,
-                color: Colors.transparent,
+                // color: Colors.transparent,
+                color: Theme.of(context)
+                    .scaffoldBackgroundColor
+                    .withOpacity(isDark ? 0.3 : 0.85),
               ),
             ),
           ),

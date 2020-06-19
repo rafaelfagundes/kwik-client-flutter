@@ -32,7 +32,7 @@ class TotalValueWidget extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Lato',
               fontSize: valueSize,
-              color: Color(0xFF6BC273),
+              color: Color(0xff6BC273),
               fontWeight: FontWeight.w900,
             ),
           ),
