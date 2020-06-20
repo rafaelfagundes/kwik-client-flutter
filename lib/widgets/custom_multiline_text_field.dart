@@ -38,6 +38,11 @@ class CustomMultilineTextField extends StatelessWidget {
           ),
           labelText: labelText,
           helperText: helperText,
+          helperStyle: TextStyle(
+            color: Theme.of(context).primaryColor,
+            fontFamily: 'Lato',
+            fontSize: 11,
+          ),
         ),
       ),
     );

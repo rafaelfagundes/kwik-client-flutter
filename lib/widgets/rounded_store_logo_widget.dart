@@ -17,38 +17,60 @@ class RoundedStoreLogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: heroId,
-      transitionOnUserGestures: true,
-      child: AnimatedContainer(
-        duration: Duration(
-          milliseconds: animationDuration,
-        ),
-        decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.all(Radius.circular(size / 2)),
-          border: Border.all(width: 2, color: Theme.of(context).cardColor),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0x0d000000),
-              offset: Offset(0, 4),
-              blurRadius: 8,
-            ),
-          ],
-        ),
-        constraints: BoxConstraints(
-          minHeight: size,
-          maxHeight: size,
-          minWidth: size,
-          maxWidth: size,
-        ),
-        child: ClipOval(
-          child: CachedNetworkImage(
-            fit: BoxFit.cover,
-            imageUrl: url,
-            placeholder: (context, url) =>
-                Center(child: CircularProgressIndicator()),
+    if (heroId != null) {
+      return Hero(
+        tag: heroId,
+        transitionOnUserGestures: true,
+        child: Logo(animationDuration: animationDuration, size: size, url: url),
+      );
+    } else {
+      return Logo(animationDuration: animationDuration, size: size, url: url);
+    }
+  }
+}
+
+class Logo extends StatelessWidget {
+  const Logo({
+    Key key,
+    @required this.animationDuration,
+    @required this.size,
+    @required this.url,
+  }) : super(key: key);
+
+  final int animationDuration;
+  final double size;
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: Duration(
+        milliseconds: animationDuration,
+      ),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.all(Radius.circular(size / 2)),
+        border: Border.all(width: 2, color: Theme.of(context).cardColor),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0x0d000000),
+            offset: Offset(0, 4),
+            blurRadius: 8,
           ),
+        ],
+      ),
+      constraints: BoxConstraints(
+        minHeight: size,
+        maxHeight: size,
+        minWidth: size,
+        maxWidth: size,
+      ),
+      child: ClipOval(
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          imageUrl: url,
+          placeholder: (context, url) =>
+              Center(child: CircularProgressIndicator()),
         ),
       ),
     );

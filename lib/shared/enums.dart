@@ -40,4 +40,18 @@ enum ButtonType {
   CALL_TO_ACTION_ALTERNATIVE,
 }
 
-enum ButtonFillType { FILLED, BORDER, EMPTY }
+enum ButtonFillType {
+  FILLED,
+  BORDER,
+  EMPTY,
+}
+
+enum DeliveryType {
+  DELIVERY,
+  PICKUP,
+}
+
+enum PaymentType {
+  CARD,
+  CASH,
+}

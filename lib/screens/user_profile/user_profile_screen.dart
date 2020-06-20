@@ -4,10 +4,21 @@ import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
-import 'package:kwik_client_flutter/widgets/gender_switch_widget.dart';
+import 'package:kwik_client_flutter/widgets/slide_switch_widget.dart';
 
-class UserProfileScreen extends StatelessWidget {
-  final Gender gender = Gender.FEMALE;
+class UserProfileScreen extends StatefulWidget {
+  @override
+  _UserProfileScreenState createState() => _UserProfileScreenState();
+}
+
+class _UserProfileScreenState extends State<UserProfileScreen> {
+  Gender gender = Gender.FEMALE;
+
+  void _setGender(value) {
+    setState(() {
+      gender = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +37,24 @@ class UserProfileScreen extends StatelessWidget {
         SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: GenderSwitchWidget(),
+          child: SlideSwitchWidget(
+            value: gender,
+            onChanged: _setGender,
+            options: [
+              SlideSwitchOption(
+                label: 'Feminino',
+                value: Gender.FEMALE,
+              ),
+              SlideSwitchOption(
+                label: 'Masculino',
+                value: Gender.MALE,
+              ),
+              SlideSwitchOption(
+                label: 'Não-Binário',
+                value: Gender.OTHER,
+              ),
+            ],
+          ),
         ),
         SizedBox(height: 20),
         Padding(

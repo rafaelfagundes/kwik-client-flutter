@@ -13,12 +13,14 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
     return Container(
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-            blurRadius: 8,
-            offset: Offset(0, 4),
-            color: Colors.black.withOpacity(0.05))
-      ]),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+              blurRadius: 8,
+              offset: Offset(0, 4),
+              color: Colors.black.withOpacity(0.05))
+        ],
+      ),
       child: TextField(
         onChanged: onChanged,
         autocorrect: true,
@@ -33,6 +35,11 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(8))),
           labelText: labelText,
           helperText: helperText,
+          helperStyle: TextStyle(
+            color: Theme.of(context).primaryColor,
+            fontFamily: 'Lato',
+            fontSize: 11,
+          ),
         ),
       ),
     );

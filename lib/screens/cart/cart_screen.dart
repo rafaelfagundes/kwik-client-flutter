@@ -82,9 +82,10 @@ class CartScreen extends StatelessWidget {
               'https://res.cloudinary.com/kardappio/image/upload/v1587699685/t4x5ckmfasibhih61hwe.jpg',
           productOptions: [
             ProductOption(
-                label: 'Média',
-                value: '06ca28e5-29fe-4737-886e-03efb6c9eac4',
-                optionPrice: 1)
+              label: 'Média',
+              value: '06ca28e5-29fe-4737-886e-03efb6c9eac4',
+              optionPrice: 1,
+            ),
           ],
         ),
       ],
@@ -122,11 +123,14 @@ class CartScreen extends StatelessWidget {
           ),
         ),
         ValueAndAddFooterWidget(
-            label: 'Total do Carrinho',
-            value: cart.cartTotal,
-            valueSize: 16,
-            onPressed: () {},
-            bottomPosition: bottomBarSize),
+          label: 'Total do Carrinho',
+          value: cart.cartTotal,
+          valueSize: 16,
+          onPressed: () {
+            Navigator.pushNamed(context, '/cart-order-details');
+          },
+          bottomPosition: bottomBarSize,
+        ),
       ],
     );
   }

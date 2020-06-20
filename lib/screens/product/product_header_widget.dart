@@ -85,7 +85,7 @@ class ProductHeaderWidget extends SliverPersistentHeaderDelegate {
             opacity: _getHeaderOpacity(shrinkOffset),
             child: ProductDetailsWidget(
               logo: logo,
-              heroId: 'N/A',
+              heroId: null,
               description:
                   'Sit voluptatem sint. Sunt quia qui ab natus sequi quo magnam.',
               title: title,

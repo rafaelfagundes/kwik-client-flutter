@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/utils/theme_utils.dart';
 
 import 'stars_widget.dart';
 
@@ -10,8 +9,6 @@ class RatingSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = ThemeUtils.isDark(context);
-
     return Container(
       width: 100,
       child: Column(

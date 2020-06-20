@@ -27,14 +27,8 @@ class DefaultScreen extends StatelessWidget {
             border: null,
             largeTitle: Text(
               title,
-              // style: TextStyle(
-              //   color: Theme.of(context).primaryColor,
-              //   fontFamily: 'Lato',
-              //   fontWeight: FontWeight.w900,
-              // ),
               // raleway / sen (ls -1.5) / poppins (ls -1)
               style: GoogleFonts.sen(
-                // color: Theme.of(context).primaryColor,
                 color: isDark ? Color(0xffFFFFFF) : Color(0xff0B5383),
                 fontWeight: FontWeight.w700,
                 letterSpacing: -1.5,

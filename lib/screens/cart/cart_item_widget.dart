@@ -40,12 +40,8 @@ class CartItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              RoundedSquareProductImageWidget(
-                size: 76,
-                url: item.urlImage,
-              ),
               Container(
-                margin: EdgeInsets.only(left: 10),
+                margin: EdgeInsets.only(right: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -80,6 +76,10 @@ class CartItemWidget extends StatelessWidget {
                       ),
                   ],
                 ),
+              ),
+              RoundedSquareProductImageWidget(
+                size: 76,
+                url: item.urlImage,
               ),
             ],
           ),

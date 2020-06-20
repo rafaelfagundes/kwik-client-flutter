@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:kwik_client_flutter/screens/cart/cart_order_details_screen.dart';
 import 'package:kwik_client_flutter/stores/app_store.dart';
 import 'package:kwik_client_flutter/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
@@ -85,6 +86,10 @@ class App extends StatelessWidget {
                     case '/search':
                       return CupertinoPageRoute(
                           builder: (_) => SearchScreen(), settings: settings);
+                    case '/cart-order-details':
+                      return CupertinoPageRoute(
+                          builder: (_) => CartOrderDetailsScreen(),
+                          settings: settings);
                     default:
                       return CupertinoPageRoute(
                           builder: (_) => TabbedMain(), settings: settings);
