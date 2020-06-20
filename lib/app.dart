@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:kwik_client_flutter/screens/cart/cart_order_success_screen.dart';
 import 'package:kwik_client_flutter/stores/app_store.dart';
 import 'package:kwik_client_flutter/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +10,7 @@ import './themes/light_theme.dart';
 import 'screens/add_edit_address/add_edit_address_screen.dart';
 import 'screens/adresses/adresses_screen.dart';
 import 'screens/cart/cart_order_details_screen.dart';
-import 'screens/cart/order_summary_screen.dart';
+import 'screens/cart/cart_order_summary_screen.dart';
 import 'screens/coupons/coupons_screen.dart';
 import 'screens/favorites/favorites_screen.dart';
 import 'screens/help/help_screen.dart';
@@ -93,7 +94,11 @@ class App extends StatelessWidget {
                           settings: settings);
                     case '/order-summary':
                       return CupertinoPageRoute(
-                          builder: (_) => OrderSummaryScreen(),
+                          builder: (_) => CartOrderSummaryScreen(),
+                          settings: settings);
+                    case '/order-success':
+                      return CupertinoPageRoute(
+                          builder: (_) => CartOrderSucessScreen(),
                           settings: settings);
                     default:
                       return CupertinoPageRoute(

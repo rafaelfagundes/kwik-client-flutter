@@ -6,8 +6,14 @@ class DefaultScreen extends StatelessWidget {
   final List<Widget> children;
   final String title;
   final AssetImage icon;
+  final bool paddingTop;
 
-  DefaultScreen(this.title, {this.icon, this.children = const []});
+  DefaultScreen(
+    this.title, {
+    this.icon,
+    @required this.children,
+    this.paddingTop = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +43,7 @@ class DefaultScreen extends StatelessWidget {
           ),
           SliverList(
               delegate: SliverChildListDelegate(<Widget>[
-            SizedBox(height: 20),
+            if (paddingTop) SizedBox(height: 20),
             ...children,
             SizedBox(height: 72)
           ])),

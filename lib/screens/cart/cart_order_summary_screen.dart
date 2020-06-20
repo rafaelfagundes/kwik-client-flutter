@@ -8,7 +8,7 @@ import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 import 'package:kwik_client_flutter/widgets/section_title_widget.dart';
 
-class OrderSummaryScreen extends StatelessWidget {
+class CartOrderSummaryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
@@ -194,7 +194,9 @@ class OrderSummaryScreen extends StatelessWidget {
             label: 'Total do Carrinho',
             value: 61.8,
             valueSize: 16,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/order-success');
+            },
             isLastScreen: true,
             bottomPosition: 0,
           ),
