@@ -27,11 +27,15 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
   double couponFieldHeight = 0;
 
   void _setDeliveryType(value) {
-    deliveryType = value;
+    setState(() {
+      deliveryType = value;
+    });
   }
 
   void _setPaymentType(value) {
-    paymentType = value;
+    setState(() {
+      paymentType = value;
+    });
   }
 
   void _setHasCoupon(value) {
@@ -44,6 +48,8 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
+    print(deliveryType);
+    print(paymentType);
 
     return Scaffold(
       body: Stack(
@@ -59,6 +65,7 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: SlideSwitchWidget(
+                  size: 36,
                   value: deliveryType,
                   onChanged: _setDeliveryType,
                   options: [
@@ -69,50 +76,56 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 26),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: SectionTitle(
-                  'Endereço de entrega',
-                  buttonText: 'alterar',
-                  onPressed: () {},
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            SFSymbols.location,
-                            color: Theme.of(context).primaryColor,
-                            size: 16,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            'Guarda-Mor',
-                            style: TextStyle(
-                                fontFamily: 'Lato',
-                                color: Theme.of(context).primaryColor),
-                          )
-                        ],
+              if (deliveryType == DeliveryType.DELIVERY)
+                Column(
+                  children: <Widget>[
+                    SizedBox(height: 26),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: SectionTitle(
+                        'Endereço de entrega',
+                        buttonText: 'alterar',
+                        onPressed: () {},
                       ),
-                      Text(
-                        NumberFormat.simpleCurrency(locale: 'pt_BR').format(8),
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          color: Color(0xff6BC273),
-                          fontWeight: FontWeight.bold,
+                    ),
+                    SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  SFSymbols.location,
+                                  color: Theme.of(context).primaryColor,
+                                  size: 16,
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  'R. Frederico Ozanan, 150 - Guarda-Mor',
+                                  style: TextStyle(
+                                      fontFamily: 'Lato',
+                                      color: Theme.of(context).primaryColor),
+                                )
+                              ],
+                            ),
+                            Text(
+                              NumberFormat.simpleCurrency(locale: 'pt_BR')
+                                  .format(8),
+                              style: TextStyle(
+                                fontFamily: 'Lato',
+                                color: Color(0xff6BC273),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
               SizedBox(height: 26),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -122,7 +135,8 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: SlideSwitchWidget(
-                  value: deliveryType,
+                  size: 36,
+                  value: paymentType,
                   onChanged: _setPaymentType,
                   options: [
                     SlideSwitchOption(label: 'Cartão', value: PaymentType.CARD),
@@ -131,6 +145,25 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
                   ],
                 ),
               ),
+              if (paymentType == PaymentType.CASH)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(height: 26),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: SectionTitle('Troco para'),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      width: 120,
+                      child: CustomTextField(
+                        labelText: 'Valor',
+                      ),
+                    )
+                  ],
+                ),
               SizedBox(height: 26),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -189,7 +222,7 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
             value: 46,
             valueSize: 16,
             onPressed: () {
-              Navigator.pushNamed(context, '/cart-order-details');
+              Navigator.pushNamed(context, '/order-summary');
             },
             bottomPosition: 0,
           ),

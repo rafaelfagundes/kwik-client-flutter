@@ -10,6 +10,7 @@ class ValueAndAddFooterWidget extends StatelessWidget {
   final double valueSize;
   final Function onPressed;
   final double bottomPosition;
+  final bool isLastScreen;
 
   const ValueAndAddFooterWidget({
     Key key,
@@ -18,6 +19,7 @@ class ValueAndAddFooterWidget extends StatelessWidget {
     @required this.valueSize,
     @required this.onPressed,
     this.bottomPosition = 0,
+    this.isLastScreen = false,
   }) : super(key: key);
 
   @override
@@ -39,10 +41,11 @@ class ValueAndAddFooterWidget extends StatelessWidget {
             Container(
               width: 130,
               child: CustomButtonWidget(
-                buttonType: ButtonType.DEFAULT,
-                buttonText: 'Continuar',
+                buttonType:
+                    isLastScreen ? ButtonType.CONFIRMATION : ButtonType.DEFAULT,
+                buttonText: isLastScreen ? 'Concluir Pedido' : 'Continuar',
                 onPressed: onPressed,
-                icon: SFSymbols.arrow_right,
+                icon: isLastScreen ? null : SFSymbols.arrow_right,
                 verticalIconAjustment: -0.75,
                 iconOnRight: true,
               ),

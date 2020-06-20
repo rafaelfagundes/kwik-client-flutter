@@ -12,7 +12,7 @@ class RoundedStoreLogoWidget extends StatelessWidget {
     this.animationDuration = 1000,
     this.size = 64,
     @required this.url,
-    @required this.heroId,
+    this.heroId,
   }) : super(key: key);
 
   @override
