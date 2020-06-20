@@ -21,6 +21,13 @@ class CartOrderSucessScreen extends StatelessWidget {
                 padding: EdgeInsets.all(32),
                 decoration: BoxDecoration(
                     color: Theme.of(context).cardColor,
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0x0d000000),
+                        offset: Offset(0, 4),
+                        blurRadius: 16,
+                      ),
+                    ],
                     borderRadius: BorderRadius.all(Radius.circular(16))),
                 child: Column(
                   children: <Widget>[

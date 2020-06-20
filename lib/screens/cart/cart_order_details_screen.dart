@@ -48,8 +48,6 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
-    print(deliveryType);
-    print(paymentType);
 
     return Scaffold(
       body: Stack(

@@ -29,14 +29,19 @@ class SlideSwitchWidget extends StatefulWidget {
 }
 
 class _SlideSwitchWidgetState extends State<SlideSwitchWidget> {
-  int index = 0;
-
-  void _setIndex(value) {
+  void _setValue(value) {
     widget.onChanged(widget.options[value].value);
+  }
 
-    setState(() {
-      index = value;
+  int _getPosition() {
+    int _index = 0;
+
+    widget.options.asMap().forEach((index, element) {
+      if (element.value == widget.value) {
+        _index = index;
+      }
     });
+    return _index;
   }
 
   @override
@@ -50,7 +55,7 @@ class _SlideSwitchWidgetState extends State<SlideSwitchWidget> {
         Container(
           height: widget.size,
           decoration: BoxDecoration(
-              color: isDark ? Color(0xff232323) : Colors.white,
+              color: isDark ? Color(0xFF232323) : Colors.white,
               boxShadow: [
                 BoxShadow(
                     blurRadius: 8,
@@ -61,7 +66,7 @@ class _SlideSwitchWidgetState extends State<SlideSwitchWidget> {
         ),
         AnimatedPositioned(
           duration: Duration(milliseconds: 225),
-          left: index * itemWidth,
+          left: _getPosition() * itemWidth,
           child: Container(
             height: widget.size,
             width: itemWidth,
@@ -78,9 +83,9 @@ class _SlideSwitchWidgetState extends State<SlideSwitchWidget> {
                   var _index = widget.options.indexOf(option);
                   return Option(
                     option.label,
-                    active: index == _index,
+                    active: widget.value == option.value,
                     index: _index,
-                    onChanged: _setIndex,
+                    onChanged: _setValue,
                     size: widget.size,
                     itemWidth: itemWidth,
                     margin: widget.margin,
@@ -96,13 +101,13 @@ class _SlideSwitchWidgetState extends State<SlideSwitchWidget> {
 }
 
 class Option extends StatelessWidget {
-  final String value;
   final bool active;
+  final double itemWidth;
+  final double margin;
+  final double size;
   final Function onChanged;
   final int index;
-  final double size;
-  final double margin;
-  final double itemWidth;
+  final String value;
 
   const Option(
     this.value, {
