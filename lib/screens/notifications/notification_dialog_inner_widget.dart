@@ -70,7 +70,7 @@ class NotificationDialogInnerWidget extends StatelessWidget {
     }
 
     return Container(
-      height: 175,
+      height: 236,
       child: Column(
         children: <Widget>[
           Text(
@@ -93,6 +93,7 @@ class NotificationDialogInnerWidget extends StatelessWidget {
                   description,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
                   style: TextStyle(
                     fontSize: 14,
                     fontFamily: 'Lato',
@@ -122,6 +123,14 @@ class NotificationDialogInnerWidget extends StatelessWidget {
           CustomButtonWidget(
               buttonText: _getButtonText(isNegative, notificationType),
               onPressed: () => _buttonAction(notificationType, id, logo)),
+          SizedBox(height: 16),
+          CustomButtonWidget(
+              buttonFillType: ButtonFillType.BORDER,
+              buttonType: ButtonType.CANCEL,
+              buttonText: 'fechar',
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ],
       ),
     );

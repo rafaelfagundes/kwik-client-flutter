@@ -50,7 +50,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
         return [Color(0xff17B890), Color(0xff19C89C)];
         break;
       case ButtonType.CANCEL:
-        return [Color(0xffBC4749), Color(0xffC9696B)];
+        return [Color(0xffE00000), Color(0xffFF0A0A)];
         break;
       case ButtonType.CALL_TO_ACTION:
         return [Color(0xffE0A800), Color(0xffFFCC33)];
