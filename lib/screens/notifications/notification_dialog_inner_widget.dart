@@ -46,6 +46,19 @@ class NotificationDialogInnerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
 
+    bool _hasCloseButton(NotificationType notificationType) {
+      switch (notificationType) {
+        case NotificationType.RATING_REQUEST:
+        case NotificationType.CONFIRMED_ORDER:
+        case NotificationType.READY_FOR_PICKUP:
+        case NotificationType.IN_DELIVERY:
+          return true;
+          break;
+        default:
+          return false;
+      }
+    }
+
     void _buttonAction(
         NotificationType notificationType, String id, String logo) {
       switch (notificationType) {
@@ -70,7 +83,7 @@ class NotificationDialogInnerWidget extends StatelessWidget {
     }
 
     return Container(
-      height: 236,
+      height: _hasCloseButton(notificationType) ? 236 : 175,
       child: Column(
         children: <Widget>[
           Text(
@@ -123,14 +136,19 @@ class NotificationDialogInnerWidget extends StatelessWidget {
           CustomButtonWidget(
               buttonText: _getButtonText(isNegative, notificationType),
               onPressed: () => _buttonAction(notificationType, id, logo)),
-          SizedBox(height: 16),
-          CustomButtonWidget(
-              buttonFillType: ButtonFillType.BORDER,
-              buttonType: ButtonType.CANCEL,
-              buttonText: 'fechar',
-              onPressed: () {
-                Navigator.pop(context);
-              }),
+          if (_hasCloseButton(notificationType))
+            Column(
+              children: <Widget>[
+                SizedBox(height: 16),
+                CustomButtonWidget(
+                    buttonFillType: ButtonFillType.BORDER,
+                    buttonType: ButtonType.CANCEL,
+                    buttonText: 'fechar',
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
+              ],
+            ),
         ],
       ),
     );
