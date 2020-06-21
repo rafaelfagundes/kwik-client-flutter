@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
+import 'package:kwik_client_flutter/utils/theme_utils.dart';
+
+import 'coupon_dialog_inner_widget.dart';
 
 class CouponItem extends StatelessWidget {
+  final String id;
   final DateTime validUntil;
   final String title;
   final String couponCode;
   final bool isValid;
-  final CouponType couponType;
+  final DiscountType couponType;
   final double couponValue;
 
   CouponItem(Key key,
-      {@required this.title,
+      {@required this.id,
+      @required this.title,
       @required this.couponCode,
       @required this.validUntil,
       @required this.isValid,
@@ -21,9 +26,38 @@ class CouponItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = ThemeUtils.isDark(context);
+
+    Future<void> _showMyDialog() async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: isDark ? Color(0xFF232323) : Color(0xFFFFFFFF),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(16.0),
+              ),
+            ),
+            content: CouponDialogInnerWidget(
+                id: id,
+                validUntil: validUntil,
+                title: title,
+                couponCode: couponCode,
+                isValid: isValid,
+                couponType: couponType,
+                couponValue: couponValue,
+                description:
+                    'Et vel iste nihil aut ut atque. Dolores et quasi. Omnis animi voluptates voluptatem. Est quis iure repellendus et animi magni sunt. Ex rem fugit. Vitae at aliquid est debitis illum incidunt qui. Labore qui impedit nulla omnis dolorem nobis voluptatum. Magni eos alias.Reiciendis quis voluptatem sed deserunt voluptate dolorem vero minima blanditiis. Autem iste dignissimos officia consequatur. Veniam beatae vel. Est quaerat dolorem laborum. Aut eius et minima ipsam excepturi. Eos architecto ipsam.'),
+          );
+        },
+      );
+    }
+
     return GestureDetector(
       onTap: () {
-        print('Tapped');
+        _showMyDialog();
       },
       onHorizontalDragStart: (details) => print(details),
       onHorizontalDragEnd: (details) => print(details),
@@ -118,7 +152,7 @@ class CouponItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  couponType == CouponType.PERCENTAGE
+                  couponType == DiscountType.PERCENTAGE
                       ? Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[

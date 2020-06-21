@@ -1,8 +1,3 @@
-enum CouponType {
-  VALUE,
-  PERCENTAGE,
-}
-
 enum OrderStatusType {
   OPEN,
   CONFIRMED,
@@ -38,6 +33,7 @@ enum ButtonType {
   CANCEL,
   CALL_TO_ACTION,
   CALL_TO_ACTION_ALTERNATIVE,
+  DISABLED
 }
 
 enum ButtonFillType {
@@ -54,4 +50,18 @@ enum DeliveryType {
 enum PaymentType {
   CARD,
   CASH,
+}
+
+enum NotificationType {
+  CONFIRMED_ORDER,
+  DELIVERED,
+  EXPIRED,
+  GENERAL,
+  IN_DELIVERY,
+  NEW_ORDER,
+  ORDER_CANCELED_BY_STORE,
+  ORDER_CANCELED_BY_USER,
+  RATING,
+  RATING_REQUEST,
+  READY_FOR_PICKUP,
 }

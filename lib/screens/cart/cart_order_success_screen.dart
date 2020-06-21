@@ -97,7 +97,11 @@ class CartOrderSucessScreen extends StatelessWidget {
                         buttonType: ButtonType.CALL_TO_ACTION_ALTERNATIVE,
                         buttonText: 'Ir Para o Início',
                         onPressed: () {
-                          Navigator.pushNamed(context, '/orders');
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            '/',
+                            (route) => false,
+                          );
                         },
                       ),
                     )

@@ -58,6 +58,9 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
       case ButtonType.CALL_TO_ACTION_ALTERNATIVE:
         return [Color(0xff007FE0), Color(0xff008BF8)];
         break;
+      case ButtonType.DISABLED:
+        return [Color(0xffa28f9d), Color(0xffb5a6b1)];
+        break;
       default:
         return [Color(0xff800080), Color(0xff440044)];
     }

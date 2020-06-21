@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/screens/rating/rating_stars_widget.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
+import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_multiline_text_field.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
+
+import 'rating_dialog_inner_widget.dart';
 
 class RatingScreen extends StatefulWidget {
   @override
@@ -23,6 +26,26 @@ class _RatingScreenState extends State<RatingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = ThemeUtils.isDark(context);
+
+    Future<void> _showMyDialog() async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: isDark ? Color(0xFF232323) : Color(0xFFFFFFFF),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(16.0),
+              ),
+            ),
+            content: RatingDialogInnerWidget(local: 'McDonald\'s'),
+          );
+        },
+      );
+    }
+
     return DefaultScreen(
       'Avaliação',
       children: <Widget>[
@@ -73,7 +96,9 @@ class _RatingScreenState extends State<RatingScreen> {
           child: CustomButtonWidget(
             buttonType: ButtonType.DEFAULT,
             buttonText: 'Enviar Avaliação',
-            onPressed: () {},
+            onPressed: () {
+              _showMyDialog();
+            },
           ),
         )
       ],
