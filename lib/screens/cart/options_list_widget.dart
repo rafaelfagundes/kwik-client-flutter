@@ -22,7 +22,7 @@ class OptionsListWidget extends StatelessWidget {
         children: <Widget>[
           ...productOptions.map((option) {
             return Container(
-              padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
               decoration: BoxDecoration(
                 color: isDark ? Color(0xff3F3F3F) : Color(0xffF8F8F8),
                 borderRadius: BorderRadius.all(
@@ -34,7 +34,7 @@ class OptionsListWidget extends StatelessWidget {
                 style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontFamily: 'Lato',
-                    fontSize: 10,
+                    fontSize: 11,
                     fontWeight: FontWeight.w700),
               ),
             );

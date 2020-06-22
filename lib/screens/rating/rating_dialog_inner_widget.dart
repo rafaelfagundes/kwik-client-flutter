@@ -41,7 +41,7 @@ class RatingDialogInnerWidget extends StatelessWidget {
           ),
           SizedBox(height: 26),
           CustomButtonWidget(
-              buttonText: 'VOLTAR',
+              buttonText: 'Voltar',
               onPressed: () {
                 Navigator.pop(context);
                 Navigator.pop(context);

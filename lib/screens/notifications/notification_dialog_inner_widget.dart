@@ -30,15 +30,15 @@ class NotificationDialogInnerWidget extends StatelessWidget {
   String _getButtonText(bool isNegative, NotificationType notificationType) {
     switch (notificationType) {
       case NotificationType.RATING_REQUEST:
-        return 'avaliar o local';
+        return 'Avaliar o Local';
         break;
       case NotificationType.CONFIRMED_ORDER:
       case NotificationType.READY_FOR_PICKUP:
       case NotificationType.IN_DELIVERY:
-        return 'ir para pedidos';
+        return 'Ir Para Pedidos';
         break;
       default:
-        return 'ok';
+        return 'OK';
     }
   }
 
@@ -141,9 +141,9 @@ class NotificationDialogInnerWidget extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 16),
                 CustomButtonWidget(
-                    buttonFillType: ButtonFillType.BORDER,
-                    buttonType: ButtonType.CANCEL,
-                    buttonText: 'fechar',
+                    buttonFillType: ButtonFillType.EMPTY,
+                    buttonType: ButtonType.DISABLED,
+                    buttonText: 'Fechar',
                     onPressed: () {
                       Navigator.pop(context);
                     }),

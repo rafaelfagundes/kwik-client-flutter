@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'custom_navigation_bar_widget.dart';
+
 class DefaultScreen extends StatelessWidget {
   final List<Widget> children;
   final String title;
@@ -24,7 +26,7 @@ class DefaultScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Container(
         child: CustomScrollView(slivers: <Widget>[
-          CupertinoSliverNavigationBar(
+          CustomCupertinoSliverNavigationBar(
             actionsForegroundColor: Theme.of(context).primaryColor,
             automaticallyImplyTitle: true,
             automaticallyImplyLeading: true,

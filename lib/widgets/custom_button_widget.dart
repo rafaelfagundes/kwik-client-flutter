@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
 
 class CustomButtonWidget extends StatefulWidget {
@@ -29,7 +30,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
     with SingleTickerProviderStateMixin {
   double buttonHeight = 45.0;
   double buttonMargin = 0.0;
-  double buttonFontSize = 12;
+  double buttonFontSize = 14;
   double buttonIconSize = 22;
   double buttonSpacer = 5;
   Color shadowColor = Colors.black12;
@@ -126,7 +127,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
     setState(() {
       buttonHeight = 45 * 0.8;
       buttonMargin = (45 - 45 * 0.8);
-      buttonFontSize = 12 * 0.8;
+      buttonFontSize = 14 * 0.8;
       shadowColor = Colors.transparent;
       buttonIconSize = 22 * 0.8;
       buttonSpacer = 5 * 0.8;
@@ -138,7 +139,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
     setState(() {
       buttonHeight = 45;
       buttonMargin = 0;
-      buttonFontSize = 12;
+      buttonFontSize = 14;
       shadowColor = Colors.black12;
       buttonIconSize = 22;
       buttonSpacer = 5;
@@ -205,17 +206,22 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
               ),
             if (widget.buttonText != null)
               AnimatedDefaultTextStyle(
-                style: TextStyle(
+                style: GoogleFonts.sourceSansPro(
+                  fontWeight: FontWeight.w600,
+                  // letterSpacing: 0.5,
                   fontSize: buttonFontSize,
                   color: _getFontColor(
                       isDark, widget.buttonType, widget.buttonFillType),
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Lato',
                 ),
+                // style: TextStyle(
+                //   fontWeight: FontWeight.w700,
+                //   fontFamily: 'Lato',
+                //   letterSpacing: 1,
+                // ),
                 duration: const Duration(milliseconds: 50),
                 curve: Curves.linear,
                 child: Text(
-                  widget.buttonText.toUpperCase(),
+                  widget.buttonText,
                 ),
               ),
             if (widget.icon != null && widget.iconOnRight)

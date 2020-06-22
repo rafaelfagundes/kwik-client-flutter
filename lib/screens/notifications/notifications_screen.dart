@@ -27,7 +27,7 @@ class NotificationsScreen extends StatelessWidget {
             'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png'),
     NotificationItem(new ValueKey('9848a550-4f80-473e-823b-fbdd9d7a228f'),
         id: '9848a550-4f80-473e-823b-fbdd9d7a228f',
-        title: 'Diga o Que Você Achou',
+        title: 'Diga o que Você Achou',
         description: 'Conte para todos como foi o pedido em McDonald\'s',
         createdAt: new DateTime(2020, 05, 30, 20, 01, 00),
         isRead: false,
