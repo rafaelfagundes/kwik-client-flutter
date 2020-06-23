@@ -141,7 +141,7 @@ class NotificationDialogInnerWidget extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 16),
                 CustomButtonWidget(
-                    buttonFillType: ButtonFillType.EMPTY,
+                    buttonFillType: ButtonFillType.BORDER,
                     buttonType: ButtonType.DISABLED,
                     buttonText: 'Fechar',
                     onPressed: () {

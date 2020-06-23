@@ -11,16 +11,16 @@ class CustomButtonWidget extends StatefulWidget {
   final double verticalIconAjustment;
   final bool iconOnRight;
 
-  const CustomButtonWidget(
-      {Key key,
-      this.buttonText,
-      this.onPressed,
-      this.icon,
-      this.buttonType = ButtonType.DEFAULT,
-      this.buttonFillType = ButtonFillType.FILLED,
-      this.verticalIconAjustment = -1,
-      this.iconOnRight = false})
-      : super(key: key);
+  const CustomButtonWidget({
+    Key key,
+    this.buttonText,
+    this.onPressed,
+    this.icon,
+    this.buttonType = ButtonType.DEFAULT,
+    this.buttonFillType = ButtonFillType.FILLED,
+    this.verticalIconAjustment = -1,
+    this.iconOnRight = false,
+  }) : super(key: key);
 
   @override
   _CustomButtonWidgetState createState() => _CustomButtonWidgetState();
@@ -73,7 +73,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
       case ButtonFillType.BORDER:
         return BoxDecoration(
           border:
-              Border.all(color: _getColors(isDark, buttonType)[0], width: 2),
+              Border.all(color: _getColors(isDark, buttonType)[0], width: 1),
           borderRadius: BorderRadius.all(
             Radius.circular(8),
           ),

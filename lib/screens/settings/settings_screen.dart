@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
@@ -22,7 +23,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return DefaultScreen('Ajustes', children: <Widget>[
       ProfileItemWidget(),
       SizedBox(height: 26),
-      // SelectedCity
       SelectedCityWidget(),
       SizedBox(height: 12),
       MenuItemWidget(
