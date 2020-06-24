@@ -15,19 +15,19 @@ class TitleWithActionWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              title,
+              title.toUpperCase(),
               style: TextStyle(
                   fontFamily: 'Lato',
                   fontWeight: FontWeight.w700,
-                  fontSize: 16,
+                  fontSize: 11,
                   color: Theme.of(context).primaryColor),
             ),
             Text(
-              actionText,
+              actionText.toUpperCase(),
               style: TextStyle(
                   fontFamily: 'Lato',
                   fontWeight: FontWeight.w700,
-                  fontSize: 14,
+                  fontSize: 10,
                   color: Theme.of(context).accentColor),
             ),
           ],

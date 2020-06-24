@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kwik_client_flutter/screen_arguments/store_arguments.dart';
-import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
+import 'package:kwik_client_flutter/utils/theme_utils.dart';
+
+import 'rounded_store_logo_widget.dart';
 
 class StoreHorizontalItemWidget extends StatelessWidget {
   final String id;
   final String title;
   final double rating;
-  final int numberOfRatings;
   final List<int> deliveryTimes;
   final String logo;
-  final Color color;
+  final bool recentlyViewed;
 
-  const StoreHorizontalItemWidget({
-    Key key,
-    @required this.id,
-    @required this.title,
-    @required this.rating,
-    @required this.numberOfRatings,
-    @required this.deliveryTimes,
-    @required this.logo,
-    @required this.color,
-  }) : super(key: key);
+  const StoreHorizontalItemWidget(
+      {Key key,
+      @required this.id,
+      @required this.title,
+      @required this.rating,
+      @required this.deliveryTimes,
+      @required this.logo,
+      this.recentlyViewed = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var isDark = ThemeUtils.isDark(context);
+
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, '/store',
-            arguments: StoreArguments(id: id, logo: logo));
+            arguments: StoreArguments(
+                id: recentlyViewed ? 'recent_' + id : id, logo: logo));
       },
       child: Container(
         margin: EdgeInsets.only(right: 10),
@@ -38,15 +41,18 @@ class StoreHorizontalItemWidget extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Container(
-                  width: 140,
-                  height: 90,
+                  width: 115,
+                  height: 160,
                   decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.all(Radius.circular(8))),
+                    color: isDark ? Color(0xff232323) : Color(0xfff5f5f5),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(16),
+                    ),
+                  ),
                 ),
                 Container(
-                  width: 140,
-                  height: 90,
+                  width: 115,
+                  height: 160,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,99 +61,73 @@ class StoreHorizontalItemWidget extends StatelessWidget {
                         size: 72,
                         animationDuration: 100,
                         url: logo,
-                        heroId: id,
+                        heroId: recentlyViewed ? 'recent_' + id : id,
+                      ),
+                      SizedBox(height: 3),
+                      Container(
+                        height: 40,
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        child: Center(
+                          child: Container(
+                            child: Text(
+                              title,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Lato',
+                                fontSize: 13,
+                                fontWeight: FontWeight.w700,
+                                height: 1.2,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 3),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            child: Icon(
+                              SFSymbols.star_fill,
+                              size: 14,
+                              color: Colors.yellow[700],
+                            ),
+                          ),
+                          SizedBox(width: 2),
+                          Container(
+                            margin: EdgeInsets.only(top: 2),
+                            child: Text(rating.toStringAsPrecision(2),
+                                style: TextStyle(
+                                    fontFamily: 'Lato',
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700)),
+                          ),
+                          SizedBox(width: 7),
+                          Container(
+                            padding: EdgeInsets.only(top: 2),
+                            width: 15,
+                            height: 15,
+                            child: SvgPicture.string(deliveryTimeSVG,
+                                allowDrawingOutsideViewBox: true,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                          SizedBox(width: 2),
+                          Container(
+                            margin: EdgeInsets.only(top: 2),
+                            child: Text(
+                                '${deliveryTimes[0]}-${deliveryTimes[1]}"',
+                                style: TextStyle(
+                                    fontFamily: 'Lato',
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700)),
+                          ),
+                        ],
                       )
                     ],
                   ),
                 )
               ],
             ),
-            Container(
-              width: 140,
-              height: 40,
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    title,
-                    style: TextStyle(
-                        fontFamily: 'Lato',
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  SizedBox(
-                    height: 3,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        child: Icon(
-                          SFSymbols.star_fill,
-                          size: 14,
-                          color: Colors.yellow[700],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 2,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 2),
-                        child: Text(rating.toStringAsPrecision(2),
-                            style: TextStyle(
-                                fontFamily: 'Lato',
-                                fontSize: 11,
-                                fontWeight: FontWeight.w700)),
-                      ),
-                      SizedBox(
-                        width: 2,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 2),
-                        child: Text('($numberOfRatings)',
-                            style: TextStyle(
-                                fontFamily: 'Lato',
-                                fontSize: 11,
-                                fontWeight: FontWeight.w700,
-                                color: Theme.of(context)
-                                    .primaryColor
-                                    .withOpacity(0.5))),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: 2),
-                        width: 15,
-                        height: 15,
-                        child: SvgPicture.string(deliveryTimeSVG,
-                            allowDrawingOutsideViewBox: true,
-                            color: Theme.of(context).primaryColor),
-                      ),
-                      SizedBox(
-                        width: 2,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 2),
-                        child: Text('${deliveryTimes[0]}-${deliveryTimes[1]}"',
-                            style: TextStyle(
-                                fontFamily: 'Lato',
-                                fontSize: 11,
-                                fontWeight: FontWeight.w700)),
-                      ),
-                      SizedBox(
-                        width: 2,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
           ],
         ),
       ),

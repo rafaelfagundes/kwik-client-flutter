@@ -15,33 +15,51 @@ class BusinessTypeButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var margin = 16;
+    var itemSpacing = 10;
+    var itemRowQty = 5;
+    var iconSize = (MediaQuery.of(context).size.width -
+            (itemRowQty * itemSpacing - itemSpacing) -
+            (margin * 2)) /
+        itemRowQty;
+
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, '/stores',
             arguments: StoresListArguments(id: id, title: label, icon: image));
       },
       child: Container(
-        margin: EdgeInsets.only(right: 10),
+        // margin: EdgeInsets.only(right: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: 72,
-              height: 72,
+              width: iconSize,
+              height: iconSize,
               decoration: BoxDecoration(
                   color: Theme.of(context).backgroundColor,
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(iconSize * 0.214521452)),
                   image: DecorationImage(fit: BoxFit.cover, image: image)),
             ),
             SizedBox(height: 5),
-            Text(
-              label,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Lato',
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor),
+            Container(
+              width: iconSize,
+              // height: 12.7,
+              height: 14,
+              child: Center(
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    label,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).primaryColor),
+                  ),
+                ),
+              ),
             )
           ],
         ),

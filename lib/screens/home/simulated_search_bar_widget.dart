@@ -6,6 +6,7 @@ class SimulatedSearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
+
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, '/search');
@@ -14,7 +15,13 @@ class SimulatedSearchBarWidget extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 16),
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
-            color: Theme.of(context).backgroundColor,
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 8,
+                  offset: Offset(0, 4),
+                  color: Colors.black.withOpacity(0.05))
+            ],
+            color: isDark ? Color(0xff232323) : Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(8))),
         child: Row(
           children: <Widget>[

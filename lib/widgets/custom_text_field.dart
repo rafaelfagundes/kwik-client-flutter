@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/utils/theme_utils.dart';
 
 class CustomTextField extends StatelessWidget {
   final String labelText;
@@ -11,7 +12,7 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
+    var isDark = ThemeUtils.isDark(context);
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
