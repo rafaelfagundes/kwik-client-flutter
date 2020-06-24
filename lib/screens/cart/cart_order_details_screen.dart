@@ -48,6 +48,7 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
+    var paddingBottom = MediaQuery.of(context).padding.bottom;
 
     return Scaffold(
       body: Stack(
@@ -206,7 +207,7 @@ class _CartOrderDetailsScreenState extends State<CartOrderDetailsScreen> {
                 filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 65,
+                  height: 65 + paddingBottom,
                   // color: Colors.transparent,
                   color: Theme.of(context)
                       .scaffoldBackgroundColor

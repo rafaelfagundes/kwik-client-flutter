@@ -95,6 +95,8 @@ class CartScreen extends StatelessWidget {
 
     var isDark = ThemeUtils.isDark(context);
 
+    print(MediaQuery.of(context).padding.bottom);
+
     return Stack(
       children: <Widget>[
         DefaultScreen(
@@ -113,7 +115,7 @@ class CartScreen extends StatelessWidget {
               filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 112,
+                height: 65 + MediaQuery.of(context).padding.bottom,
                 // color: Colors.transparent,
                 color: Theme.of(context)
                     .scaffoldBackgroundColor
@@ -129,7 +131,8 @@ class CartScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, '/cart-order-details');
           },
-          bottomPosition: bottomBarSize,
+          // bottomPosition: bottomBarSize,
+          bottomPosition: 5,
         ),
       ],
     );

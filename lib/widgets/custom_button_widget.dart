@@ -69,6 +69,8 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
 
   BoxDecoration _getDecoration(
       bool isDark, ButtonType buttonType, ButtonFillType buttonFillType) {
+    var color = _getColors(isDark, buttonType)[0];
+
     switch (buttonFillType) {
       case ButtonFillType.BORDER:
         return BoxDecoration(
@@ -93,7 +95,10 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
               Radius.circular(8),
             ),
             boxShadow: [
-              BoxShadow(blurRadius: 8, offset: Offset(0, 2), color: shadowColor)
+              BoxShadow(
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                  color: color.withOpacity(.35))
             ]);
         break;
       default:
@@ -128,7 +133,6 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
       buttonHeight = 45 * 0.8;
       buttonMargin = (45 - 45 * 0.8);
       buttonFontSize = 14 * 0.8;
-      shadowColor = Colors.transparent;
       buttonIconSize = 22 * 0.8;
       buttonSpacer = 5 * 0.8;
       topPosition = widget.verticalIconAjustment * 1.5;
@@ -140,7 +144,6 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
       buttonHeight = 45;
       buttonMargin = 0;
       buttonFontSize = 14;
-      shadowColor = Colors.black12;
       buttonIconSize = 22;
       buttonSpacer = 5;
       topPosition = widget.verticalIconAjustment;
@@ -150,6 +153,15 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
   @override
   Widget build(BuildContext context) {
     var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
+
+    var fontColor =
+        _getFontColor(isDark, widget.buttonType, widget.buttonFillType);
+
+    var buttonDecoration =
+        _getDecoration(isDark, widget.buttonType, widget.buttonFillType);
+
+    var colors = _getColors(isDark, widget.buttonType);
+
     return GestureDetector(
       onTapDown: (_) {
         _buttonPressed();
@@ -172,8 +184,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
             right: buttonMargin,
             bottom: buttonMargin / 2,
             top: buttonMargin / 2),
-        decoration:
-            _getDecoration(isDark, widget.buttonType, widget.buttonFillType),
+        decoration: buttonDecoration,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -194,10 +205,11 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
                       height: buttonIconSize,
                       child: LayoutBuilder(
                         builder: (context, constraint) {
-                          return Icon(widget.icon,
-                              size: constraint.biggest.height,
-                              color: _getFontColor(isDark, widget.buttonType,
-                                  widget.buttonFillType));
+                          return Icon(
+                            widget.icon,
+                            size: constraint.biggest.height,
+                            color: fontColor,
+                          );
                         },
                       ),
                     )
@@ -208,16 +220,9 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
               AnimatedDefaultTextStyle(
                 style: GoogleFonts.sourceSansPro(
                   fontWeight: FontWeight.w600,
-                  // letterSpacing: 0.5,
                   fontSize: buttonFontSize,
-                  color: _getFontColor(
-                      isDark, widget.buttonType, widget.buttonFillType),
+                  color: fontColor,
                 ),
-                // style: TextStyle(
-                //   fontWeight: FontWeight.w700,
-                //   fontFamily: 'Lato',
-                //   letterSpacing: 1,
-                // ),
                 duration: const Duration(milliseconds: 50),
                 curve: Curves.linear,
                 child: Text(
@@ -230,7 +235,6 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
                 duration: Duration(milliseconds: 50),
                 width: buttonIconSize,
                 height: buttonIconSize,
-                // color: Colors.black,
                 child: Stack(
                   overflow: Overflow.visible,
                   children: <Widget>[
@@ -245,8 +249,7 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
                         builder: (context, constraint) {
                           return Icon(widget.icon,
                               size: constraint.biggest.height,
-                              color: _getFontColor(isDark, widget.buttonType,
-                                  widget.buttonFillType));
+                              color: fontColor);
                         },
                       ),
                     )

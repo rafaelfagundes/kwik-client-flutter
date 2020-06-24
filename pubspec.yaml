@@ -78,9 +78,12 @@ flutter:
     - assets/images/logo_branco.png
     - assets/images/logo_roxo.png
     - assets/images/logo.png
+    - assets/images/logo.svg
     - assets/images/no_picture.png
     - assets/images/splash.png
     - assets/images/icon.png
+    - assets/images/socials_dark.png
+    - assets/images/socials_light.png
     - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see

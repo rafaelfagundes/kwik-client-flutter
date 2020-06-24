@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import './themes/light_theme.dart';
 import 'screens/add_edit_address/add_edit_address_screen.dart';
 import 'screens/adresses/adresses_screen.dart';
+import 'screens/auth/auth_screen.dart';
 import 'screens/cart/cart_order_details_screen.dart';
 import 'screens/cart/cart_order_summary_screen.dart';
 import 'screens/coupons/coupons_screen.dart';
@@ -42,16 +43,22 @@ class App extends StatelessWidget {
                 title: 'Kwik',
                 theme: store.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
-                initialRoute: '/',
+                initialRoute: '/auth',
                 onGenerateRoute: (settings) {
                   switch (settings.name) {
                     case '/':
                       return CupertinoPageRoute(
                           builder: (_) => TabbedMain(), settings: settings);
+                    case '/auth':
+                      return CupertinoPageRoute(
+                        builder: (_) => AuthScreen(),
+                        settings: settings,
+                      );
                     case '/favorites':
                       return CupertinoPageRoute(
-                          builder: (_) => FavoritesScreen(),
-                          settings: settings);
+                        builder: (_) => FavoritesScreen(),
+                        settings: settings,
+                      );
                     case '/stores':
                       return CupertinoPageRoute(
                           builder: (_) => StoresScreen(), settings: settings);

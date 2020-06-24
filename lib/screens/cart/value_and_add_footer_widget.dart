@@ -24,12 +24,19 @@ class ValueAndAddFooterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var paddingBottom = MediaQuery.of(context).padding.bottom;
+
     return Positioned(
       bottom: bottomPosition,
       child: Container(
-        height: 65,
+        height: 65 + paddingBottom,
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 12,
+            bottom:
+                paddingBottom > 0 ? MediaQuery.of(context).padding.bottom : 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[

@@ -38,7 +38,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       MenuItemWidget(
           title: 'Ajuda', route: '/help', icon: SFSymbols.question_circle),
       SizedBox(height: 32),
-      MenuItemWidget(title: 'Sair', route: '/logout', icon: SFSymbols.escape),
+      MenuItemWidget(
+        title: 'Sair',
+        icon: SFSymbols.escape,
+        onPressed: () {
+          Navigator.pushNamedAndRemoveUntil(context, '/auth', (route) => false);
+        },
+      ),
     ]);
   }
 }

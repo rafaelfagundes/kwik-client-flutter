@@ -200,7 +200,7 @@ class _ProductScreenState extends State<ProductScreen>
                 filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 65,
+                  height: 65 + MediaQuery.of(context).padding.bottom,
                   color: Colors.transparent,
                 ),
               ),

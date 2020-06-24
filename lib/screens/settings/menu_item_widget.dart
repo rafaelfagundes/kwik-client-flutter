@@ -5,21 +5,25 @@ class MenuItemWidget extends StatelessWidget {
   final String route;
   final IconData icon;
   final int badgeCount;
+  final Function onPressed;
 
   const MenuItemWidget(
       {Key key,
       @required this.title,
-      @required this.route,
+      this.route,
       @required this.icon,
-      this.badgeCount = 0})
+      this.badgeCount = 0,
+      this.onPressed})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, route);
-      },
+      onTap: onPressed == null
+          ? () {
+              Navigator.pushNamed(context, route);
+            }
+          : onPressed,
       child: Container(
         color: Colors.transparent,
         padding: EdgeInsets.symmetric(horizontal: 16),
