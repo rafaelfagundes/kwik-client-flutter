@@ -36,7 +36,7 @@ class BusinessTypeWidget extends StatelessWidget {
       ),
       BusinessTypeButtonWidget(
         id: '429d04dd-5056-4f07-8b22-94da460bb894',
-        label: 'Bebidas',
+        label: 'Bebida',
         image: AssetImage(
           'assets/images/business-types/Bebidas.png',
         ),
@@ -64,7 +64,7 @@ class BusinessTypeWidget extends StatelessWidget {
       ),
       BusinessTypeButtonWidget(
         id: 'b92a6d36-c326-4706-9f98-206a99f2caf6',
-        label: 'Papelaria',
+        label: 'Papelarias',
         image: AssetImage(
           'assets/images/business-types/Papelaria.png',
         ),

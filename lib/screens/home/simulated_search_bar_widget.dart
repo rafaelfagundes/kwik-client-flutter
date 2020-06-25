@@ -31,7 +31,7 @@ class SimulatedSearchBarWidget extends StatelessWidget {
               width: 5,
             ),
             Text(
-              'O que você vai querer hoje?',
+              'O que deseja hoje?',
               style: TextStyle(
                   fontFamily: 'Lato',
                   color: isDark ? Color(0xFFBBBBBB) : Color(0xFF666666)),

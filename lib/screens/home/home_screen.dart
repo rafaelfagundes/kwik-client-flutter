@@ -159,6 +159,7 @@ class HomeScreen extends StatelessWidget {
             'https://res.cloudinary.com/kardappio/image/upload/v1592976734/202005011333_W4zG_i.jpg',
         deliveryTimes: [45, 90],
         rating: 4.2,
+        recentlyViewed: true,
       ),
       StoreHorizontalItemWidget(
         id: '1b17d45f-eb67-493c-af90-1ad25cfb7f8a',
