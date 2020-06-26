@@ -45,19 +45,21 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
   List<Color> _getColors(bool isDark, ButtonType buttonType) {
     switch (buttonType) {
       case ButtonType.DEFAULT:
-        return [Color(0xff800080), Color(0xffCC00CC)];
+        return isDark
+            ? [Color(0xff920492), Color(0xff6B026B)]
+            : [Color(0xff800080), Color(0xff440044)];
         break;
       case ButtonType.CONFIRMATION:
-        return [Color(0xff17B890), Color(0xff19C89C)];
+        return [Color(0xff19C89C), Color(0xff17B890)];
         break;
       case ButtonType.CANCEL:
-        return [Color(0xffE00000), Color(0xffFF0A0A)];
+        return [Color(0xffE84A4D), Color(0xffCF3538)];
         break;
       case ButtonType.CALL_TO_ACTION:
-        return [Color(0xffE0A800), Color(0xffFFCC33)];
+        return [Color(0xffFE7868), Color(0xffEE6352)];
         break;
       case ButtonType.CALL_TO_ACTION_ALTERNATIVE:
-        return [Color(0xff007FE0), Color(0xff008BF8)];
+        return [Color(0xff41ABFF), Color(0xff008BF8)];
         break;
       case ButtonType.DISABLED:
         return [Color(0xffa28f9d), Color(0xffb5a6b1)];
@@ -87,8 +89,8 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
       case ButtonFillType.FILLED:
         return BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
               colors: _getColors(isDark, buttonType),
             ),
             borderRadius: BorderRadius.all(
@@ -104,8 +106,8 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
       default:
         return BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
             colors: _getColors(isDark, buttonType),
           ),
           borderRadius: BorderRadius.all(
@@ -159,8 +161,6 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
 
     var buttonDecoration =
         _getDecoration(isDark, widget.buttonType, widget.buttonFillType);
-
-    var colors = _getColors(isDark, widget.buttonType);
 
     return GestureDetector(
       onTapDown: (_) {

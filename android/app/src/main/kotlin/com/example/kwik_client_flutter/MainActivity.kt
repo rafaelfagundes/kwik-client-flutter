@@ -1,4 +1,4 @@
-package com.example.kwik_client_flutter
+package com.kwikentregas.client
 
 import io.flutter.embedding.android.FlutterActivity
 

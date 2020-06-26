@@ -12,6 +12,7 @@ class BusinessTypeWidget extends StatelessWidget {
         image: AssetImage(
           'assets/images/business-types/Entregas.png',
         ),
+        isDeliveryRequest: true,
       ),
       BusinessTypeButtonWidget(
         id: 'f7d49003-8eb6-43f4-b2c5-9a93efae4d42',

@@ -5,12 +5,14 @@ class BusinessTypeButtonWidget extends StatelessWidget {
   final String id;
   final AssetImage image;
   final String label;
+  final bool isDeliveryRequest;
 
   const BusinessTypeButtonWidget({
     Key key,
     @required this.id,
     @required this.image,
     @required this.label,
+    this.isDeliveryRequest = false,
   }) : super(key: key);
 
   @override
@@ -25,8 +27,11 @@ class BusinessTypeButtonWidget extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/stores',
-            arguments: StoresListArguments(id: id, title: label, icon: image));
+        isDeliveryRequest
+            ? Navigator.pushNamed(context, '/delivery_request')
+            : Navigator.pushNamed(context, '/stores',
+                arguments:
+                    StoresListArguments(id: id, title: label, icon: image));
       },
       child: Container(
         // margin: EdgeInsets.only(right: 10),

@@ -37,7 +37,9 @@ class DefaultScreen extends StatelessWidget {
               title,
               // raleway / sen (ls -1.5) / poppins (ls -1)
               style: GoogleFonts.sen(
-                color: isDark ? Color(0xffFFFFFF) : Color(0xff0B5383),
+                // color: isDark ? Color(0xffFFFFFF) : Color(0xff0B5383),
+                // color: isDark ? Color(0xffFFFFFF) : Color(0xffEE6352),
+                color: Color(0xffEE6352),
                 fontWeight: FontWeight.w700,
                 letterSpacing: -1.5,
               ),
