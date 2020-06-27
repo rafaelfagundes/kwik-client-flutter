@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kwik_client_flutter/utils/theme_utils.dart';
 
 import 'custom_navigation_bar_widget.dart';
 
@@ -19,6 +20,8 @@ class DefaultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = ThemeUtils.isDark(context);
+
     return Scaffold(
       extendBody: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -35,9 +38,9 @@ class DefaultScreen extends StatelessWidget {
               title,
               // raleway / sen (ls -1.5) / poppins (ls -1)
               style: GoogleFonts.sen(
-                // color: isDark ? Color(0xffFFFFFF) : Color(0xff0B5383),
+                color: isDark ? Color(0xffFFFFFF) : Color(0xff0B5383),
                 // color: isDark ? Color(0xffFFFFFF) : Color(0xffEE6352),
-                color: Color(0xffEE6352),
+                // color: Color(0xffEE6352),
                 fontWeight: FontWeight.w700,
                 letterSpacing: -1.5,
               ),

@@ -19,20 +19,20 @@ class HomeScreen extends StatelessWidget {
         rating: 4.7,
       ),
       StoreHorizontalItemWidget(
-        id: 'b0b27fa2-0b29-4922-8640-1ebc82cdb537',
-        title: 'Pizza Hut',
-        logo:
-            'https://res.cloudinary.com/kardappio/image/upload/v1592974725/62805333_10157230299954231_6045518020783112192_n.png.png',
-        deliveryTimes: [30, 90],
-        rating: 4.1,
-      ),
-      StoreHorizontalItemWidget(
         id: '4be4dacd-30f5-4848-bb15-bef32c3abbf7',
         title: 'McDonald\'s',
         logo:
             'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
         deliveryTimes: [15, 60],
         rating: 4.5,
+      ),
+      StoreHorizontalItemWidget(
+        id: 'b0b27fa2-0b29-4922-8640-1ebc82cdb537',
+        title: 'Pizza Hut',
+        logo:
+            'https://res.cloudinary.com/kardappio/image/upload/v1592974725/62805333_10157230299954231_6045518020783112192_n.png.png',
+        deliveryTimes: [30, 90],
+        rating: 4.1,
       ),
       StoreHorizontalItemWidget(
         id: 'a792c677-759c-4b8d-b25a-a0fed225051d',
