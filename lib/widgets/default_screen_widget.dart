@@ -19,8 +19,6 @@ class DefaultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
-
     return Scaffold(
       extendBody: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

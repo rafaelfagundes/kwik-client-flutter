@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kwik_client_flutter/screens/cart/cart_order_success_screen.dart';
 import 'package:kwik_client_flutter/screens/delivery_request/delivery_request_screen.dart';
+import 'package:kwik_client_flutter/screens/delivery_request/request_success_screen.dart';
 import 'package:kwik_client_flutter/stores/app_store.dart';
 import 'package:kwik_client_flutter/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +46,7 @@ class App extends StatelessWidget {
                 theme: store.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
                 initialRoute: '/auth',
+                // initialRoute: '/order-success',
                 onGenerateRoute: (settings) {
                   switch (settings.name) {
                     case '/':
@@ -111,6 +113,10 @@ class App extends StatelessWidget {
                     case '/delivery_request':
                       return CupertinoPageRoute(
                           builder: (_) => DeliveryRequestScreen(),
+                          settings: settings);
+                    case '/delivery_request_success':
+                      return CupertinoPageRoute(
+                          builder: (_) => RequestSucessScreen(),
                           settings: settings);
                     default:
                       return CupertinoPageRoute(

@@ -203,38 +203,38 @@ class HomeScreen extends StatelessWidget {
       'Olá, Rafael',
       children: <Widget>[
         SimulatedSearchBarWidget(),
-        SizedBox(height: 20),
+        SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: BusinessTypeWidget(),
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 40),
         StoreHorizontalListWidget(
           title: 'Restaurantes',
           items: restaurantItems,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 40),
         StoreHorizontalListWidget(
           title: 'Farmácias',
           items: drugStoreItems,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 40),
         StoreHorizontalListWidget(
           title: 'Bebidas',
           items: drinksItems,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 40),
         StoreHorizontalListWidget(
           title: 'Mercados',
           items: marketItems,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 40),
         StoreHorizontalListWidget(
           title: 'Visitados Recentemente',
           items: recentItems,
         ),
         SizedBox(
-          height: 16,
+          height: MediaQuery.of(context).padding.bottom,
         ),
       ],
     );

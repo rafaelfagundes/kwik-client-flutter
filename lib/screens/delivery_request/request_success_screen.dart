@@ -3,14 +3,13 @@ import 'package:intl/intl.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
-import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
 import 'package:kwik_client_flutter/widgets/success_animation.dart';
 
-class CartOrderSucessScreen extends StatelessWidget {
+class RequestSucessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultScreen(
-      'Pedido Concluído',
+      'Solicitação Concluída',
       children: <Widget>[
         Container(
             margin: EdgeInsets.all(16),
@@ -28,35 +27,14 @@ class CartOrderSucessScreen extends StatelessWidget {
               ),
             ),
             child: Container(
-              padding: EdgeInsets.fromLTRB(32, 32, 32, 32),
+              padding: EdgeInsets.fromLTRB(32, 48, 32, 32),
               child: Stack(
                 overflow: Overflow.visible,
                 children: <Widget>[
                   Positioned(
-                    left: 36,
-                    child: Container(
-                      height: 72,
-                      width: 72,
-                      child: Stack(
-                        overflow: Overflow.visible,
-                        children: <Widget>[
-                          Positioned(
-                            top: 0,
-                            left: 0,
-                            child: RoundedStoreLogoWidget(
-                              size: 72,
-                              url:
-                                  'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
-                            ),
-                          ),
-                          Positioned(
-                            top: -18,
-                            left: -28,
-                            child: SuccessAnimation(size: 64),
-                          ),
-                        ],
-                      ),
-                    ),
+                    top: -65,
+                    left: -10,
+                    child: SuccessAnimation(size: 164),
                   ),
                   Column(
                     children: <Widget>[
@@ -69,16 +47,6 @@ class CartOrderSucessScreen extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                'McDonald\'s',
-                                style: TextStyle(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).primaryColor,
-                                  fontSize: 18,
-                                ),
-                              ),
-                              SizedBox(height: 5),
                               Text(
                                 '#HM3MVXY2QS',
                                 style: TextStyle(
@@ -105,7 +73,7 @@ class CartOrderSucessScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 30),
                       Text(
-                        'Você será notificado assim que o pedido for confirmado pelo estabelecimento',
+                        'Você será notificado assim que a solicitação for atribuída à um entregador',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontFamily: 'Lato',
@@ -129,7 +97,7 @@ class CartOrderSucessScreen extends StatelessWidget {
                         ),
                       )
                     ],
-                  )
+                  ),
                 ],
               ),
             )
@@ -138,6 +106,7 @@ class CartOrderSucessScreen extends StatelessWidget {
             //   children: <Widget>[
             //     Positioned(
             //       child: Container(
+            //         color: Colors.yellow,
             //         padding: EdgeInsets.all(32),
             //         child: Column(
             //           children: <Widget>[
@@ -146,32 +115,21 @@ class CartOrderSucessScreen extends StatelessWidget {
             //               child: Row(
             //                 mainAxisAlignment: MainAxisAlignment.center,
             //                 children: <Widget>[
-            //                   RoundedStoreLogoWidget(
-            //                     size: 72,
-            //                     url:
-            //                         'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+            //                   SizedBox(
+            //                     height: 72,
+            //                     width: 72,
             //                   ),
             //                   SizedBox(width: 10),
             //                   Column(
             //                     crossAxisAlignment: CrossAxisAlignment.start,
             //                     children: <Widget>[
             //                       Text(
-            //                         'McDonald\'s',
-            //                         style: TextStyle(
-            //                           fontFamily: 'Lato',
-            //                           fontWeight: FontWeight.bold,
-            //                           color: Theme.of(context).primaryColor,
-            //                           fontSize: 18,
-            //                         ),
-            //                       ),
-            //                       SizedBox(height: 5),
-            //                       Text(
             //                         '#HM3MVXY2QS',
             //                         style: TextStyle(
             //                           fontFamily: 'Lato',
             //                           fontWeight: FontWeight.bold,
             //                           color: Theme.of(context).accentColor,
-            //                           fontSize: 14,
+            //                           fontSize: 16,
             //                         ),
             //                       ),
             //                       SizedBox(height: 5),
@@ -192,7 +150,7 @@ class CartOrderSucessScreen extends StatelessWidget {
             //             ),
             //             SizedBox(height: 30),
             //             Text(
-            //               'Você será notificado assim que o pedido for confirmado pelo estabelecimento',
+            //               'Você será notificado assim que a solicitação for atribuída à um entregador',
             //               textAlign: TextAlign.center,
             //               style: TextStyle(
             //                   fontFamily: 'Lato',
@@ -220,9 +178,10 @@ class CartOrderSucessScreen extends StatelessWidget {
             //       ),
             //     ),
             //     Positioned(
-            //       top: 10,
-            //       left: 64,
-            //       child: SuccessAnimation(size: 76),
+            //       top: -15,
+            //       // left: MediaQuery.of(context).size.width * 0.1,
+            //       left: 0,
+            //       child: SuccessAnimation(size: 164),
             //     ),
             //   ],
             // ),

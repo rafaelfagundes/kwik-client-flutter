@@ -29,6 +29,7 @@ enum DiscountType {
 
 enum ButtonType {
   DEFAULT,
+  DEFAULT_ALTERNATIVE,
   CONFIRMATION,
   CANCEL,
   CALL_TO_ACTION,

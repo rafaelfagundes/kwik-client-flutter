@@ -80,7 +80,7 @@ class AuthScreen extends StatelessWidget {
                               SizedBox(height: 20),
                               CustomButtonWidget(
                                 buttonFillType: ButtonFillType.BORDER,
-                                buttonType: ButtonType.DEFAULT,
+                                buttonType: ButtonType.DEFAULT_ALTERNATIVE,
                                 buttonText: 'Entrar',
                                 onPressed: () {
                                   Navigator.pushNamedAndRemoveUntil(

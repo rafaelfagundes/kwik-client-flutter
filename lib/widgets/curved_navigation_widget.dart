@@ -13,8 +13,23 @@ class CurvedNavigationWidget extends StatelessWidget {
 
   CurvedNavigationWidget(this.setPageIndex, this.index);
 
+  double _getBlurHeight(BuildContext context) {
+    double height = MediaQuery.of(context).padding.bottom > 0 ? 75 : 50;
+    print('getBlurHeight: $height');
+    return height;
+  }
+
+  double _getBarHeight(BuildContext context) {
+    double height = MediaQuery.of(context).padding.bottom > 0
+        ? 75 - MediaQuery.of(context).padding.bottom
+        : 50;
+    print('getBarHeight: $height');
+    return height;
+  }
+
   @override
   Widget build(BuildContext context) {
+    // print('padding bottom: ${MediaQuery.of(context).padding.bottom}');
     return Stack(
       overflow: Overflow.visible,
       children: <Widget>[
@@ -26,7 +41,9 @@ class CurvedNavigationWidget extends StatelessWidget {
                 filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 50,
+                  // height: 50,
+                  // iphone x = 34 || iphone 8 = 0
+                  height: _getBlurHeight(context),
                   color: Colors.transparent,
                 ),
               ),
@@ -35,9 +52,7 @@ class CurvedNavigationWidget extends StatelessWidget {
         Container(
           child: SafeArea(
             child: CurvedNavigationBar(
-              height: MediaQuery.of(context).padding.bottom > 0
-                  ? 75 - MediaQuery.of(context).padding.bottom
-                  : 50,
+              height: _getBarHeight(context),
               animationDuration: Duration(milliseconds: 350),
               backgroundColor: Colors.transparent,
               buttonBackgroundColor: Theme.of(context).accentColor,

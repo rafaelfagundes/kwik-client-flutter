@@ -48,22 +48,20 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
         return isDark
             ? [Color(0xff920492), Color(0xff6B026B)]
             : [Color(0xff800080), Color(0xff440044)];
-        break;
+      case ButtonType.DEFAULT_ALTERNATIVE:
+        return isDark
+            ? [Color(0xffFFFFFF), Color(0xffD6D6D6)]
+            : [Color(0xff800080), Color(0xff440044)];
       case ButtonType.CONFIRMATION:
         return [Color(0xff19C89C), Color(0xff17B890)];
-        break;
       case ButtonType.CANCEL:
         return [Color(0xffE84A4D), Color(0xffCF3538)];
-        break;
       case ButtonType.CALL_TO_ACTION:
         return [Color(0xffFE7868), Color(0xffEE6352)];
-        break;
       case ButtonType.CALL_TO_ACTION_ALTERNATIVE:
         return [Color(0xff41ABFF), Color(0xff008BF8)];
-        break;
       case ButtonType.DISABLED:
         return [Color(0xffa28f9d), Color(0xffb5a6b1)];
-        break;
       default:
         return [Color(0xff800080), Color(0xff440044)];
     }
@@ -71,44 +69,42 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
 
   BoxDecoration _getDecoration(
       bool isDark, ButtonType buttonType, ButtonFillType buttonFillType) {
-    var color = _getColors(isDark, buttonType)[0];
+    var colors = _getColors(isDark, buttonType);
 
     switch (buttonFillType) {
       case ButtonFillType.BORDER:
         return BoxDecoration(
-          border:
-              Border.all(color: _getColors(isDark, buttonType)[0], width: 1),
+          border: Border.all(color: colors[0], width: 1),
           borderRadius: BorderRadius.all(
             Radius.circular(8),
           ),
         );
-        break;
       case ButtonFillType.EMPTY:
         return BoxDecoration();
-        break;
       case ButtonFillType.FILLED:
         return BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: _getColors(isDark, buttonType),
-            ),
-            borderRadius: BorderRadius.all(
-              Radius.circular(8),
-            ),
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: 8,
-                  offset: Offset(0, 2),
-                  color: color.withOpacity(.35))
-            ]);
-        break;
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: colors,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 8,
+              offset: Offset(0, 2),
+              color: colors[0].withOpacity(.35),
+            )
+          ],
+        );
       default:
         return BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: _getColors(isDark, buttonType),
+            colors: colors,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(8),
@@ -119,14 +115,13 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
 
   Color _getFontColor(
       bool isDark, ButtonType buttonType, ButtonFillType buttonFillType) {
+    var colors = _getColors(isDark, buttonType);
+
     switch (buttonFillType) {
       case ButtonFillType.FILLED:
         return Colors.white;
-        break;
       default:
-        return isDark
-            ? _getColors(isDark, buttonType)[1]
-            : _getColors(isDark, buttonType)[0];
+        return isDark ? colors[1] : colors[0];
     }
   }
 
@@ -180,10 +175,11 @@ class _CustomButtonWidgetState extends State<CustomButtonWidget>
         curve: Curves.linear,
         height: buttonHeight,
         margin: EdgeInsets.only(
-            left: buttonMargin,
-            right: buttonMargin,
-            bottom: buttonMargin / 2,
-            top: buttonMargin / 2),
+          left: buttonMargin,
+          right: buttonMargin,
+          bottom: buttonMargin / 2,
+          top: buttonMargin / 2,
+        ),
         decoration: buttonDecoration,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
