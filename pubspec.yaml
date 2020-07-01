@@ -88,6 +88,18 @@ flutter:
     - assets/animations/
     - assets/maps/light_map.json
     - assets/maps/dark_map.json
+    - assets/icons/light/add_stop.png
+    - assets/icons/light/end.png
+    - assets/icons/light/request_notes.png
+    - assets/icons/light/start.png
+    - assets/icons/light/stop.png
+    - assets/icons/light/edit.png
+    - assets/icons/dark/add_stop.png
+    - assets/icons/dark/end.png
+    - assets/icons/dark/request_notes.png
+    - assets/icons/dark/start.png
+    - assets/icons/dark/stop.png
+    - assets/icons/dark/edit.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

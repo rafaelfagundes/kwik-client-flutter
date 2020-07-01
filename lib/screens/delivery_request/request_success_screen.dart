@@ -73,7 +73,7 @@ class RequestSucessScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 30),
                       Text(
-                        'Você será notificado assim que a solicitação for atribuída à um entregador',
+                        'Uma notificação será enviada quando sua solicitação for atribuída à um entregador',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontFamily: 'Lato',
@@ -100,92 +100,7 @@ class RequestSucessScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            )
-
-            // Stack(
-            //   children: <Widget>[
-            //     Positioned(
-            //       child: Container(
-            //         color: Colors.yellow,
-            //         padding: EdgeInsets.all(32),
-            //         child: Column(
-            //           children: <Widget>[
-            //             Container(
-            //               padding: EdgeInsets.only(left: 16.0),
-            //               child: Row(
-            //                 mainAxisAlignment: MainAxisAlignment.center,
-            //                 children: <Widget>[
-            //                   SizedBox(
-            //                     height: 72,
-            //                     width: 72,
-            //                   ),
-            //                   SizedBox(width: 10),
-            //                   Column(
-            //                     crossAxisAlignment: CrossAxisAlignment.start,
-            //                     children: <Widget>[
-            //                       Text(
-            //                         '#HM3MVXY2QS',
-            //                         style: TextStyle(
-            //                           fontFamily: 'Lato',
-            //                           fontWeight: FontWeight.bold,
-            //                           color: Theme.of(context).accentColor,
-            //                           fontSize: 16,
-            //                         ),
-            //                       ),
-            //                       SizedBox(height: 5),
-            //                       Text(
-            //                         DateFormat('dd/MM/yyyy HH:mm')
-            //                             .format(DateTime.now()),
-            //                         style: TextStyle(
-            //                           fontFamily: 'Lato',
-            //                           fontWeight: FontWeight.bold,
-            //                           color: Theme.of(context).disabledColor,
-            //                           fontSize: 12,
-            //                         ),
-            //                       ),
-            //                     ],
-            //                   ),
-            //                 ],
-            //               ),
-            //             ),
-            //             SizedBox(height: 30),
-            //             Text(
-            //               'Você será notificado assim que a solicitação for atribuída à um entregador',
-            //               textAlign: TextAlign.center,
-            //               style: TextStyle(
-            //                   fontFamily: 'Lato',
-            //                   fontWeight: FontWeight.bold,
-            //                   fontSize: 16,
-            //                   color: Theme.of(context).primaryColor),
-            //             ),
-            //             SizedBox(height: 36),
-            //             Container(
-            //               padding: EdgeInsets.symmetric(horizontal: 32),
-            //               child: CustomButtonWidget(
-            //                 buttonType: ButtonType.CALL_TO_ACTION_ALTERNATIVE,
-            //                 buttonText: 'Ir Para o Início',
-            //                 onPressed: () {
-            //                   Navigator.pushNamedAndRemoveUntil(
-            //                     context,
-            //                     '/',
-            //                     (route) => false,
-            //                   );
-            //                 },
-            //               ),
-            //             )
-            //           ],
-            //         ),
-            //       ),
-            //     ),
-            //     Positioned(
-            //       top: -15,
-            //       // left: MediaQuery.of(context).size.width * 0.1,
-            //       left: 0,
-            //       child: SuccessAnimation(size: 164),
-            //     ),
-            //   ],
-            // ),
-            )
+            ))
       ],
     );
   }

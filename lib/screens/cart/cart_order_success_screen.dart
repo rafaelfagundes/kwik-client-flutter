@@ -105,7 +105,7 @@ class CartOrderSucessScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 30),
                       Text(
-                        'Você será notificado assim que o pedido for confirmado pelo estabelecimento',
+                        'Uma notificação será enviada quando o pedido for confirmado pelo estabelecimento',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontFamily: 'Lato',

@@ -15,7 +15,6 @@ class CurvedNavigationWidget extends StatelessWidget {
 
   double _getBlurHeight(BuildContext context) {
     double height = MediaQuery.of(context).padding.bottom > 0 ? 75 : 50;
-    print('getBlurHeight: $height');
     return height;
   }
 
@@ -23,13 +22,11 @@ class CurvedNavigationWidget extends StatelessWidget {
     double height = MediaQuery.of(context).padding.bottom > 0
         ? 75 - MediaQuery.of(context).padding.bottom
         : 50;
-    print('getBarHeight: $height');
     return height;
   }
 
   @override
   Widget build(BuildContext context) {
-    // print('padding bottom: ${MediaQuery.of(context).padding.bottom}');
     return Stack(
       overflow: Overflow.visible,
       children: <Widget>[

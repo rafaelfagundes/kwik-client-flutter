@@ -32,8 +32,6 @@ class _DarkModeSwitchState extends State<DarkModeSwitch> {
       _controls.play(DarkModeSwitch._animations[SwitchTheme.SWITCH_DAY.index]);
     }
     await _appController.setTheme(value);
-    var result = await _appController.getTheme('isDark');
-    print(result);
   }
 
   @override

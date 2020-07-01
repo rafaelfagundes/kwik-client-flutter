@@ -23,7 +23,6 @@ class OrderDetailsScreen extends StatelessWidget {
     var isDark = Theme.of(context).brightness.toString() == "Brightness.dark";
 
     final OrderArguments args = ModalRoute.of(context).settings.arguments;
-    print(args.id);
 
     return DefaultScreen(
       'Detalhes do Pedido',

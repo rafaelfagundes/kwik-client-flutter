@@ -5,10 +5,17 @@ class CustomTextField extends StatelessWidget {
   final String labelText;
   final String helperText;
   final Function onChanged;
+  final TextInputAction textInputAction;
+  final Function onEditingComplete;
 
-  const CustomTextField(
-      {Key key, this.labelText, this.helperText, this.onChanged})
-      : super(key: key);
+  const CustomTextField({
+    Key key,
+    this.labelText,
+    this.helperText,
+    this.onChanged,
+    this.textInputAction = TextInputAction.done,
+    this.onEditingComplete,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +31,8 @@ class CustomTextField extends StatelessWidget {
       ),
       child: TextField(
         onChanged: onChanged,
+        onEditingComplete: onEditingComplete,
+        textInputAction: textInputAction,
         autocorrect: true,
         textCapitalization: TextCapitalization.sentences,
         keyboardType: TextInputType.text,

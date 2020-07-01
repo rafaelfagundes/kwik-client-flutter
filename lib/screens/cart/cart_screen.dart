@@ -95,8 +95,6 @@ class CartScreen extends StatelessWidget {
 
     var isDark = ThemeUtils.isDark(context);
 
-    print(MediaQuery.of(context).padding.bottom);
-
     return Stack(
       children: <Widget>[
         DefaultScreen(

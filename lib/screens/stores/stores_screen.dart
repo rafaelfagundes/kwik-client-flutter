@@ -44,9 +44,6 @@ class StoresScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final StoresListArguments args = ModalRoute.of(context).settings.arguments;
-    print(args.id);
-    print(args.icon);
-    print(args.title);
 
     return DefaultScreen(
       args.title,

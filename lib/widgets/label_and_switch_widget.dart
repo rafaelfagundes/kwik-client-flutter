@@ -7,18 +7,22 @@ class LabelAndSwitchWidget extends StatelessWidget {
   final bool value;
   final String label;
   final Function onChanged;
+  final bool hasPadding;
 
   const LabelAndSwitchWidget({
     Key key,
     @required this.value,
     @required this.onChanged,
     @required this.label,
+    this.hasPadding = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: hasPadding
+          ? const EdgeInsets.symmetric(horizontal: 16)
+          : EdgeInsets.zero,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
