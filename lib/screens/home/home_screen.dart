@@ -202,7 +202,7 @@ class HomeScreen extends StatelessWidget {
     return DefaultScreen(
       'Olá, Rafael',
       children: <Widget>[
-        SimulatedSearchBarWidget(),
+        Container(height: 45, child: SimulatedSearchBarWidget()),
         SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

@@ -27,12 +27,16 @@ class MenuItemWidget extends StatelessWidget {
       child: Container(
         color: Colors.transparent,
         padding: EdgeInsets.symmetric(horizontal: 16),
-        height: 50,
+        height: 40,
         child: Row(
           children: <Widget>[
             Row(
               children: <Widget>[
-                Icon(icon, size: 28, color: Theme.of(context).primaryColor),
+                Icon(
+                  icon,
+                  size: 26,
+                  color: Theme.of(context).primaryColor,
+                ),
                 SizedBox(
                   width: 5,
                 ),
@@ -40,9 +44,8 @@ class MenuItemWidget extends StatelessWidget {
                   title,
                   style: TextStyle(
                     fontFamily: 'Lato',
-                    fontSize: 16,
+                    fontSize: 14,
                     color: Theme.of(context).primaryColor,
-                    letterSpacing: 0.004,
                   ),
                   textAlign: TextAlign.left,
                 )

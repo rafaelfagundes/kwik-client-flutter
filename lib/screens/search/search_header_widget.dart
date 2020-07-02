@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
+import 'package:kwik_client_flutter/widgets/search_bar_widget.dart';
 
 class SearchHeaderWidget extends StatelessWidget {
   final double headerSize;
@@ -17,8 +18,8 @@ class SearchHeaderWidget extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.only(top: 30),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           GestureDetector(
             onTap: () {
@@ -38,48 +39,13 @@ class SearchHeaderWidget extends StatelessWidget {
             ),
           ),
           Container(
-            width: mq.size.width - (64.0 * 2),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12),
-              decoration: BoxDecoration(
-                  color: isDark ? Color(0xff232323) : Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 8,
-                      offset: Offset(0, 4),
-                      color: Colors.black.withOpacity(0.05),
-                    ),
-                  ]),
-              child: TextField(
-                enableSuggestions: false,
-                maxLines: 1,
-                textAlign: TextAlign.start,
-                autocorrect: false,
-                autofocus: true,
-                style: TextStyle(
-                  fontFamily: 'Lato',
-                ),
-                decoration: InputDecoration(
-                    border: InputBorder.none, hintText: 'Pesquisa'),
-              ),
+            width: MediaQuery.of(context).size.width - 40,
+            height: 45,
+            child: SearchBarWidget(
+              hintText: 'O que deseja hoje?',
+              autofocus: true,
             ),
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              height: 32,
-              width: 32,
-              margin: EdgeInsets.only(right: 16, left: 6),
-              child: Center(
-                child: Icon(
-                  SFSymbols.search,
-                  color: Theme.of(context).primaryColor,
-                  size: 32,
-                ),
-              ),
-            ),
-          ),
+          )
         ],
       ),
     );

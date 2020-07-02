@@ -12,7 +12,7 @@ class ThemeItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16),
-      height: 50,
+      height: 40,
       color: Colors.transparent,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,8 +20,11 @@ class ThemeItemWidget extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(SFSymbols.circle_lefthalf_fill,
-                  size: 28, color: Theme.of(context).primaryColor),
+              Icon(
+                SFSymbols.circle_lefthalf_fill,
+                size: 26,
+                color: Theme.of(context).primaryColor,
+              ),
               SizedBox(
                 width: 5,
               ),
@@ -29,7 +32,7 @@ class ThemeItemWidget extends StatelessWidget {
                 'Tema',
                 style: TextStyle(
                   fontFamily: 'Lato',
-                  fontSize: 16,
+                  fontSize: 14,
                   color: Theme.of(context).primaryColor,
                   letterSpacing: 0.004,
                 ),

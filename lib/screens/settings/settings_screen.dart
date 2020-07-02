@@ -36,8 +36,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           badgeCount: 8),
       ThemeItemWidget(),
       MenuItemWidget(
+          title: 'Sobre', onPressed: null, icon: SFSymbols.info_circle),
+      MenuItemWidget(
           title: 'Ajuda', route: '/help', icon: SFSymbols.question_circle),
-      SizedBox(height: 32),
+      SizedBox(height: 26),
       MenuItemWidget(
         title: 'Sair',
         icon: SFSymbols.escape,
