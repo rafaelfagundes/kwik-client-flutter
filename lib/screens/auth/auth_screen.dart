@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/auth_illustration_widget.dart';
@@ -10,6 +12,7 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
+    AuthController authController = AuthController(AuthService());
 
     double _getSpacer() {
       if (MediaQuery.of(context).size.height < 667) {
@@ -83,8 +86,7 @@ class AuthScreen extends StatelessWidget {
                                 buttonType: ButtonType.DEFAULT_ALTERNATIVE,
                                 buttonText: 'Entrar',
                                 onPressed: () {
-                                  Navigator.pushNamedAndRemoveUntil(
-                                      context, '/', (route) => false);
+                                  Navigator.pushNamed(context, '/login');
                                 },
                               ),
                               SizedBox(height: 20),

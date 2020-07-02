@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/models/cart_item.dart';
-import 'package:kwik_client_flutter/models/cart_model.dart';
-import 'package:kwik_client_flutter/models/product_aditional_model.dart';
-import 'package:kwik_client_flutter/models/product_option_model.dart';
+import 'package:kwik_client_flutter/modules/cart/cart_item.dart';
+import 'package:kwik_client_flutter/modules/cart/cart_model.dart';
+import 'package:kwik_client_flutter/modules/product/product_aditional_model.dart';
+import 'package:kwik_client_flutter/modules/product/product_option_model.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 

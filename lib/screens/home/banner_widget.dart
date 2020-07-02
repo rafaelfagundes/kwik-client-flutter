@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:kwik_client_flutter/stores/app_store.dart';
+import 'package:kwik_client_flutter/modules/app/app_store.dart';
 import 'package:provider/provider.dart';
 
 class BannerWidget extends StatelessWidget {

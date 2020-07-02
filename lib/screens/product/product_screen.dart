@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kwik_client_flutter/models/product_option_model.dart';
+import 'package:kwik_client_flutter/modules/product/product_option_model.dart';
 import 'package:kwik_client_flutter/screen_arguments/product_arguments.dart';
 import 'package:kwik_client_flutter/widgets/integer_qty_widget.dart';
 import 'package:kwik_client_flutter/widgets/product_aditional_widget.dart';

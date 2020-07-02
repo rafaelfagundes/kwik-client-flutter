@@ -2,10 +2,10 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:kwik_client_flutter/controllers/app_controller.dart';
-import 'package:kwik_client_flutter/services/local_storage_service.dart';
+import 'package:kwik_client_flutter/modules/app/app_controller.dart';
+import 'package:kwik_client_flutter/modules/app/app_store.dart';
+import 'package:kwik_client_flutter/modules/app/local_storage_service.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
-import 'package:kwik_client_flutter/stores/app_store.dart';
 import 'package:provider/provider.dart';
 
 class DarkModeSwitch extends StatefulWidget {

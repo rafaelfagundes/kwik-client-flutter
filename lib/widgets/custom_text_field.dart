@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   final Function onChanged;
   final TextInputAction textInputAction;
   final Function onEditingComplete;
+  final TextEditingController controller;
 
   const CustomTextField({
     Key key,
@@ -15,6 +16,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.textInputAction = TextInputAction.done,
     this.onEditingComplete,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class CustomTextField extends StatelessWidget {
         ],
       ),
       child: TextField(
+        controller: controller,
         onChanged: onChanged,
         onEditingComplete: onEditingComplete,
         textInputAction: textInputAction,

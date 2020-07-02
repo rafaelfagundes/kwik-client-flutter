@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-import 'product_aditional_model.dart';
-import 'product_option_model.dart';
+import '../product/product_aditional_model.dart';
+import '../product/product_option_model.dart';
 
 class CartItem {
   final String id;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/models/product_option_model.dart';
+import 'package:kwik_client_flutter/modules/product/product_option_model.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 
 class OptionsListWidget extends StatelessWidget {

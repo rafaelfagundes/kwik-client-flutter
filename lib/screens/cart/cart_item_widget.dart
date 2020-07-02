@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:kwik_client_flutter/models/cart_item.dart';
+import 'package:kwik_client_flutter/modules/cart/cart_item.dart';
 import 'package:kwik_client_flutter/widgets/integer_qty_widget.dart';
 import 'package:kwik_client_flutter/widgets/product_aditional_widget.dart';
 import 'package:kwik_client_flutter/widgets/rounded_square_product_image_widget.dart';

@@ -1,4 +1,4 @@
-import 'package:kwik_client_flutter/interfaces/local_storage_interface.dart';
+import 'package:kwik_client_flutter/modules/app/local_storage_interface.dart';
 import 'package:mobx/mobx.dart';
 
 part 'app_store.g.dart';

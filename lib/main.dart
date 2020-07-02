@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:kwik_client_flutter/services/local_storage_service.dart';
-import 'package:kwik_client_flutter/stores/app_store.dart';
+import 'package:kwik_client_flutter/modules/app/app_store.dart';
+import 'package:kwik_client_flutter/modules/app/local_storage_service.dart';
 import 'package:provider/provider.dart';
 
-import './app.dart';
+import 'modules/app/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
