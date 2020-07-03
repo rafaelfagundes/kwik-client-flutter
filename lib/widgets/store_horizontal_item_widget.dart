@@ -15,7 +15,7 @@ class StoreHorizontalItemWidget extends StatelessWidget {
   final bool recentlyViewed;
 
   const StoreHorizontalItemWidget(
-      {Key key,
+      {@required Key key,
       @required this.id,
       @required this.title,
       @required this.rating,

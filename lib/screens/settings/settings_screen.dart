@@ -22,9 +22,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return DefaultScreen('Ajustes', children: <Widget>[
       ProfileItemWidget(),
-      SizedBox(height: 26),
+      SizedBox(height: 16),
       SelectedCityWidget(),
-      SizedBox(height: 12),
+      SizedBox(height: 10),
       MenuItemWidget(
           title: 'Endereços', route: '/adresses', icon: SFSymbols.map),
       MenuItemWidget(
@@ -39,7 +39,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           title: 'Sobre', onPressed: null, icon: SFSymbols.info_circle),
       MenuItemWidget(
           title: 'Ajuda', route: '/help', icon: SFSymbols.question_circle),
-      SizedBox(height: 26),
+      SizedBox(height: 15),
       MenuItemWidget(
         title: 'Sair',
         icon: SFSymbols.escape,

@@ -21,7 +21,6 @@ class RoundedAvatarWidget extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(size / 2)),
-        border: Border.all(width: 2, color: Colors.white),
         boxShadow: [
           BoxShadow(
             color: const Color(0x0d000000),

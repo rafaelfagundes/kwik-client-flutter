@@ -21,7 +21,9 @@ class RoundedStoreLogoWidget extends StatelessWidget {
       return Hero(
         tag: heroId,
         transitionOnUserGestures: true,
-        child: Logo(animationDuration: animationDuration, size: size, url: url),
+        child: Container(
+            child: Logo(
+                animationDuration: animationDuration, size: size, url: url)),
       );
     } else {
       return Logo(animationDuration: animationDuration, size: size, url: url);
@@ -50,7 +52,6 @@ class Logo extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.all(Radius.circular(size / 2)),
-        border: Border.all(width: 2, color: Theme.of(context).cardColor),
         boxShadow: [
           BoxShadow(
             color: const Color(0x0d000000),

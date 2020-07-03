@@ -5,6 +5,7 @@ import 'package:kwik_client_flutter/modules/cart/cart_item.dart';
 import 'package:kwik_client_flutter/modules/cart/cart_model.dart';
 import 'package:kwik_client_flutter/modules/product/product_aditional_model.dart';
 import 'package:kwik_client_flutter/modules/product/product_option_model.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 
@@ -26,8 +27,9 @@ class CartScreen extends StatelessWidget {
           itemInitialPrice: 19.9,
           itemTotalPrice: 45,
           itemQty: 1,
-          urlImage:
+          urlImage: ImageUtils.resizeCloudinaryImageFromUrl(
               'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+              76 * 3),
           productOptions: [
             ProductOption(
               label: 'Carne de Boi',
@@ -63,8 +65,9 @@ class CartScreen extends StatelessWidget {
           itemInitialPrice: 5,
           itemTotalPrice: 5,
           itemQty: 2,
-          urlImage:
+          urlImage: ImageUtils.resizeCloudinaryImageFromUrl(
               'https://res.cloudinary.com/kardappio/image/upload/v1588916689/nmnff7aiogoshq6gscu4.jpg',
+              76 * 3),
           productOptions: [
             ProductOption(
                 label: 'Lata - 350 ml',
@@ -78,8 +81,9 @@ class CartScreen extends StatelessWidget {
           itemInitialPrice: 8,
           itemTotalPrice: 8,
           itemQty: 1,
-          urlImage:
+          urlImage: ImageUtils.resizeCloudinaryImageFromUrl(
               'https://res.cloudinary.com/kardappio/image/upload/v1587699685/t4x5ckmfasibhih61hwe.jpg',
+              76 * 3),
           productOptions: [
             ProductOption(
               label: 'Média',

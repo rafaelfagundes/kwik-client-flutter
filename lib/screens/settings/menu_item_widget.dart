@@ -27,7 +27,7 @@ class MenuItemWidget extends StatelessWidget {
       child: Container(
         color: Colors.transparent,
         padding: EdgeInsets.symmetric(horizontal: 16),
-        height: 40,
+        height: 45,
         child: Row(
           children: <Widget>[
             Row(

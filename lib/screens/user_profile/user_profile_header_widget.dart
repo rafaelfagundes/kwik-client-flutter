@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/widgets/rounded_avatar_widget.dart';
 
 class UserProfileHeaderWidget extends StatelessWidget {
@@ -93,8 +94,9 @@ class UserProfileHeaderWidget extends StatelessWidget {
             child: RoundedAvatarWidget(
               animationDuration: 100,
               size: 74,
-              url:
+              url: ImageUtils.resizeCloudinaryImageFromUrl(
                   'https://res.cloudinary.com/kardappio/image/upload/v1588906717/c8vczpgvbmqmyyf5bmel.jpg',
+                  74 * 3),
             ),
           ),
         ],

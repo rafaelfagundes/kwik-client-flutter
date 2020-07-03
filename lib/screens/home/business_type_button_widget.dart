@@ -8,7 +8,7 @@ class BusinessTypeButtonWidget extends StatelessWidget {
   final bool isDeliveryRequest;
 
   const BusinessTypeButtonWidget({
-    Key key,
+    @required Key key,
     @required this.id,
     @required this.image,
     @required this.label,

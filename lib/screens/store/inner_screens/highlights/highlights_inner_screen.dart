@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/widgets/product_item_widget.dart';
 
 import 'highlights_title_widget.dart';
@@ -33,8 +34,10 @@ class HighlightsInner extends StatelessWidget {
                   id: '3ebb510a-2305-4ecf-b158-c2e718481822',
                   heroId: '3ebb510a-2305-4ecf-b158-c2e718481822_promocoes',
                   title: 'Cheeseburger',
-                  banner:
-                      'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+                  banner: ImageUtils.resizeCloudinaryImageFromUrl(
+                    'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+                    600,
+                  ),
                   logo: logo,
                   discountType: DiscountType.PERCENTAGE,
                   discountValue: 7,
@@ -64,8 +67,10 @@ class HighlightsInner extends StatelessWidget {
                   id: '3ebb510a-2305-4ecf-b158-c2e718481822',
                   heroId: '3ebb510a-2305-4ecf-b158-c2e718481822_recomendado',
                   title: 'Cheeseburger',
-                  banner:
-                      'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+                  banner: ImageUtils.resizeCloudinaryImageFromUrl(
+                    'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+                    600,
+                  ),
                   logo: logo,
                   discountType: DiscountType.PERCENTAGE,
                   discountValue: 7,
@@ -94,8 +99,10 @@ class HighlightsInner extends StatelessWidget {
                   id: '3ebb510a-2305-4ecf-b158-c2e718481822',
                   heroId: '3ebb510a-2305-4ecf-b158-c2e718481822_+vendidos',
                   title: 'Cheeseburger',
-                  banner:
-                      'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+                  banner: ImageUtils.resizeCloudinaryImageFromUrl(
+                    'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+                    600,
+                  ),
                   logo: logo,
                   discountType: DiscountType.PERCENTAGE,
                   discountValue: 7,

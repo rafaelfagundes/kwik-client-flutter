@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/screens/rating/rating_stars_widget.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_multiline_text_field.dart';
@@ -54,8 +55,9 @@ class _RatingScreenState extends State<RatingScreen> {
           children: <Widget>[
             RoundedStoreLogoWidget(
               animationDuration: 100,
-              url:
+              url: ImageUtils.resizeCloudinaryImageFromUrl(
                   'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                  64 * 3),
               size: 64,
               heroId: 'N/D',
             )

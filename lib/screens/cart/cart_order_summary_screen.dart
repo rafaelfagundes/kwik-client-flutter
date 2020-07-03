@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kwik_client_flutter/screens/cart/value_and_add_footer_widget.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/rounded_store_logo_widget.dart';
@@ -68,8 +69,9 @@ class CartOrderSummaryScreen extends StatelessWidget {
                           ],
                         ),
                         RoundedStoreLogoWidget(
-                          url:
+                          url: ImageUtils.resizeCloudinaryImageFromUrl(
                               'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                              64 * 3),
                         )
                       ],
                     ),
@@ -81,7 +83,7 @@ class CartOrderSummaryScreen extends StatelessWidget {
                         title: 'Troco para',
                         info: NumberFormat.simpleCurrency(locale: 'pt_BR')
                             .format(50)),
-                    InfoLine(title: 'Cumpom de desconto', info: 'SEUMADRUGA20'),
+                    InfoLine(title: 'Cupom de desconto', info: 'SEUMADRUGA20'),
                     InfoColumn(
                         title: 'Endereço',
                         info: 'Rua Frederico Ozanan, 150 - Guarda-Mor'),
