@@ -5,6 +5,8 @@ import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/widgets/rounded_avatar_widget.dart';
 
 class UserRatingWidget extends StatelessWidget {
+  UserRatingWidget({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -31,6 +31,8 @@ class HighlightsInner extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 ProductItemWidget(
+                  key: ValueKey(
+                      '3ebb510a-2305-4ecf-b158-c2e718481822_promocoes'),
                   id: '3ebb510a-2305-4ecf-b158-c2e718481822',
                   heroId: '3ebb510a-2305-4ecf-b158-c2e718481822_promocoes',
                   title: 'Cheeseburger',
@@ -65,6 +67,8 @@ class HighlightsInner extends StatelessWidget {
               children: <Widget>[
                 // ProductItemWidget(),
                 ProductItemWidget(
+                  key: ValueKey(
+                      '3ebb510a-2305-4ecf-b158-c2e718481822_recomendado'),
                   id: '3ebb510a-2305-4ecf-b158-c2e718481822',
                   heroId: '3ebb510a-2305-4ecf-b158-c2e718481822_recomendado',
                   title: 'Cheeseburger',
@@ -98,6 +102,8 @@ class HighlightsInner extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 ProductItemWidget(
+                  key: ValueKey(
+                      '3ebb510a-2305-4ecf-b158-c2e718481822_+vendidos'),
                   id: '3ebb510a-2305-4ecf-b158-c2e718481822',
                   heroId: '3ebb510a-2305-4ecf-b158-c2e718481822_+vendidos',
                   title: 'Cheeseburger',

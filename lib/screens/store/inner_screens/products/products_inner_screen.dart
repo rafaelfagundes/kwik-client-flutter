@@ -13,6 +13,7 @@ class ProductsInner extends StatelessWidget {
   Widget build(BuildContext context) {
     var items = [
       ProductMenuItem(
+        key: ValueKey('ba8483a8-f9e5-4016-b81e-1c66b0d9c90a'),
         id: 'ba8483a8-f9e5-4016-b81e-1c66b0d9c90a',
         title: 'Cheeseburger',
         description: 'Hambúrguer, tomate, alface, ovo, molho especial',
@@ -28,6 +29,7 @@ class ProductsInner extends StatelessWidget {
         logo: logo,
       ),
       ProductMenuItem(
+        key: ValueKey('06570c8b-9c85-44e4-9960-d8a2414198df'),
         id: '06570c8b-9c85-44e4-9960-d8a2414198df',
         title: 'Hot Dog',
         description: 'Hot Dog da Casa',
@@ -41,6 +43,7 @@ class ProductsInner extends StatelessWidget {
         logo: logo,
       ),
       ProductMenuItem(
+        key: ValueKey('78495b47-c07d-4115-8eff-c4128fcd90ad'),
         id: '78495b47-c07d-4115-8eff-c4128fcd90ad',
         title: 'Pizza Portuguesa',
         description: 'Tomate, presunto, queijo, orégano, molho de tomate',

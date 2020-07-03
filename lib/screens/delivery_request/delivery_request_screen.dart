@@ -17,7 +17,7 @@ class DeliveryRequestScreen extends StatefulWidget {
 class _DeliveryRequestScreenState extends State<DeliveryRequestScreen> {
   List<StopAddress> stopAdresses = [];
   GoogleMapController mapController;
-  double backgroundHeight = 233;
+  double backgroundHeight = 242;
   bool showSummary = false;
 
   final LatLng _center = const LatLng(-21.13952, -44.262752);

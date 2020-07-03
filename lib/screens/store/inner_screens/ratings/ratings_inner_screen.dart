@@ -5,9 +5,9 @@ import 'user_rating_wiget.dart';
 
 class RatingsInner extends StatelessWidget {
   final List<Widget> items = [
-    UserRatingWidget(),
-    UserRatingWidget(),
-    UserRatingWidget(),
+    UserRatingWidget(key: ValueKey('4f780df5-c986-4235-8cee-d503931fc2b7')),
+    UserRatingWidget(key: ValueKey('1c1bf1ac-c0ac-4e63-8772-5fa587588979')),
+    UserRatingWidget(key: ValueKey('91199ece-727a-46ba-9c30-b8d7b5b8d55a')),
   ];
 
   @override
