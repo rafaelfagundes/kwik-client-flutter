@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/screens/store/inner_screens/ratings/stars_widget.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/widgets/rounded_avatar_widget.dart';
 
 class UserRatingWidget extends StatelessWidget {
@@ -140,13 +141,16 @@ class ProductUserPhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = (MediaQuery.of(context).size.width - 62 - 20) / 3;
+
     return Container(
-      width: (MediaQuery.of(context).size.width - 62 - 20) / 3,
+      width: width,
       height: 95,
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: NetworkImage(url),
+          image: NetworkImage(ImageUtils.resizeCloudinaryImageFromUrl(
+              url, width.toInt(), context)),
         ),
         borderRadius: BorderRadius.all(
           Radius.circular(8),
@@ -191,8 +195,11 @@ class RatingHeader extends StatelessWidget {
       child: Row(
         children: <Widget>[
           RoundedAvatarWidget(
-            url:
-                'https://vignette.wikia.nocookie.net/chespirito/images/a/ac/ImagemRaraRam%C3%B3nValdes.png/revision/latest/scale-to-width-down/340?cb=20180710004410&path-prefix=pt',
+            url: ImageUtils.resizeCloudinaryImageFromUrl(
+              'https://res.cloudinary.com/kardappio/image/upload/v1593727266/ImagemRaraRamo%CC%81nValdes.png',
+              48,
+              context,
+            ),
             size: 48,
           ),
           SizedBox(width: 10),

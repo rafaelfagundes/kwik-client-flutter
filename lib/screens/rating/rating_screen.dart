@@ -56,8 +56,10 @@ class _RatingScreenState extends State<RatingScreen> {
             RoundedStoreLogoWidget(
               animationDuration: 100,
               url: ImageUtils.resizeCloudinaryImageFromUrl(
-                  'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
-                  64 * 3),
+                'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                64,
+                context,
+              ),
               size: 64,
               heroId: 'N/D',
             )

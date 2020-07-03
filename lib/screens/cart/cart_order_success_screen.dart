@@ -47,8 +47,10 @@ class CartOrderSucessScreen extends StatelessWidget {
                             child: RoundedStoreLogoWidget(
                               size: 72,
                               url: ImageUtils.resizeCloudinaryImageFromUrl(
-                                  'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
-                                  72 * 3),
+                                'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+                                72,
+                                context,
+                              ),
                             ),
                           ),
                           Positioned(

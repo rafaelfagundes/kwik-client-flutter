@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 
 class CreditCardsList extends StatelessWidget {
@@ -199,7 +200,8 @@ class CreditCardItem extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(url),
+                image: NetworkImage(ImageUtils.resizeCloudinaryImageFromUrl(
+                    url, cardItemWidth.toInt(), context)),
               ),
               borderRadius: BorderRadius.all(
                 Radius.circular(cardBorderRadius),

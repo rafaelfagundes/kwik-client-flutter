@@ -25,7 +25,8 @@ class ProfileItemWidget extends StatelessWidget {
                     size: 56,
                     url: ImageUtils.resizeCloudinaryImageFromUrl(
                       'https://res.cloudinary.com/kardappio/image/upload/v1593727266/ImagemRaraRamo%CC%81nValdes.png',
-                      56 * 3,
+                      56,
+                      context,
                     ),
                     animationDuration: 100,
                   ),

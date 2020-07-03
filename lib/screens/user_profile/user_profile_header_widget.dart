@@ -96,7 +96,8 @@ class UserProfileHeaderWidget extends StatelessWidget {
               size: 74,
               url: ImageUtils.resizeCloudinaryImageFromUrl(
                   'https://res.cloudinary.com/kardappio/image/upload/v1588906717/c8vczpgvbmqmyyf5bmel.jpg',
-                  74 * 3),
+                  74,
+                  context),
             ),
           ),
         ],

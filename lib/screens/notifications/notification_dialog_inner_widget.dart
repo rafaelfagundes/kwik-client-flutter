@@ -35,7 +35,7 @@ class NotificationDialogInnerWidget extends StatelessWidget {
       case NotificationType.CONFIRMED_ORDER:
       case NotificationType.READY_FOR_PICKUP:
       case NotificationType.IN_DELIVERY:
-        return 'Ir Para Pedidos';
+        return 'Ir Para Pedido';
         break;
       default:
         return 'OK';

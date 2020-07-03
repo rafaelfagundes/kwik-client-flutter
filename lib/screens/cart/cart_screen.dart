@@ -28,8 +28,10 @@ class CartScreen extends StatelessWidget {
           itemTotalPrice: 45,
           itemQty: 1,
           urlImage: ImageUtils.resizeCloudinaryImageFromUrl(
-              'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
-              76 * 3),
+            'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+            76,
+            context,
+          ),
           productOptions: [
             ProductOption(
               label: 'Carne de Boi',
@@ -66,8 +68,10 @@ class CartScreen extends StatelessWidget {
           itemTotalPrice: 5,
           itemQty: 2,
           urlImage: ImageUtils.resizeCloudinaryImageFromUrl(
-              'https://res.cloudinary.com/kardappio/image/upload/v1588916689/nmnff7aiogoshq6gscu4.jpg',
-              76 * 3),
+            'https://res.cloudinary.com/kardappio/image/upload/v1588916689/nmnff7aiogoshq6gscu4.jpg',
+            76,
+            context,
+          ),
           productOptions: [
             ProductOption(
                 label: 'Lata - 350 ml',
@@ -82,8 +86,10 @@ class CartScreen extends StatelessWidget {
           itemTotalPrice: 8,
           itemQty: 1,
           urlImage: ImageUtils.resizeCloudinaryImageFromUrl(
-              'https://res.cloudinary.com/kardappio/image/upload/v1587699685/t4x5ckmfasibhih61hwe.jpg',
-              76 * 3),
+            'https://res.cloudinary.com/kardappio/image/upload/v1587699685/t4x5ckmfasibhih61hwe.jpg',
+            76,
+            context,
+          ),
           productOptions: [
             ProductOption(
               label: 'Média',

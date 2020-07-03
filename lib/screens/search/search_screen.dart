@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/widgets/section_title_widget.dart';
 
 import 'product_search_item_widget.dart';
@@ -27,8 +28,11 @@ class SearchScreen extends StatelessWidget {
         rating: 4.8,
         numberOfRatings: 587,
         title: 'McDonald\'s',
-        url:
-            'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+        url: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+          64,
+          context,
+        ),
       ),
       StoreSearchItemWidget(
         isOpen: false,
@@ -37,49 +41,70 @@ class SearchScreen extends StatelessWidget {
         rating: 4.3,
         numberOfRatings: 256,
         title: 'Maria Fumaça Lanches',
-        url:
-            'https://res.cloudinary.com/kardappio/image/upload/v1588896819/qw8zawqs1j1al7geejd8.png',
+        url: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1588896819/qw8zawqs1j1al7geejd8.png',
+          64,
+          context,
+        ),
       ),
       SizedBox(height: 26),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: SectionTitle('Produtos', complementaryTitle: '2 resultados'),
+        child: SectionTitle('Produtos', complementaryTitle: '3 resultados'),
       ),
       SizedBox(height: 16),
       ProductSearchItemWidget(
         description:
             'Dois hambúrgueres, alface, tomate, queijo cheddar, molho, alface, tomate, queijo cheddar, molho, alface, tomate, queijo cheddar, molho, ',
         oldValue: 22.9,
-        secondaryUrl:
-            'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
-        url:
-            'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+        secondaryUrl: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
+          24,
+          context,
+        ),
+        url: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
+          64,
+          context,
+        ),
         title: 'Big Mac',
         value: 18.9,
       ),
       ProductSearchItemWidget(
         description: 'Pizza muito doida de calabresa',
         oldValue: 42.9,
-        secondaryUrl:
-            'https://scontent.fiza1-1.fna.fbcdn.net/v/t1.0-9/19510381_1563454577022131_4173143902280904989_n.png?_nc_cat=104&_nc_sid=85a577&_nc_ohc=1uQJez_nwm4AX8jEL2E&_nc_ht=scontent.fiza1-1.fna&oh=8e09e12c7fb541b02cdc782f79663692&oe=5F0D8FC7',
-        url:
-            'https://res.cloudinary.com/kardappio/image/upload/v1588928972/mhutqwscgecgvaw5cssr.jpg',
+        secondaryUrl: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1592974725/62805333_10157230299954231_6045518020783112192_n.png.png',
+          24,
+          context,
+        ),
+        url: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1588928972/mhutqwscgecgvaw5cssr.jpg',
+          64,
+          context,
+        ),
         title: 'Pizza de Calabresa',
         value: 39.9,
       ),
       ProductSearchItemWidget(
         description: 'Hot Dog da Casa',
-        secondaryUrl:
-            'https://res.cloudinary.com/kardappio/image/upload/v1588298907/tyukddlp3acv7fhicrvj.png',
-        url:
-            'https://res.cloudinary.com/kardappio/image/upload/v1589307525/zhutlbwwom0rkjxbndkc.jpg',
+        secondaryUrl: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1588298907/tyukddlp3acv7fhicrvj.png',
+          24,
+          context,
+        ),
+        url: ImageUtils.resizeCloudinaryImageFromUrl(
+          'https://res.cloudinary.com/kardappio/image/upload/v1589307525/zhutlbwwom0rkjxbndkc.jpg',
+          64,
+          context,
+        ),
         title: 'Hot Dog',
         value: 9.9,
       ),
       SizedBox(height: 26),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: SectionTitle('Seções', complementaryTitle: '1 resultado'),
+        child: SectionTitle('Seções', complementaryTitle: '2 resultados'),
       ),
       SizedBox(height: 16),
       StoreTypeSearchItemWidget(

@@ -36,7 +36,8 @@ class HighlightsInner extends StatelessWidget {
                   title: 'Cheeseburger',
                   banner: ImageUtils.resizeCloudinaryImageFromUrl(
                     'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
-                    600,
+                    (MediaQuery.of(context).size.width - 32).toInt(),
+                    context,
                   ),
                   logo: logo,
                   discountType: DiscountType.PERCENTAGE,
@@ -69,7 +70,8 @@ class HighlightsInner extends StatelessWidget {
                   title: 'Cheeseburger',
                   banner: ImageUtils.resizeCloudinaryImageFromUrl(
                     'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
-                    600,
+                    (MediaQuery.of(context).size.width - 32).toInt(),
+                    context,
                   ),
                   logo: logo,
                   discountType: DiscountType.PERCENTAGE,
@@ -101,7 +103,8 @@ class HighlightsInner extends StatelessWidget {
                   title: 'Cheeseburger',
                   banner: ImageUtils.resizeCloudinaryImageFromUrl(
                     'https://res.cloudinary.com/kardappio/image/upload/v1588019524/ixc1s8t8wxcbce3tudvf.jpg',
-                    600,
+                    (MediaQuery.of(context).size.width - 32).toInt(),
+                    context,
                   ),
                   logo: logo,
                   discountType: DiscountType.PERCENTAGE,

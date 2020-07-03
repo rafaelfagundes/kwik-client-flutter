@@ -1,20 +1,34 @@
+import 'package:flutter/material.dart';
+
 class ImageUtils {
-  static String resizeCloudinaryImage(String name, int size) {
+  static String resizeCloudinaryImage(
+      String name, int size, BuildContext context) {
+    var pixelRatio = MediaQuery.of(context).devicePixelRatio;
     const String _cloudinaryId = 'kardappio';
 
     String url =
-        'https://res.cloudinary.com/$_cloudinaryId/image/upload/c_scale,w_$size/$name';
+        'https://res.cloudinary.com/$_cloudinaryId/image/upload/c_scale,w_${(size * pixelRatio).toInt()}/$name';
     return url;
   }
 
-  static String resizeCloudinaryImageFromUrl(String url, int size) {
+  static String resizeCloudinaryImageFromUrl(
+      String url, int size, BuildContext context) {
+    var pixelRatio = MediaQuery.of(context).devicePixelRatio;
+
     const String _cloudinaryId = 'kardappio';
 
     var strings = url.split('/');
     String name = strings[strings.length - 1];
+    String finalUrl;
 
-    String finalUrl =
-        'https://res.cloudinary.com/$_cloudinaryId/image/upload/c_scale,w_$size/$name';
+    if (url.indexOf('kwik/assets/img/credit_cards/') > 0) {
+      finalUrl =
+          'https://res.cloudinary.com/$_cloudinaryId/image/upload/c_scale,w_${(size * pixelRatio).toInt()}/kwik/assets/img/credit_cards/$name';
+    } else {
+      finalUrl =
+          'https://res.cloudinary.com/$_cloudinaryId/image/upload/c_scale,w_${(size * pixelRatio).toInt()}/$name';
+    }
+
     return finalUrl;
   }
 }

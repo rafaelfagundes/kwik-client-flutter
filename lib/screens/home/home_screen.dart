@@ -17,7 +17,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Burger King',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1593729115/1200px-Logotipo_do_Burger_King.svg.jpg',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [28, 73],
         rating: 4.7,
@@ -28,7 +29,8 @@ class HomeScreen extends StatelessWidget {
         title: 'McDonald\'s',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1590475069/hzy36cj4phbearm7wwrc.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [15, 60],
         rating: 4.5,
@@ -39,7 +41,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Pizza Hut',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592974725/62805333_10157230299954231_6045518020783112192_n.png.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [30, 90],
         rating: 4.1,
@@ -50,7 +53,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Maria Fumaça Lanches',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1588896819/qw8zawqs1j1al7geejd8.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [12, 42],
         rating: 3.3,
@@ -61,7 +65,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Boston Burger',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1588298907/tyukddlp3acv7fhicrvj.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [12, 42],
         rating: 3.3,
@@ -75,7 +80,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Drogaria Araújo',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592975562/54256678_10157385424328866_734954627597860864_n.png.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [14, 44],
         rating: 4.2,
@@ -86,7 +92,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Droga Raia',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592975637/48418919_2408598852488217_286995439910125568_o.png.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [18, 38],
         rating: 3.9,
@@ -97,7 +104,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Heart Farmácia',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592975938/ultramed_-_dribbble.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [08, 15],
         rating: 4.9,
@@ -111,7 +119,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Disk Bebidas do Tião',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592976294/Disk-Bebidas-Site-1024x768-1024x768.jpg',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [10, 21],
         rating: 3.1,
@@ -122,7 +131,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Disk Cerveja Meio Kilo',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592976482/cc54feca-90cd-4ab7-b207-3eaddd543ae8.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [35, 70],
         rating: 4,
@@ -133,7 +143,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Disk Cerveja Ressaca Eterna',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592976734/202005011333_W4zG_i.jpg',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [45, 90],
         rating: 4.2,
@@ -147,7 +158,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Carrefour',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592978999/undefined.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [25, 51],
         rating: 4.7,
@@ -158,7 +170,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Super Nosso',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592978873/ptLYg3m2_400x400.jpg',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [60, 120],
         rating: 4.6,
@@ -169,7 +182,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Supermercados Guanabara',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592977207/12804706_1012692378766927_3779022915526634811_n.png.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [75, 115],
         rating: 4.4,
@@ -183,7 +197,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Boston Burger',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1588298907/tyukddlp3acv7fhicrvj.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [12, 42],
         rating: 3.3,
@@ -195,7 +210,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Heart Farmácia',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592975938/ultramed_-_dribbble.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [08, 15],
         rating: 4.9,
@@ -207,7 +223,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Disk Cerveja Ressaca Eterna',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592976734/202005011333_W4zG_i.jpg',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [45, 90],
         rating: 4.2,
@@ -219,7 +236,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Supermercados Guanabara',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592977207/12804706_1012692378766927_3779022915526634811_n.png.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [75, 115],
         rating: 4.4,
@@ -231,7 +249,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Carrefour',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592978999/undefined.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [25, 51],
         rating: 4.7,
@@ -243,7 +262,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Disk Cerveja Meio Kilo',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592976482/cc54feca-90cd-4ab7-b207-3eaddd543ae8.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [35, 70],
         rating: 4,
@@ -255,7 +275,8 @@ class HomeScreen extends StatelessWidget {
         title: 'Pizza Hut',
         logo: ImageUtils.resizeCloudinaryImageFromUrl(
           'https://res.cloudinary.com/kardappio/image/upload/v1592974725/62805333_10157230299954231_6045518020783112192_n.png.png',
-          72 * 3,
+          72,
+          context,
         ),
         deliveryTimes: [30, 90],
         rating: 4.1,
