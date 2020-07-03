@@ -1,3 +1,4 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
@@ -78,7 +79,11 @@ class AuthScreen extends StatelessWidget {
                                 buttonFillType: ButtonFillType.FILLED,
                                 buttonType: ButtonType.DEFAULT,
                                 buttonText: 'Cadastro Rápido',
-                                onPressed: null,
+                                onPressed: () {
+                                  Crashlytics.instance.crash();
+                                  throw StateError(
+                                      'Uncaught error thrown by app.');
+                                },
                               ),
                               SizedBox(height: 20),
                               CustomButtonWidget(

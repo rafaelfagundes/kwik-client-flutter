@@ -1,3 +1,5 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -32,6 +34,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<AppStore>(context);
+    FirebaseAnalytics analytics = FirebaseAnalytics();
+    FirebaseAnalyticsObserver observer =
+        FirebaseAnalyticsObserver(analytics: analytics);
+
     return Observer(
         builder: (_) => GestureDetector(
               onTap: () {
@@ -45,15 +51,21 @@ class App extends StatelessWidget {
               },
               child: MaterialApp(
                 title: 'Kwik',
+                navigatorObservers: [
+                  observer,
+                ],
                 theme: store.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
                 initialRoute: '/auth',
-                // initialRoute: '/order-success',
                 onGenerateRoute: (settings) {
                   switch (settings.name) {
                     case '/':
                       return CupertinoPageRoute(
-                          builder: (_) => TabbedMain(), settings: settings);
+                          builder: (_) => TabbedMain(
+                                analytics: analytics,
+                                observer: observer,
+                              ),
+                          settings: settings);
                     case '/auth':
                       return CupertinoPageRoute(
                         builder: (_) => AuthScreen(),
