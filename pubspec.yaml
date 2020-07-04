@@ -48,6 +48,7 @@ dependencies:
   firebase_performance: ^0.3.2
   firebase_in_app_messaging: ^0.1.2
   firebase_messaging: ^6.0.16
+  lottie: ^0.4.0+1
 
 dev_dependencies:
   flutter_test:
@@ -93,7 +94,9 @@ flutter:
     - assets/images/icon.png
     - assets/images/socials_dark.png
     - assets/images/socials_light.png
-    - assets/animations/
+    - assets/animations/success_light.flr
+    - assets/animations/switch_daytime.flr
+    - assets/animations/loading.json
     - assets/maps/light_map.json
     - assets/maps/dark_map.json
     - assets/icons/light/add_stop.png
