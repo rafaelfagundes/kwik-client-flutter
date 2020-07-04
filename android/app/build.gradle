@@ -25,7 +25,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin
-apply plugin: 'com.google.firebase.firebase-perf' // For Firebase Crashlytics
+apply plugin: 'com.google.firebase.firebase-perf' // For Firebase Performance
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -63,5 +63,9 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.google.firebase:firebase-perf:19.0.7" // For Firebase Crashlytics
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.1'
+    implementation 'com.google.firebase:firebase-perf:19.0.7' // For Firebase Performance
+    implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.7'
+    implementation 'com.google.firebase:firebase-analytics:17.4.3'
 }
