@@ -28,6 +28,8 @@ dependencies:
   curved_navigation_bar: ^0.3.2
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flare_flutter: ^2.0.3
   flutter_mobx: ^1.1.0
   flutter_picker: ^1.1.5
@@ -111,6 +113,8 @@ flutter:
     - assets/icons/dark/start.png
     - assets/icons/dark/stop.png
     - assets/icons/dark/edit.png
+    - assets/images/icon/purple/icon.png
+    - assets/images/icon/purple/icon-512px.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

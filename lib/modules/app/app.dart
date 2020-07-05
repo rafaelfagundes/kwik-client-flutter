@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kwik_client_flutter/screens/auth/forgotten_password.dart';
 import 'package:kwik_client_flutter/screens/auth/login_screen.dart';
@@ -37,7 +38,7 @@ class App extends StatelessWidget {
     FirebaseAnalytics analytics = FirebaseAnalytics();
     FirebaseAnalyticsObserver observer =
         FirebaseAnalyticsObserver(analytics: analytics);
-
+    double textScaleFactor = 1.0;
     return Observer(
         builder: (_) => GestureDetector(
               onTap: () {
@@ -50,6 +51,14 @@ class App extends StatelessWidget {
                 }
               },
               child: MaterialApp(
+                builder: (BuildContext context, Widget child) {
+                  // Disables text resize by OS
+                  return MediaQuery(
+                    data: MediaQuery.of(context)
+                        .copyWith(textScaleFactor: textScaleFactor),
+                    child: child,
+                  );
+                },
                 title: 'Kwik',
                 navigatorObservers: [
                   observer,
@@ -57,6 +66,13 @@ class App extends StatelessWidget {
                 theme: store.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
                 initialRoute: '/auth',
+                localizationsDelegates: [
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                locale: Locale('pt', 'BR'),
+                supportedLocales: [const Locale('pt', 'BR')],
                 onGenerateRoute: (settings) {
                   switch (settings.name) {
                     case '/':

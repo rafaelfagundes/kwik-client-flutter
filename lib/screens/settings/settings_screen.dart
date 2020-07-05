@@ -17,6 +17,30 @@ class SettingsScreen extends StatefulWidget {
   _SettingsScreenState createState() => _SettingsScreenState();
 }
 
+void _showAboutDialog(BuildContext context) {
+  showAboutDialog(
+    context: context,
+    applicationIcon: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(8),
+        ),
+      ),
+      width: 32,
+      height: 32,
+      child: Image.asset('assets/images/icon/purple/icon-512px.png'),
+    ),
+    applicationName: 'Kwik Entregas',
+    applicationVersion: '1.0.0',
+    applicationLegalese: '©2020 Rafael Fagundes',
+    children: <Widget>[
+      Padding(
+          padding: EdgeInsets.only(top: 15),
+          child: Text('Todos os direitos reservados'))
+    ],
+  );
+}
+
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
@@ -36,7 +60,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           badgeCount: 8),
       ThemeItemWidget(),
       MenuItemWidget(
-          title: 'Sobre', onPressed: null, icon: SFSymbols.info_circle),
+          title: 'Sobre',
+          onPressed: () => _showAboutDialog(context),
+          icon: SFSymbols.info_circle),
       MenuItemWidget(
           title: 'Ajuda', route: '/help', icon: SFSymbols.question_circle),
       SizedBox(height: 15),

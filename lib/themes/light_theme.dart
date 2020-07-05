@@ -31,6 +31,17 @@ final ThemeData lightTheme = ThemeData(
     toggleableActiveColor: Color(0xff1e88e5),
     unselectedWidgetColor: Color(0x8a000000),
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    appBarTheme: AppBarTheme(
+      color: Color(0xfffcfcfc),
+      iconTheme: IconThemeData(color: Color(0xff440044)),
+      textTheme: TextTheme(
+        headline3: TextStyle(
+          fontFamily: 'Lato',
+          color: Color(0xff440044),
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
     textTheme: ThemeData.dark().textTheme.copyWith(
           headline1: TextStyle(color: Color(0xff440044)),
           headline2: TextStyle(color: Color(0xff440044)),
