@@ -10,7 +10,10 @@ import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/full_screen_loading_widget.dart';
+import 'package:kwik_client_flutter/widgets/section_subtitle_widget.dart';
 import 'package:provider/provider.dart';
+
+import 'social_sign_in_buttons_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -41,11 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   bool _validate() {
-    var _errorsCopy = errors;
+    var _errorsCopy = Map.from(errorsTemplate);
     int _errorsCount = 0;
-
-    print(_emailController.text);
-    print(_passwordController.text);
 
     // Email
     if (!Validation.isValidEmail(_emailController.text)) {
@@ -67,15 +67,12 @@ class _LoginScreenState extends State<LoginScreen> {
       _errorsCopy['password'] = 'Por favor, preencha a senha';
     }
 
+    setState(() {
+      errors = Map.from(_errorsCopy);
+    });
     if (_errorsCount > 0) {
-      setState(() {
-        errors = _errorsCopy;
-      });
       return false;
     } else {
-      setState(() {
-        errors = Map.from(errorsTemplate);
-      });
       return true;
     }
   }
@@ -111,6 +108,10 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  void signInWithFacebook() {}
+  void signInWithGoogle() {}
+  void signInWithApple() {}
+
   @override
   Widget build(BuildContext context) {
     AuthController authController = AuthController(AuthService());
@@ -121,15 +122,34 @@ class _LoginScreenState extends State<LoginScreen> {
         DefaultScreen(
           'Entrar',
           children: <Widget>[
-            SizedBox(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: SectionSubTitle('Entre com os serviços'),
+            ),
+            SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SocialSignInButtonsWidget(
+                facebookOnPressed: signInWithFacebook,
+                googleOnPressed: signInWithGoogle,
+                appleOnPressed: signInWithApple,
+              ),
+            ),
+            SizedBox(height: 32),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: SectionSubTitle('Ou através de seu email e senha'),
+            ),
+            SizedBox(height: 16),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: CustomTextField(
-                  textCapitalization: TextCapitalization.none,
-                  labelText: 'Email',
-                  controller: _emailController,
-                  errorText: errors['email'],
-                  keyboardType: TextInputType.emailAddress),
+                textCapitalization: TextCapitalization.none,
+                labelText: 'Email',
+                controller: _emailController,
+                errorText: errors['email'],
+                keyboardType: TextInputType.emailAddress,
+              ),
             ),
             SizedBox(height: 16),
             Padding(

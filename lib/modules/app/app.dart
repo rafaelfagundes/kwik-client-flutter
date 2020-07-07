@@ -7,6 +7,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:kwik_client_flutter/screens/auth/forgotten_password.dart';
 import 'package:kwik_client_flutter/screens/auth/login_screen.dart';
+import 'package:kwik_client_flutter/screens/auth/sign_up_screen.dart';
 import 'package:kwik_client_flutter/screens/cart/cart_order_success_screen.dart';
 import 'package:kwik_client_flutter/screens/delivery_request/delivery_request_screen.dart';
 import 'package:kwik_client_flutter/screens/delivery_request/request_success_screen.dart';
@@ -94,6 +95,11 @@ class App extends StatelessWidget {
                     case '/login':
                       return CupertinoPageRoute(
                         builder: (_) => LoginScreen(),
+                        settings: settings,
+                      );
+                    case '/sign-up':
+                      return CupertinoPageRoute(
+                        builder: (_) => SignUpScreen(),
                         settings: settings,
                       );
                     case '/forgotten-password':

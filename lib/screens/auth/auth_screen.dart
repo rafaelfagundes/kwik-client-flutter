@@ -1,4 +1,3 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
@@ -85,9 +84,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                     buttonType: ButtonType.DEFAULT,
                                     buttonText: 'Cadastro Rápido',
                                     onPressed: () {
-                                      Crashlytics.instance.crash();
-                                      throw StateError(
-                                          'Uncaught error thrown by app.');
+                                      Navigator.pushNamed(context, '/sign-up');
                                     },
                                   ),
                                   SizedBox(height: 20),
