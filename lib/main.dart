@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kwik_client_flutter/modules/app/app_store.dart';
 import 'package:kwik_client_flutter/modules/app/local_storage_service.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:provider/provider.dart';
 
 import 'modules/app/app.dart';
@@ -32,11 +33,15 @@ Future<void> main() async {
   var localStorageService = new LocalStorageService();
   await appStore.init(localStorageService);
 
+  var authStore = new AuthStore();
+  await authStore.init(localStorageService);
+
   runZoned(() {
     runApp(
       MultiProvider(
         providers: [
           Provider<AppStore>(create: (_) => appStore),
+          Provider<AuthStore>(create: (_) => authStore),
         ],
         child: App(),
       ),

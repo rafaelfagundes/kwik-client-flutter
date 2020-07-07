@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/widgets/custom_alert_dialog.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/full_screen_loading_widget.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -33,8 +35,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     AuthController auth = AuthController(AuthService());
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
+    // var width = MediaQuery.of(context).size.width;
+    // var height = MediaQuery.of(context).size.height;
+
+    var authStore = Provider.of<AuthStore>(context);
 
     return Stack(
       children: <Widget>[
@@ -66,12 +70,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   setState(() {
                     loading = true;
                   });
-                  var result = await auth.signInWithEmailAndPassword(
+                  var _user = await auth.signInWithEmailAndPassword(
                       _emailController.text, _passwordController.text);
-                  if (result != null) {
+                  if (_user != null) {
                     setState(() {
                       loading = false;
                     });
+
+                    // Save in application state
+                    authStore.setUser(_user);
+                    authStore.setIsLogged(true);
+
                     Navigator.pushNamedAndRemoveUntil(
                         context, '/', (route) => false);
                   } else {

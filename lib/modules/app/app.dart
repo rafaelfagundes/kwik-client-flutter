@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:kwik_client_flutter/screens/auth/forgotten_password.dart';
 import 'package:kwik_client_flutter/screens/auth/login_screen.dart';
 import 'package:kwik_client_flutter/screens/cart/cart_order_success_screen.dart';
@@ -34,11 +35,14 @@ import 'app_store.dart';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final store = Provider.of<AppStore>(context);
+    final appStore = Provider.of<AppStore>(context);
+    final authStore = Provider.of<AuthStore>(context);
+
     FirebaseAnalytics analytics = FirebaseAnalytics();
     FirebaseAnalyticsObserver observer =
         FirebaseAnalyticsObserver(analytics: analytics);
     double textScaleFactor = 1.0;
+
     return Observer(
         builder: (_) => GestureDetector(
               onTap: () {
@@ -63,9 +67,9 @@ class App extends StatelessWidget {
                 navigatorObservers: [
                   observer,
                 ],
-                theme: store.isDark ? darkTheme : lightTheme,
+                theme: appStore.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
-                initialRoute: '/auth',
+                initialRoute: authStore.isLogged ? '/' : '/auth',
                 localizationsDelegates: [
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,

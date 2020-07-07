@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:kwik_client_flutter/screens/home/business_type_widget.dart';
 import 'package:kwik_client_flutter/screens/home/simulated_search_bar_widget.dart';
 import 'package:kwik_client_flutter/screens/home/store_horizontal_list_widget.dart';
 import 'package:kwik_client_flutter/utils/image_utils.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/store_horizontal_item_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -284,44 +287,48 @@ class HomeScreen extends StatelessWidget {
       ),
     ];
 
-    return DefaultScreen(
-      'Olá, Rafael',
-      children: <Widget>[
-        Container(height: 45, child: SimulatedSearchBarWidget()),
-        SizedBox(height: 24),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: BusinessTypeWidget(),
-        ),
-        SizedBox(height: 40),
-        StoreHorizontalListWidget(
-          title: 'Restaurantes',
-          items: restaurantItems,
-        ),
-        SizedBox(height: 40),
-        StoreHorizontalListWidget(
-          title: 'Farmácias',
-          items: drugStoreItems,
-        ),
-        SizedBox(height: 40),
-        StoreHorizontalListWidget(
-          title: 'Bebidas',
-          items: drinksItems,
-        ),
-        SizedBox(height: 40),
-        StoreHorizontalListWidget(
-          title: 'Mercados',
-          items: marketItems,
-        ),
-        SizedBox(height: 40),
-        StoreHorizontalListWidget(
-          title: 'Visitados Recentemente',
-          items: recentItems,
-        ),
-        SizedBox(
-          height: MediaQuery.of(context).padding.bottom,
-        ),
-      ],
+    var authStore = Provider.of<AuthStore>(context);
+
+    return Observer(
+      builder: (_) => DefaultScreen(
+        'Olá, ${authStore.user.firstName}',
+        children: <Widget>[
+          Container(height: 45, child: SimulatedSearchBarWidget()),
+          SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: BusinessTypeWidget(),
+          ),
+          SizedBox(height: 40),
+          StoreHorizontalListWidget(
+            title: 'Restaurantes',
+            items: restaurantItems,
+          ),
+          SizedBox(height: 40),
+          StoreHorizontalListWidget(
+            title: 'Farmácias',
+            items: drugStoreItems,
+          ),
+          SizedBox(height: 40),
+          StoreHorizontalListWidget(
+            title: 'Bebidas',
+            items: drinksItems,
+          ),
+          SizedBox(height: 40),
+          StoreHorizontalListWidget(
+            title: 'Mercados',
+            items: marketItems,
+          ),
+          SizedBox(height: 40),
+          StoreHorizontalListWidget(
+            title: 'Visitados Recentemente',
+            items: recentItems,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).padding.bottom,
+          ),
+        ],
+      ),
     );
   }
 }

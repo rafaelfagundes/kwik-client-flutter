@@ -13,6 +13,44 @@ class User {
   String currentCityId;
   String displayName;
 
+  static Gender _getGender(String gender) {
+    switch (gender) {
+      case "Gender.FEMALE":
+        return Gender.FEMALE;
+      case "Gender.MALE":
+        return Gender.MALE;
+      case "Gender.OTHER":
+        return Gender.OTHER;
+      default:
+        return Gender.OTHER;
+    }
+  }
+
+  Map<String, dynamic> toJson() => {
+        'id': this.id,
+        'firstName': this.firstName,
+        'lastName': this.lastName,
+        'email': this.email,
+        'phoneNumber': this.phoneNumber,
+        'dateOfBirth': this.dateOfBirth,
+        'gender': this.gender.toString(),
+        'avatarUrl': this.avatarUrl,
+        'currentCityId': this.currentCityId,
+        'displayName': this.displayName,
+      };
+
+  User.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        firstName = json['firstName'],
+        lastName = json['lastName'],
+        email = json['email'],
+        phoneNumber = json['phoneNumber'],
+        dateOfBirth = json['dateOfBirth'],
+        gender = _getGender(json['gender']),
+        avatarUrl = json['avatarUrl'],
+        currentCityId = json['currentCityId'],
+        displayName = json['displayName'];
+
   User({
     @required this.id,
     @required this.firstName,
@@ -25,5 +63,7 @@ class User {
     this.currentCityId,
   }) {
     this.displayName = this.firstName + ' ' + this.lastName;
+    this.avatarUrl =
+        'https://res.cloudinary.com/kardappio/image/upload/v1594086607/IMG_2013_exported_642585348.jpg';
   }
 }

@@ -113,6 +113,8 @@ flutter:
     - assets/icons/dark/start.png
     - assets/icons/dark/stop.png
     - assets/icons/dark/edit.png
+    - assets/icons/light/user_image.png
+    - assets/icons/dark/user_image.png
     - assets/images/icon/purple/icon.png
     - assets/images/icon/purple/icon-512px.png
 

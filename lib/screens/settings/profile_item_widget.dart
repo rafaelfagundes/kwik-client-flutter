@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_client_flutter/utils/image_utils.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:kwik_client_flutter/widgets/rounded_avatar_widget.dart';
+import 'package:provider/provider.dart';
 
 class ProfileItemWidget extends StatelessWidget {
   const ProfileItemWidget({
@@ -9,64 +11,64 @@ class ProfileItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, "/profile");
-        },
-        child: Container(
-          color: Colors.transparent,
-          child: Row(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  RoundedAvatarWidget(
-                    size: 56,
-                    url: ImageUtils.resizeCloudinaryImageFromUrl(
-                      'https://res.cloudinary.com/kardappio/image/upload/v1593727266/ImagemRaraRamo%CC%81nValdes.png',
-                      56,
-                      context,
-                    ),
-                    animationDuration: 100,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  )
-                ],
-              ),
-              Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    var authStore = Provider.of<AuthStore>(context);
+
+    return Observer(builder: (_) {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, "/profile");
+          },
+          child: Container(
+            color: Colors.transparent,
+            child: Row(
+              children: <Widget>[
+                Row(
                   children: <Widget>[
-                    Text(
-                      'Ramón Valdés',
-                      style: TextStyle(
-                        fontFamily: 'Lato',
-                        fontSize: 18,
-                        color: Theme.of(context).primaryColor,
-                        letterSpacing: 0.0045000000000000005,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      textAlign: TextAlign.left,
+                    RoundedAvatarWidget(
+                      size: 56,
+                      url: authStore.user.avatarUrl,
+                      animationDuration: 100,
                     ),
                     SizedBox(
-                      height: 3,
-                    ),
-                    Text(
-                      'Editar perfil, senha, imagem',
-                      style: TextStyle(
-                        fontFamily: 'Lato',
-                        fontSize: 14,
-                        color: Theme.of(context).primaryColor,
-                        letterSpacing: 0.0035,
+                      width: 10,
+                    )
+                  ],
+                ),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        authStore.user.displayName,
+                        style: TextStyle(
+                          fontFamily: 'Lato',
+                          fontSize: 18,
+                          color: Theme.of(context).primaryColor,
+                          letterSpacing: 0.0045000000000000005,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        textAlign: TextAlign.left,
                       ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ])
-            ],
+                      SizedBox(
+                        height: 3,
+                      ),
+                      Text(
+                        'Editar perfil, senha, imagem',
+                        style: TextStyle(
+                          fontFamily: 'Lato',
+                          fontSize: 14,
+                          color: Theme.of(context).primaryColor,
+                          letterSpacing: 0.0035,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ])
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
