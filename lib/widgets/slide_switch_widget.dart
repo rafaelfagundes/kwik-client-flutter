@@ -71,7 +71,18 @@ class _SlideSwitchWidgetState extends State<SlideSwitchWidget> {
             height: widget.size,
             width: itemWidth,
             decoration: BoxDecoration(
-                color: isDark ? Color(0xFF800080) : Color(0xFF440044),
+                // color: isDark ? Color(0xFF800080) : Color(0xFF440044),
+                gradient: isDark
+                    ? LinearGradient(
+                        colors: [Color(0xff920492), Color(0xff6B026B)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      )
+                    : LinearGradient(
+                        colors: [Color(0xff800080), Color(0xff440044)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
                 borderRadius: BorderRadius.all(Radius.circular(8))),
           ),
         ),

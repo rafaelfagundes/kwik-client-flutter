@@ -52,7 +52,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       context,
       MaterialPageRoute(builder: (context) => App()),
     );
-    // Navigator.pushNamedAndRemoveUntil(context, '/auth', (route) => false);
   }
 
   @override
