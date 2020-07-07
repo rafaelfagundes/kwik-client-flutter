@@ -15,6 +15,10 @@ class UserProfileScreen extends StatefulWidget {
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
   Gender gender;
+  TextEditingController firstName;
+  TextEditingController lastName;
+  TextEditingController phoneNumber;
+  TextEditingController dateOfBirth;
 
   void _setGender(value) {
     setState(() {
@@ -24,27 +28,35 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     this.gender = context.read<AuthStore>().user.gender;
-
+    this.firstName =
+        TextEditingController(text: context.read<AuthStore>().user.firstName);
+    this.lastName =
+        TextEditingController(text: context.read<AuthStore>().user.lastName);
+    this.phoneNumber = TextEditingController(
+        text: context.read<AuthStore>().user.phoneNumber != null
+            ? context.read<AuthStore>().user.phoneNumber.replaceFirst('+55', '')
+            : "");
+    this.dateOfBirth = TextEditingController(
+        text: context.read<AuthStore>().user.dateOfBirth != null
+            ? context.read<AuthStore>().user.dateOfBirth.toString()
+            : "");
     super.initState();
   }
 
   @override
+  void dispose() {
+    // Clean up controllers when the widget is disposed.
+    this.firstName.dispose();
+    this.lastName.dispose();
+    this.phoneNumber.dispose();
+    this.dateOfBirth.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var authStore = Provider.of<AuthStore>(context);
-
-    var firstName = TextEditingController(text: authStore.user.firstName);
-    var lastName = TextEditingController(text: authStore.user.lastName);
-    var phoneNumber = TextEditingController(
-        text: authStore.user.phoneNumber != null
-            ? authStore.user.phoneNumber.replaceFirst('+55', '')
-            : "");
-    var dateOfBirth = TextEditingController(
-        text: authStore.user.dateOfBirth != null
-            ? authStore.user.dateOfBirth.toString()
-            : "");
-
     return DefaultScreen(
       'Perfil',
       children: <Widget>[

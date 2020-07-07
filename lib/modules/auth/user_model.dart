@@ -63,6 +63,8 @@ class User {
     this.currentCityId,
   }) {
     this.displayName = this.firstName + ' ' + this.lastName;
+
+    // TODO: remove hardcoded URL
     this.avatarUrl =
         'https://res.cloudinary.com/kardappio/image/upload/v1594086607/IMG_2013_exported_642585348.jpg';
   }
