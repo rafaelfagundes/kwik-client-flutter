@@ -68,4 +68,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-perf:19.0.7' // For Firebase Performance
     implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.7'
     implementation 'com.google.firebase:firebase-analytics:17.4.3'
+    implementation 'com.facebook.android:facebook-login:[5,6)'
 }

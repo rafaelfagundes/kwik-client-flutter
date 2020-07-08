@@ -39,6 +39,21 @@ mixin _$AuthStore on _AuthStore, Store {
     });
   }
 
+  final _$tokenAtom = Atom(name: '_AuthStore.token');
+
+  @override
+  String get token {
+    _$tokenAtom.reportRead();
+    return super.token;
+  }
+
+  @override
+  set token(String value) {
+    _$tokenAtom.reportWrite(value, super.token, () {
+      super.token = value;
+    });
+  }
+
   final _$setIsLoggedAsyncAction = AsyncAction('_AuthStore.setIsLogged');
 
   @override
@@ -60,6 +75,13 @@ mixin _$AuthStore on _AuthStore, Store {
     return _$setUserAsyncAction.run(() => super.setUser(_user));
   }
 
+  final _$setTokenAsyncAction = AsyncAction('_AuthStore.setToken');
+
+  @override
+  Future<String> setToken(String _token) {
+    return _$setTokenAsyncAction.run(() => super.setToken(_token));
+  }
+
   final _$clearUserAsyncAction = AsyncAction('_AuthStore.clearUser');
 
   @override
@@ -78,7 +100,8 @@ mixin _$AuthStore on _AuthStore, Store {
   String toString() {
     return '''
 user: ${user},
-isLogged: ${isLogged}
+isLogged: ${isLogged},
+token: ${token}
     ''';
   }
 }

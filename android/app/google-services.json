@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "956752992802-ru4tijpfr09nrk8o4qqhvru3nolumkqi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kwikentregas.client",
+            "certificate_hash": "1f30b4151ac808bf59259d7c2e812df467a03fb2"
+          }
+        },
+        {
           "client_id": "956752992802-66lqgt8a8f0g6d3dqo866198jgklcg50.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -13,11 +13,11 @@ import 'modules/app/app.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-// Set `enableInDevMode` to true to see reports while in debug mode
+  // Set `enableInDevMode` to true to see reports while in debug mode
   // This is only to be used for confirming that reports are being
   // submitted as expected. It is not intended to be used for everyday
   // development.
-  Crashlytics.instance.enableInDevMode = true;
+  Crashlytics.instance.enableInDevMode = false;
 
   // Pass all uncaught errors to Crashlytics.
   FlutterError.onError = Crashlytics.instance.recordFlutterError;
@@ -27,6 +27,7 @@ Future<void> main() async {
   // var token = await _firebaseMessaging.getToken();
   // print("######## Instance ID:\n" + token);
 
+  // Set Intl package locale
   Intl.defaultLocale = 'pt_BR';
 
   var appStore = new AppStore();

@@ -108,10 +108,6 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void signInWithFacebook() {}
-  void signInWithGoogle() {}
-  void signInWithApple() {}
-
   @override
   Widget build(BuildContext context) {
     AuthController authController = AuthController(AuthService());
@@ -130,9 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SocialSignInButtonsWidget(
-                facebookOnPressed: signInWithFacebook,
-                googleOnPressed: signInWithGoogle,
-                appleOnPressed: signInWithApple,
+                authController: authController,
               ),
             ),
             SizedBox(height: 32),

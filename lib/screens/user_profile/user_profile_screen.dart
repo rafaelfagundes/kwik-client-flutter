@@ -91,7 +91,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 value: Gender.MALE,
               ),
               SlideSwitchOption(
-                label: 'Não-Binário',
+                label: 'Não-Informar',
                 value: Gender.OTHER,
               ),
             ],

@@ -17,6 +17,9 @@ abstract class _AuthStore with Store {
   @observable
   bool isLogged;
 
+  @observable
+  String token;
+
   @action
   Future<void> setIsLogged(bool isLogged) async {
     await localStorageService.set('isLogged', isLogged);
@@ -41,6 +44,9 @@ abstract class _AuthStore with Store {
     } else {
       this.isLogged = false;
     }
+
+    String _token = await this.localStorageService.get('token');
+    if (_token != null) this.token = _token;
   }
 
   @action
@@ -49,6 +55,13 @@ abstract class _AuthStore with Store {
     String _userFromJson = json.encode(_user.toJson());
     await localStorageService.set('user', _userFromJson);
     return _user;
+  }
+
+  @action
+  Future<String> setToken(String _token) async {
+    token = _token;
+    await localStorageService.set('token', _token);
+    return _token;
   }
 
   @action
@@ -65,4 +78,5 @@ abstract class _AuthStore with Store {
 
   User get getUser => user;
   bool get getIsLogged => isLogged;
+  String get getToken => token;
 }

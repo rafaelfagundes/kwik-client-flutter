@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class ImageUtils {
   static String resizeCloudinaryImage(
       String name, int size, BuildContext context) {
+    if (name.indexOf('cloudinary.com') < 0) {
+      return name;
+    }
     var pixelRatio = MediaQuery.of(context).devicePixelRatio;
     const String _cloudinaryId = 'kardappio';
 
@@ -13,6 +16,9 @@ class ImageUtils {
 
   static String resizeCloudinaryImageFromUrl(
       String url, int size, BuildContext context) {
+    if (url.indexOf('cloudinary.com') < 0) {
+      return url;
+    }
     var pixelRatio = MediaQuery.of(context).devicePixelRatio;
 
     const String _cloudinaryId = 'kardappio';

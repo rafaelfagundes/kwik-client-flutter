@@ -68,6 +68,7 @@ target 'Runner' do
   pod 'Firebase/Performance'
   pod 'Firebase', '6.15.0'
   pod 'FirebaseInAppMessaging', '0.16.0'
+  pod 'FBSDKLoginKit'
 
   # Plugin Pods
 

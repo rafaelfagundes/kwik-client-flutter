@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
 import 'package:kwik_client_flutter/screens/auth/social_sign_in_buttons_widget.dart';
 import 'package:kwik_client_flutter/utils/validation.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
@@ -22,10 +24,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   };
 
   Map<String, dynamic> errors = Map.from(errorsTemplate);
-
-  void signInWithFacebook() {}
-  void signInWithGoogle() {}
-  void signInWithApple() {}
 
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
@@ -105,6 +103,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = AuthController(AuthService());
+
     return Container(
       child: DefaultScreen('Cadastrar', children: [
         Padding(
@@ -115,9 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SocialSignInButtonsWidget(
-            facebookOnPressed: signInWithFacebook,
-            googleOnPressed: signInWithGoogle,
-            appleOnPressed: signInWithApple,
+            authController: authController,
           ),
         ),
         SizedBox(height: 32),
