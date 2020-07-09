@@ -39,7 +39,7 @@ dependencies:
   firebase_messaging: ^6.0.16
   firebase_performance: ^0.3.2
   flare_flutter: ^2.0.3
-  flutter_facebook_login: ^3.0.0
+  flutter_login_facebook: ^0.2.0+1
   flutter_mobx: ^1.1.0
   flutter_picker: ^1.1.5
   flutter_sfsymbols: ^1.0.0

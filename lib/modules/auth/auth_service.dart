@@ -1,10 +1,8 @@
-import 'dart:convert';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:http/http.dart' as http;
 import 'package:kwik_client_flutter/modules/auth/auth_interface.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_user_dto.dart';
 
 class AuthService implements IAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -19,32 +17,64 @@ class AuthService implements IAuth {
   final FacebookLogin _facebookLogin = FacebookLogin();
 
   @override
-  Future appleSignIn() async {
+  Future getUser() {
+    return _auth.currentUser();
+  }
+
+  @override
+  Future<AuthUserDto> appleSignIn() async {
     // TODO: implement appleSignIn
     throw UnimplementedError();
   }
 
   @override
-  Future<Map<String, dynamic>> facebookSignIn() async {
-    List<String> permissions = [
-      'email',
-      'user_gender',
-      'user_birthday',
-      'public_profile',
+  Future<AuthUserDto> facebookSignIn() async {
+    List<FacebookPermission> _permissions = [
+      FacebookPermission.email,
+      FacebookPermission.userGender,
+      FacebookPermission.userBirthday,
+      FacebookPermission.publicProfile
     ];
-    var result = await _facebookLogin.logIn(permissions);
+    final res = await _facebookLogin.logIn(permissions: _permissions);
 
-    switch (result.status) {
-      case FacebookLoginStatus.loggedIn:
-        final token = result.accessToken.token;
-        final graphResponse = await http.get(
-            'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email,picture.height(256)&access_token=$token');
-        Map<String, dynamic> profile = json.decode(graphResponse.body);
-        profile['cancelledByUser'] = false;
-        return profile;
-      case FacebookLoginStatus.cancelledByUser:
-        return {'cancelledByUser': true};
-      case FacebookLoginStatus.error:
+    switch (res.status) {
+      case FacebookLoginStatus.Success:
+
+        // Send access token to server for validation and auth
+        final FacebookAccessToken accessToken = res.accessToken;
+        print('Access token: ${accessToken.token}');
+
+        // Get profile data
+        final user = await _facebookLogin.getUserProfile();
+        print('Hello, ${user.name}! You ID: ${user.userId}');
+
+        // Get email (since we request email permission)
+        final email = await _facebookLogin.getUserEmail();
+
+        // Get user profile image url
+        final imageUrl = await _facebookLogin.getProfileImageUrl(width: 100);
+        print('Your profile image: $imageUrl');
+
+        AuthUserDto authUserDto = AuthUserDto(
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: email,
+          accessToken: accessToken.token,
+          imageUrl: imageUrl,
+        );
+
+        return authUserDto;
+      case FacebookLoginStatus.Cancel:
+        AuthUserDto authUserDto = AuthUserDto(
+          firstName: null,
+          lastName: null,
+          email: null,
+          accessToken: null,
+          isCancelled: true,
+        );
+
+        return authUserDto;
+      case FacebookLoginStatus.Error:
         return null;
       default:
         return null;
@@ -52,15 +82,21 @@ class AuthService implements IAuth {
   }
 
   @override
-  Future getUser() {
-    return _auth.currentUser();
-  }
-
-  @override
-  Future<GoogleSignInAccount> googleSignIn() async {
+  Future<AuthUserDto> googleSignIn() async {
     try {
       GoogleSignInAccount user = await _googleSignIn.signIn();
-      return user;
+      GoogleSignInAuthentication authentication = await user.authentication;
+      String token = authentication.accessToken;
+      print('token $token');
+
+      AuthUserDto authUserDto = AuthUserDto(
+        firstName: user.displayName.split(' ')[0],
+        lastName: user.displayName.split(' ')[1],
+        email: user.email,
+        accessToken: token,
+        imageUrl: user.photoUrl,
+      );
+      return authUserDto;
     } catch (e) {
       print(e.toString());
       return null;
@@ -68,11 +104,20 @@ class AuthService implements IAuth {
   }
 
   @override
-  Future<FirebaseUser> signInWithEmailAndPassword(email, password) async {
+  Future<AuthUserDto> signInWithEmailAndPassword(email, password) async {
     try {
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      FirebaseUser user = result.user;
+
+      IdTokenResult idToken = await result.user.getIdToken(refresh: true);
+
+      AuthUserDto user = AuthUserDto(
+        firstName: result.user.displayName.split(' ')[0],
+        lastName: result.user.displayName.split(' ')[1],
+        email: result.user.email,
+        accessToken: idToken.token,
+        imageUrl: result.user.photoUrl,
+      );
       return user;
     } catch (e) {
       print(e.toString());

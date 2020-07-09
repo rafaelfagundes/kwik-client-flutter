@@ -38,7 +38,7 @@ class UserProfileHeaderWidget extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(height: 2),
                   Text(
-                    authStore.user.displayName,
+                    authStore.user.firstName + " " + authStore.user.lastName,
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 20,
@@ -101,7 +101,7 @@ class UserProfileHeaderWidget extends StatelessWidget {
                 animationDuration: 100,
                 size: 74,
                 url: ImageUtils.resizeCloudinaryImageFromUrl(
-                    authStore.user.avatarUrl, 74, context),
+                    authStore.user.image.secureUrl, 74, context),
               ),
             ),
           ],

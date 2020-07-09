@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
+import 'package:kwik_client_flutter/modules/user/user_controller.dart';
+import 'package:kwik_client_flutter/modules/user/user_service.dart';
 import 'package:kwik_client_flutter/shared/enums.dart';
 import 'package:kwik_client_flutter/utils/validation.dart';
 import 'package:kwik_client_flutter/widgets/custom_alert_dialog.dart';
@@ -110,7 +112,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController = AuthController(AuthService());
+    AuthController authController =
+        AuthController(AuthService(), UserController(UserService()));
     var authStore = Provider.of<AuthStore>(context);
 
     return Stack(

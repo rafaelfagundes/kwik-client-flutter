@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:kwik_client_flutter/modules/app/local_storage_interface.dart';
-import 'package:kwik_client_flutter/modules/auth/user_model.dart';
+import 'package:kwik_client_flutter/modules/user/user_model.dart';
 import 'package:mobx/mobx.dart';
 
 part 'auth_store.g.dart';

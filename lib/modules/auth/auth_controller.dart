@@ -1,70 +1,77 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:kwik_client_flutter/modules/auth/auth_interface.dart';
-import 'package:kwik_client_flutter/modules/auth/user_model.dart';
-import 'package:kwik_client_flutter/shared/enums.dart';
+import 'dart:developer';
+
+import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_user_dto.dart';
+import 'package:kwik_client_flutter/modules/user/user_controller.dart';
+import 'package:kwik_client_flutter/modules/user/user_model.dart';
 
 class AuthController {
-  final IAuth authService;
-  AuthController(this.authService);
+  final AuthService authService;
+  final UserController userController;
+  AuthController(this.authService, this.userController);
 
   Future<User> signInWithEmailAndPassword(String email, String password) async {
-    FirebaseUser result =
+    AuthUserDto result =
         await this.authService.signInWithEmailAndPassword(email, password);
 
     if (result != null) {
-      var user = User(
-        id: result.uid,
-        firstName: result.displayName.split(' ')[0],
-        lastName: result.displayName.split(' ')[1],
-        email: result.email,
-        gender: Gender.OTHER,
-        phoneNumber: result.phoneNumber,
-      );
-      return user;
+      User user = await userController.getUserByEmail(result.email);
+      if (user != null) {
+        return user;
+      } else
+        return null;
     } else {
       return null;
     }
   }
 
   Future<User> googleSignIn() async {
-    GoogleSignInAccount result = await authService.googleSignIn();
+    AuthUserDto result = await this.authService.googleSignIn();
 
     if (result != null) {
-      var user = User(
-          id: result.id,
-          firstName: result.displayName.split(' ')[0],
-          lastName: result.displayName.split(' ')[1],
-          email: result.email,
-          gender: Gender.OTHER,
-          avatarUrl: result.photoUrl);
-      return user;
+      User user = await this.userController.getUserByEmail(result.email);
+      if (user != null) {
+        return user;
+      } else {
+        User newUser = await this.userController.createUser(result);
+        if (newUser != null) {
+          return newUser;
+        } else {
+          return null;
+        }
+      }
     } else {
       return null;
     }
   }
 
   Future<User> facebookSignIn() async {
-    Map<String, dynamic> result = await authService.facebookSignIn();
-    if (result['cancelledByUser']) {
+    AuthUserDto result = await this.authService.facebookSignIn();
+    if (result.isCancelled) {
+      print('user cancelled');
       // I had to do this to differentiate when the user canceled or when it was an error
       var user = User(
         id: 'cancelledByUser',
-        firstName: '',
-        lastName: '',
-        email: '',
-        gender: Gender.OTHER,
       );
       return user;
     } else if (result != null) {
-      var user = User(
-          id: result['id'],
-          firstName: result['first_name'],
-          lastName: result['last_name'],
-          email: result['email'],
-          gender: Gender.OTHER,
-          avatarUrl: result['picture']['data']['url']);
-      return user;
+      print('user not cancelled');
+      User user = await this.userController.getUserByEmail(result.email);
+      if (user != null) {
+        print('user found');
+        return user;
+      } else {
+        print('user not found');
+        User newUser = await this.userController.createUser(result);
+        inspect(newUser);
+        if (newUser != null) {
+          print('new user created');
+          return newUser;
+        } else {
+          print('new user not created');
+          return null;
+        }
+      }
     } else {
       return null;
     }

@@ -28,7 +28,7 @@ class ProfileItemWidget extends StatelessWidget {
                   children: <Widget>[
                     RoundedAvatarWidget(
                       size: 56,
-                      url: authStore.user.avatarUrl,
+                      url: authStore?.user?.image?.secureUrl,
                       animationDuration: 100,
                     ),
                     SizedBox(
@@ -40,7 +40,9 @@ class ProfileItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        authStore.user.displayName,
+                        authStore.user.firstName +
+                            " " +
+                            authStore.user.lastName,
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontSize: 18,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
+import 'package:kwik_client_flutter/modules/user/user_model.dart';
 import 'package:kwik_client_flutter/utils/theme_utils.dart';
 import 'package:kwik_client_flutter/widgets/custom_alert_dialog.dart';
 import 'package:provider/provider.dart';
@@ -19,21 +20,22 @@ class SocialSignInButtonsWidget extends StatelessWidget {
     void _appleOnPressed() {}
 
     void _facebookOnPressed() async {
-      var _user = await authController.facebookSignIn();
-      var authStore = Provider.of<AuthStore>(context, listen: false);
-      if (_user.id == 'cancelledByUser') {
-        return;
-      } else if (_user != null) {
-        authStore.setUser(_user);
+      User _user = await authController.facebookSignIn();
+      AuthStore authStore = Provider.of<AuthStore>(context, listen: false);
 
-        authStore.setIsLogged(true);
-        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-      } else {
+      if (_user == null) {
         CustomAlertDialog.showDialog(
           context,
           title: 'Não Foi Possível Entrar',
           content: 'Erro ao tentar acessar a conta usando o Facebook.',
         );
+      } else if (_user.id == 'cancelledByUser') {
+        return;
+      } else {
+        authStore.setUser(_user);
+
+        authStore.setIsLogged(true);
+        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
       }
     }
 
