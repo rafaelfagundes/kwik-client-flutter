@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_user_dto.dart';
 import 'package:kwik_client_flutter/modules/user/user_controller.dart';
+import 'package:kwik_client_flutter/modules/user/user_response_dto.dart';
 import 'package:kwik_client_flutter/modules/user/user_service.dart';
 import 'package:kwik_client_flutter/screens/auth/social_sign_in_buttons_widget.dart';
 import 'package:kwik_client_flutter/utils/validation.dart';
+import 'package:kwik_client_flutter/widgets/custom_alert_dialog.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
 import 'package:kwik_client_flutter/widgets/section_subtitle_widget.dart';
+import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatefulWidget {
   SignUpScreen({Key key}) : super(key: key);
@@ -31,6 +36,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController lastName = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+
+  final userController = UserController(UserService());
 
   @override
   void dispose() {
@@ -97,9 +104,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
-  void _signUp() {
+  void _signUp(AuthStore authStore) async {
     if (!_validate()) {
       return;
+    }
+
+    var newUser = AuthUserDto(
+      firstName: firstName.text,
+      lastName: lastName.text,
+      email: email.text,
+      password: password.text,
+    );
+
+    UserResponseDto user =
+        await userController.createUserWithEmailAndPassword(newUser);
+
+    switch (user.status) {
+      case UserResponseStatus.CREATED:
+        // Save in application state
+        authStore.setUser(user.user);
+        authStore.setIsLogged(true);
+        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+        break;
+      case UserResponseStatus.ALREADY_EXISTS:
+        CustomAlertDialog.showDialog(context,
+            title: 'Erro', content: user.message);
+        break;
+      case UserResponseStatus.ERROR:
+        CustomAlertDialog.showDialog(context,
+            title: 'Erro', content: user.message);
+        break;
+      default:
+        CustomAlertDialog.showDialog(context,
+            title: 'Erro', content: user.message);
+        break;
     }
   }
 
@@ -107,6 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     AuthController authController =
         AuthController(AuthService(), UserController(UserService()));
+    var authStore = Provider.of<AuthStore>(context);
 
     return Container(
       child: DefaultScreen('Cadastrar', children: [
@@ -156,13 +195,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 controller: password,
                 errorText: errors['password'],
                 obscureText: true,
-                onEditingComplete: () => _signUp(),
+                onEditingComplete: () => _signUp(authStore),
                 textInputAction: TextInputAction.go,
               ),
               SizedBox(height: 32),
               CustomButtonWidget(
                 buttonText: 'Cadastrar',
-                onPressed: () => _signUp(),
+                onPressed: () => _signUp(authStore),
               )
             ],
           ),

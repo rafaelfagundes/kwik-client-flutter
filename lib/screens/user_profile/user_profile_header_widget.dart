@@ -101,7 +101,7 @@ class UserProfileHeaderWidget extends StatelessWidget {
                 animationDuration: 100,
                 size: 74,
                 url: ImageUtils.resizeCloudinaryImageFromUrl(
-                    authStore.user.image.secureUrl, 74, context),
+                    authStore?.user?.image?.secureUrl, 74, context),
               ),
             ),
           ],

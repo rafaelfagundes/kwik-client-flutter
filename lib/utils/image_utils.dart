@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ImageUtils {
   static String resizeCloudinaryImage(
       String name, int size, BuildContext context) {
+    if (name == null) return null;
     if (name.indexOf('cloudinary.com') < 0) {
       return name;
     }
@@ -16,6 +17,7 @@ class ImageUtils {
 
   static String resizeCloudinaryImageFromUrl(
       String url, int size, BuildContext context) {
+    if (url == null) return null;
     if (url.indexOf('cloudinary.com') < 0) {
       return url;
     }

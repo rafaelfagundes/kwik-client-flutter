@@ -7,12 +7,14 @@ class AuthUserDto {
   final String accessToken;
   final String imageUrl;
   final bool isCancelled;
+  final String password;
 
   AuthUserDto({
     @required this.firstName,
     @required this.lastName,
     @required this.email,
-    @required this.accessToken,
+    this.accessToken,
+    this.password,
     this.imageUrl,
     this.isCancelled = false,
   });

@@ -1,9 +1,9 @@
-import 'dart:developer';
-
+import 'package:kwik_client_flutter/modules/auth/auth_response_dto.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_user_dto.dart';
 import 'package:kwik_client_flutter/modules/user/user_controller.dart';
 import 'package:kwik_client_flutter/modules/user/user_model.dart';
+import 'package:kwik_client_flutter/modules/user/user_response_dto.dart';
 
 class AuthController {
   final AuthService authService;
@@ -33,47 +33,67 @@ class AuthController {
       if (user != null) {
         return user;
       } else {
-        User newUser = await this.userController.createUser(result);
-        if (newUser != null) {
-          return newUser;
-        } else {
-          return null;
-        }
+        UserResponseDto response = await this.userController.createUser(result);
+        return response.user;
       }
     } else {
       return null;
     }
   }
 
-  Future<User> facebookSignIn() async {
+  Future<AuthResponseDto> facebookSignIn() async {
     AuthUserDto result = await this.authService.facebookSignIn();
+
     if (result.isCancelled) {
-      print('user cancelled');
-      // I had to do this to differentiate when the user canceled or when it was an error
-      var user = User(
-        id: 'cancelledByUser',
+      print('Usuário cancelou o login');
+      var authResponse = AuthResponseDto(
+        user: null,
+        status: AuthResponseStatus.CANCELLED,
+        message: 'Usuário cancelou o login',
       );
-      return user;
+      return authResponse;
     } else if (result != null) {
-      print('user not cancelled');
       User user = await this.userController.getUserByEmail(result.email);
-      if (user != null) {
-        print('user found');
-        return user;
-      } else {
-        print('user not found');
-        User newUser = await this.userController.createUser(result);
-        inspect(newUser);
-        if (newUser != null) {
-          print('new user created');
-          return newUser;
-        } else {
-          print('new user not created');
-          return null;
+      if (user == null) {
+        UserResponseDto response = await this.userController.createUser(result);
+        switch (response.status) {
+          case UserResponseStatus.CREATED:
+            print('Usuário criado');
+            var authResponse = AuthResponseDto(
+              user: response.user,
+              status: AuthResponseStatus.OK,
+              message: 'Usuário criado',
+            );
+            return authResponse;
+            break;
+          case UserResponseStatus.ERROR:
+            print('Erro ao criar usuário');
+            var authResponse = AuthResponseDto(
+              user: null,
+              status: AuthResponseStatus.ERROR,
+              message: 'Erro ao criar usuário',
+            );
+            return authResponse;
+            break;
+          default:
+            print('Erro ao criar usuário');
+            var authResponse = AuthResponseDto(
+              user: null,
+              status: AuthResponseStatus.ERROR,
+              message: 'Erro ao criar usuário',
+            );
+            return authResponse;
+            break;
         }
+      } else {
+        print('Usuário encontrado');
+        var authResponse = AuthResponseDto(
+          user: user,
+          status: AuthResponseStatus.OK,
+          message: 'Usuário encontrado',
+        );
+        return authResponse;
       }
-    } else {
-      return null;
     }
   }
 
