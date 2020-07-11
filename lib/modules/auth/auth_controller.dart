@@ -9,18 +9,7 @@ class AuthController {
 
   Future<AuthResponseDto> signInWithEmailAndPassword(
       String email, String password) async {
-    AuthResponseDto response =
-        await this.authService.signInWithEmailAndPassword(email, password);
-
-    // if (response != null) {
-    //   // User user = await userController.getUserByEmail(response.email);
-    //   if (user != null) {
-    //     return user;
-    //   } else
-    //     return null;
-    // } else {
-    //   return null;
-    // }
+    return await this.authService.signInWithEmailAndPassword(email, password);
   }
 
   Future<AuthResponseDto> googleSignIn() async {

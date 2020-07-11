@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -278,13 +277,30 @@ class AuthService implements IAuth {
     try {
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-
+      AuthResponseDto authResponse;
       IdTokenResult idToken = await result.user.getIdToken(refresh: true);
 
       UserAndTokenDto userAndToken =
-          await _getUserAndToken(email, idToken.token, 'GOOGLE');
+          await _getUserAndToken(email, idToken.token, 'EMAIL');
 
-      inspect(userAndToken);
+      // If user exists
+      if (userAndToken.status == 201) {
+        authResponse = AuthResponseDto(
+          user: userAndToken.user,
+          status: AuthResponseStatus.OK,
+          message: 'Usuário encontrado e logado',
+          token: userAndToken.token,
+        );
+      } else {
+        authResponse = AuthResponseDto(
+          user: null,
+          status: AuthResponseStatus.USER_NOT_FOUND,
+          message: 'Usuário não encontrado',
+          token: null,
+        );
+      }
+
+      return authResponse;
     } catch (e) {
       print(e.toString());
       return null;
