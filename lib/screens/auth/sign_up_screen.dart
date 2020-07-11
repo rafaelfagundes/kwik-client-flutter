@@ -37,7 +37,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
-  final userController = UserController(UserService());
+  final userController = UserController(userService: UserService());
 
   @override
   void dispose() {
@@ -143,8 +143,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController =
-        AuthController(AuthService(), UserController(UserService()));
+    AuthController authController = AuthController(
+        AuthService(userService: UserService()),
+        UserController(userService: UserService()));
     var authStore = Provider.of<AuthStore>(context);
 
     return Container(

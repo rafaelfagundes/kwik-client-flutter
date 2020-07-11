@@ -288,6 +288,7 @@ class HomeScreen extends StatelessWidget {
     ];
 
     var authStore = Provider.of<AuthStore>(context);
+    print(authStore.token);
 
     return Observer(
       builder: (_) => DefaultScreen(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_response_dto.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:kwik_client_flutter/modules/user/user_controller.dart';
@@ -86,15 +87,15 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() {
       loading = true;
     });
-    var _user = await authController.signInWithEmailAndPassword(
+    AuthResponseDto response = await authController.signInWithEmailAndPassword(
         _emailController.text, _passwordController.text);
-    if (_user != null) {
+    if (response != null) {
       setState(() {
         loading = false;
       });
 
       // Save in application state
-      authStore.setUser(_user);
+      authStore.setUser(response.user);
       authStore.setIsLogged(true);
 
       Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
@@ -112,8 +113,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController =
-        AuthController(AuthService(), UserController(UserService()));
+    AuthController authController = AuthController(
+        AuthService(userService: UserService()),
+        UserController(userService: UserService()));
     var authStore = Provider.of<AuthStore>(context);
 
     return Stack(

@@ -16,13 +16,9 @@ class SocialSignInButtonsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = ThemeUtils.isDark(context);
+    AuthStore authStore = Provider.of<AuthStore>(context, listen: false);
 
-    void _appleOnPressed() {}
-
-    void _facebookOnPressed() async {
-      AuthStore authStore = Provider.of<AuthStore>(context, listen: false);
-      AuthResponseDto response = await authController.facebookSignIn();
-
+    void _processResponse(AuthResponseDto response) {
       switch (response.status) {
         case AuthResponseStatus.ERROR:
           CustomAlertDialog.showDialog(
@@ -35,6 +31,7 @@ class SocialSignInButtonsWidget extends StatelessWidget {
           print('Usuário cancelou o login');
           break;
         case AuthResponseStatus.OK:
+          authStore.setToken(response.token);
           authStore.setUser(response.user);
           authStore.setIsLogged(true);
           Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
@@ -49,38 +46,18 @@ class SocialSignInButtonsWidget extends StatelessWidget {
           break;
         default:
       }
+    }
 
-      // if (_user == null) {
-      //   CustomAlertDialog.showDialog(
-      //     context,
-      //     title: 'Não Foi Possível Entrar',
-      //     content: 'Erro ao tentar acessar a conta usando o Facebook.',
-      //   );
-      // } else if (_user.id == 'cancelledByUser') {
-      //   return;
-      // } else {
-      //   authStore.setUser(_user);
+    void _appleOnPressed() {}
 
-      //   authStore.setIsLogged(true);
-      //   Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-      // }
+    void _facebookOnPressed() async {
+      AuthResponseDto response = await authController.facebookSignIn();
+      _processResponse(response);
     }
 
     void _googleOnPressed() async {
-      var _user = await authController.googleSignIn();
-      var authStore = Provider.of<AuthStore>(context, listen: false);
-      if (_user != null) {
-        authStore.setUser(_user);
-
-        authStore.setIsLogged(true);
-        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-      } else {
-        CustomAlertDialog.showDialog(
-          context,
-          title: 'Não Foi Possível Entrar',
-          content: 'Erro ao tentar acessar a conta usando o Google.',
-        );
-      }
+      var response = await authController.googleSignIn();
+      _processResponse(response);
     }
 
     return Container(
