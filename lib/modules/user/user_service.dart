@@ -60,8 +60,8 @@ class UserService implements IUser {
       'password': user.password
     });
 
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
+    // print('Response status: ${response.statusCode}');
+    // print('Response body: ${response.body}');
 
     switch (response.statusCode) {
       case 201:
@@ -99,21 +99,5 @@ class UserService implements IUser {
   Future getUser(String id) {
     // TODO: implement getUser
     throw UnimplementedError();
-  }
-
-  @override
-  Future<User> getUserByEmail(String email) async {
-    String url = '${Api.baseUrl}/users?email=$email';
-    var response = await http.get(url);
-
-    switch (response.statusCode) {
-      case 200:
-        // inspect(response);
-        // print('Response status: ${response.statusCode}');
-        // print('Response body: ${response.body}');
-        return User.fromJson(json.decode(response.body));
-      default:
-        return null;
-    }
   }
 }

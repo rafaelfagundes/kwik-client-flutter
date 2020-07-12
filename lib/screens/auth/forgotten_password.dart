@@ -77,8 +77,8 @@ class _ForgottenPasswordScreenState extends State<ForgottenPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     AuthController authController = AuthController(
-        AuthService(userService: UserService()),
-        UserController(userService: UserService()));
+        authService: AuthService(userService: UserService()),
+        userController: UserController(userService: UserService()));
 
     return DefaultScreen('Recuperar Senha', children: [
       Padding(

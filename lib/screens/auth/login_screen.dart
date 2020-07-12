@@ -89,33 +89,39 @@ class _LoginScreenState extends State<LoginScreen> {
     });
     AuthResponseDto response = await authController.signInWithEmailAndPassword(
         _emailController.text, _passwordController.text);
-    if (response != null) {
-      setState(() {
-        loading = false;
-      });
 
-      // Save in application state
-      authStore.setUser(response.user);
-      authStore.setIsLogged(true);
+    switch (response.status) {
+      case AuthResponseStatus.OK:
+        setState(() {
+          loading = false;
+        });
 
-      Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-    } else {
-      setState(() {
-        loading = false;
-      });
-      CustomAlertDialog.showDialog(
-        context,
-        title: 'Não Foi Possível Entrar',
-        content: 'Usuário e/ou senha não encontrados.',
-      );
+        // Save in application state
+        authStore.setUser(response.user);
+        authStore.setIsLogged(true);
+
+        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+        break;
+      case AuthResponseStatus.ERROR:
+        setState(() {
+          loading = false;
+        });
+        CustomAlertDialog.showDialog(
+          context,
+          title: 'Não Foi Possível Entrar',
+          content: 'Usuário e/ou senha não encontrados.',
+        );
+        break;
+      default:
+        break;
     }
   }
 
   @override
   Widget build(BuildContext context) {
     AuthController authController = AuthController(
-        AuthService(userService: UserService()),
-        UserController(userService: UserService()));
+        authService: AuthService(userService: UserService()),
+        userController: UserController(userService: UserService()));
     var authStore = Provider.of<AuthStore>(context);
 
     return Stack(

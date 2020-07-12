@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_controller.dart';
+import 'package:kwik_client_flutter/modules/auth/auth_response_dto.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_service.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_store.dart';
 import 'package:kwik_client_flutter/modules/auth/auth_user_dto.dart';
@@ -12,6 +13,7 @@ import 'package:kwik_client_flutter/widgets/custom_alert_dialog.dart';
 import 'package:kwik_client_flutter/widgets/custom_button_widget.dart';
 import 'package:kwik_client_flutter/widgets/custom_text_field.dart';
 import 'package:kwik_client_flutter/widgets/default_screen_widget.dart';
+import 'package:kwik_client_flutter/widgets/full_screen_loading_widget.dart';
 import 'package:kwik_client_flutter/widgets/section_subtitle_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -30,6 +32,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     "password": null,
   };
 
+  bool loading = false;
+
   Map<String, dynamic> errors = Map.from(errorsTemplate);
 
   final TextEditingController firstName = TextEditingController();
@@ -38,6 +42,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController password = TextEditingController();
 
   final userController = UserController(userService: UserService());
+  final authController = AuthController(
+    authService: AuthService(userService: UserService()),
+    userController: UserController(
+      userService: UserService(),
+    ),
+  );
 
   @override
   void dispose() {
@@ -105,7 +115,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _signUp(AuthStore authStore) async {
+    setState(() {
+      loading = true;
+    });
     if (!_validate()) {
+      setState(() {
+        loading = false;
+      });
       return;
     }
 
@@ -122,19 +138,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
     switch (user.status) {
       case UserResponseStatus.CREATED:
         // Save in application state
-        authStore.setUser(user.user);
-        authStore.setIsLogged(true);
-        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+        AuthResponseDto response = await authController
+            .signInWithEmailAndPassword(email.text, password.text);
+
+        if (response.status == AuthResponseStatus.OK) {
+          authStore.setToken(response.token);
+          authStore.setUser(user.user);
+          authStore.setIsLogged(true);
+          Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+        } else {
+          setState(() {
+            loading = false;
+          });
+          CustomAlertDialog.showDialog(context,
+              title: 'Erro', content: user.message);
+          break;
+        }
+
         break;
       case UserResponseStatus.ALREADY_EXISTS:
+        setState(() {
+          loading = false;
+        });
         CustomAlertDialog.showDialog(context,
             title: 'Erro', content: user.message);
         break;
       case UserResponseStatus.ERROR:
+        setState(() {
+          loading = false;
+        });
         CustomAlertDialog.showDialog(context,
             title: 'Erro', content: user.message);
         break;
       default:
+        setState(() {
+          loading = false;
+        });
         CustomAlertDialog.showDialog(context,
             title: 'Erro', content: user.message);
         break;
@@ -144,70 +183,75 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     AuthController authController = AuthController(
-        AuthService(userService: UserService()),
-        UserController(userService: UserService()));
+        authService: AuthService(userService: UserService()),
+        userController: UserController(userService: UserService()));
     var authStore = Provider.of<AuthStore>(context);
 
-    return Container(
-      child: DefaultScreen('Cadastrar', children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: SectionSubTitle('Entre com os serviços'),
-        ),
-        SizedBox(height: 16),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: SocialSignInButtonsWidget(
-            authController: authController,
-          ),
-        ),
-        SizedBox(height: 32),
-        Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: SectionSubTitle('Ou cadastre-se com email e senha'),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 16),
-              CustomTextField(
-                labelText: 'Nome',
-                controller: firstName,
-                errorText: errors['firstName'],
+    return Stack(
+      children: <Widget>[
+        Container(
+          child: DefaultScreen('Cadastrar', children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: SectionSubTitle('Entre com os serviços'),
+            ),
+            SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SocialSignInButtonsWidget(
+                authController: authController,
               ),
-              SizedBox(height: 16),
-              CustomTextField(
-                labelText: 'Sobrenome',
-                controller: lastName,
-                errorText: errors['lastName'],
+            ),
+            SizedBox(height: 32),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: SectionSubTitle('Ou cadastre-se com email e senha'),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 16),
+                  CustomTextField(
+                    labelText: 'Nome',
+                    controller: firstName,
+                    errorText: errors['firstName'],
+                  ),
+                  SizedBox(height: 16),
+                  CustomTextField(
+                    labelText: 'Sobrenome',
+                    controller: lastName,
+                    errorText: errors['lastName'],
+                  ),
+                  SizedBox(height: 16),
+                  CustomTextField(
+                    labelText: 'Email',
+                    controller: email,
+                    errorText: errors['email'],
+                    keyboardType: TextInputType.emailAddress,
+                    textCapitalization: TextCapitalization.none,
+                  ),
+                  SizedBox(height: 16),
+                  CustomTextField(
+                    labelText: 'Senha',
+                    controller: password,
+                    errorText: errors['password'],
+                    obscureText: true,
+                    onEditingComplete: () => _signUp(authStore),
+                    textInputAction: TextInputAction.go,
+                  ),
+                  SizedBox(height: 32),
+                  CustomButtonWidget(
+                    buttonText: 'Cadastrar',
+                    onPressed: () => _signUp(authStore),
+                  )
+                ],
               ),
-              SizedBox(height: 16),
-              CustomTextField(
-                labelText: 'Email',
-                controller: email,
-                errorText: errors['email'],
-                keyboardType: TextInputType.emailAddress,
-                textCapitalization: TextCapitalization.none,
-              ),
-              SizedBox(height: 16),
-              CustomTextField(
-                labelText: 'Senha',
-                controller: password,
-                errorText: errors['password'],
-                obscureText: true,
-                onEditingComplete: () => _signUp(authStore),
-                textInputAction: TextInputAction.go,
-              ),
-              SizedBox(height: 32),
-              CustomButtonWidget(
-                buttonText: 'Cadastrar',
-                onPressed: () => _signUp(authStore),
-              )
-            ],
-          ),
+            ),
+          ]),
         ),
-      ]),
+        if (loading) FullScreenLoadingWidget()
+      ],
     );
   }
 }
