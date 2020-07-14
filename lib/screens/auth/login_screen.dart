@@ -87,6 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() {
       loading = true;
     });
+
     AuthResponseDto response = await authController.signInWithEmailAndPassword(
         _emailController.text, _passwordController.text);
 
@@ -102,14 +103,24 @@ class _LoginScreenState extends State<LoginScreen> {
 
         Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
         break;
-      case AuthResponseStatus.ERROR:
+      case AuthResponseStatus.USER_NOT_FOUND:
         setState(() {
           loading = false;
         });
         CustomAlertDialog.showDialog(
           context,
           title: 'Não Foi Possível Entrar',
-          content: 'Usuário e/ou senha não encontrados.',
+          content: response.message,
+        );
+        break;
+      case AuthResponseStatus.ERROR:
+        setState(() {
+          loading = false;
+        });
+        CustomAlertDialog.showDialog(
+          context,
+          title: 'Erro',
+          content: response.message,
         );
         break;
       default:

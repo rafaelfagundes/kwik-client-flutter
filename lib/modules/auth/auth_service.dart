@@ -275,8 +275,21 @@ class AuthService implements IAuth {
   @override
   Future<AuthResponseDto> signInWithEmailAndPassword(email, password) async {
     try {
+      print('Trying firebase');
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
+      print('Firebase Result?');
+
+      if (result.user == null) {
+        print('DOESNT HAVE RESULT');
+        return AuthResponseDto(
+          user: null,
+          status: AuthResponseStatus.ERROR,
+          message: 'Erro ao conectar. Tente novamente mais tarde.',
+          token: null,
+        );
+      }
+
       AuthResponseDto authResponse;
       IdTokenResult idToken = await result.user.getIdToken(refresh: true);
 
@@ -288,22 +301,33 @@ class AuthService implements IAuth {
         authResponse = AuthResponseDto(
           user: userAndToken.user,
           status: AuthResponseStatus.OK,
-          message: 'Usuário encontrado e logado',
+          message: null,
           token: userAndToken.token,
+        );
+      } else if (userAndToken.status == 500) {
+        authResponse = AuthResponseDto(
+          user: null,
+          status: AuthResponseStatus.ERROR,
+          message: 'Erro ao conectar ao servidor.\nTente novamente mais tarde.',
+          token: null,
         );
       } else {
         authResponse = AuthResponseDto(
           user: null,
           status: AuthResponseStatus.USER_NOT_FOUND,
-          message: 'Usuário não encontrado',
+          message: 'Usuário e/ou senha estão incorretos.',
           token: null,
         );
       }
 
       return authResponse;
     } catch (e) {
-      print(e.toString());
-      return null;
+      return AuthResponseDto(
+        user: null,
+        status: AuthResponseStatus.ERROR,
+        message: 'Erro ao conectar. Tente novamente mais tarde.',
+        token: null,
+      );
     }
   }
 
