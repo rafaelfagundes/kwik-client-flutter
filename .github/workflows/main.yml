@@ -1,10 +1,10 @@
+name: Test, Build and Release APK
 on:
   push:
     branches:
       - master
     tags:
       - "*"
-name: Test, Build and Release APK
 jobs:
   build:
     name: Build APK
@@ -20,8 +20,12 @@ jobs:
       - run: flutter pub get
       # - run: flutter test
       - run: flutter build apk --debug --split-per-abi
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
+          tag: ${{ steps.get_version.outputs.VERSION }}
           artifacts: "build/app/outputs/apk/debug/*.apk"
           token: ${{ secrets.TOKEN }}
