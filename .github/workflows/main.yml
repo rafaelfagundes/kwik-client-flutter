@@ -1,8 +1,10 @@
 on:
   push:
+    branches:
+      - master
     tags:
       - "*"
-name: Test, Build and Release apk
+name: Test, Build and Release APK
 jobs:
   build:
     name: Build APK
