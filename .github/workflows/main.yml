@@ -18,14 +18,17 @@ jobs:
       - run: flutter pub get
       # - run: flutter test
       - run: flutter build apk --split-per-abi
-      - name: Print Refs
-        run: echo ${GITHUB_REF}
       - name: Get the version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - name: Build Number Generator
+        id: buildnumber
+        uses: einaregilsson/build-number@v2
+        with:
+          token: ${{ secrets.TOKEN }}
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.get_version.outputs.VERSION }}
-          artifacts: "build/app/outputs/apk/debug/*.apk"
+          tag: ${{ steps.get_version.outputs.VERSION }}.${{ steps.buildnumber.outputs.build_number }}
+          artifacts: "build/app/outputs/apk/release/*.apk"
           token: ${{ secrets.TOKEN }}
