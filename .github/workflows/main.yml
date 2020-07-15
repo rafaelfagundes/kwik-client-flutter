@@ -3,14 +3,15 @@ on:
   push:
     branches:
       - master
-env:
-  buildName: ${GITHUB_RUN_NUMBER}
 jobs:
   build:
     name: Build APK
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ env.buildName }}
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::v0.0.${GITHUB_REF/refs\/tags\//}
+        run: echo ${{ steps.get_version.outputs.VERSION }}
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
         with:
@@ -21,12 +22,9 @@ jobs:
       - run: flutter pub get
       # - run: flutter test
       - run: flutter build apk --split-per-abi
-      # - name: Get the version
-      #   id: get_version
-      #   run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
-          tag: "v.0.0.${{ env.buildName }}"
+          tag: ${{ steps.get_version.outputs.VERSION }}
           artifacts: "build/app/outputs/apk/release/*.apk"
           token: ${{ secrets.TOKEN }}
