@@ -4,13 +4,13 @@ on:
     branches:
       - master
 env:
-  buildName: ${GITHUB_RUN_NUMBER}
+  buildName: ${{env.GITHUB_RUN_NUMBER}}
 jobs:
   build:
     name: Build APK
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'v.0.0.${{ env.buildName }}'
+      - run: echo ${{ env.buildName }}
       - uses: actions/checkout@v1
       - uses: actions/setup-java@v1
         with:
