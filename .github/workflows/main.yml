@@ -20,6 +20,8 @@ jobs:
       - run: flutter pub get
       # - run: flutter test
       - run: flutter build apk --debug --split-per-abi
+      - name: Print Refs
+        run: echo ${GITHUB_REF}
       - name: Get the version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
