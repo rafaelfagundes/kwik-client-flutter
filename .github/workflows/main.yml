@@ -24,6 +24,6 @@ jobs:
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
-          tag: "v0.0.${{GITHUB_RUN_NUMBER}}"
+          tag: "v0.0.${{ env.GITHUB_RUN_NUMBER}}"
           artifacts: "build/app/outputs/apk/release/*.apk"
           token: ${{ secrets.TOKEN }}
