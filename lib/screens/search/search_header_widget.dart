@@ -26,6 +26,7 @@ class SearchHeaderWidget extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Container(
+              key: ValueKey('searchBackButton'),
               height: 32,
               width: 32,
               margin: EdgeInsets.only(left: 8),

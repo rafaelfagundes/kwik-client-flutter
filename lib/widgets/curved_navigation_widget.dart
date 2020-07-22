@@ -56,30 +56,35 @@ class CurvedNavigationWidget extends StatelessWidget {
               color: Theme.of(context).cardColor,
               items: <Widget>[
                 CustomIcon(
+                  key: ValueKey('tabIconHome'),
                   isActive: index == 0,
                   buttonSize: _buttonSize,
                   activeIcon: SFSymbols.house_fill,
                   inactiveIcon: SFSymbols.house,
                 ),
                 CustomIcon(
+                  key: ValueKey('tabIconOrders'),
                   isActive: index == 1,
                   buttonSize: _buttonSize,
                   activeIcon: SFSymbols.tray_full_fill,
                   inactiveIcon: SFSymbols.tray_full,
                 ),
                 CustomIcon(
+                  key: ValueKey('tabIconCart'),
                   isActive: index == 2,
                   buttonSize: _buttonSize,
                   activeIcon: SFSymbols.cart_fill,
                   inactiveIcon: SFSymbols.cart,
                 ),
                 CustomIcon(
+                  key: ValueKey('tabIconNotifications'),
                   isActive: index == 3,
                   buttonSize: _buttonSize,
                   activeIcon: SFSymbols.bell_fill,
                   inactiveIcon: SFSymbols.bell,
                 ),
                 CustomIcon(
+                  key: ValueKey('tabIconSettings'),
                   isActive: index == 4,
                   buttonSize: _buttonSize,
                   activeIcon: SFSymbols.person_circle_fill,

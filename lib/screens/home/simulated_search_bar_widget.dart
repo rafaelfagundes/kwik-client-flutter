@@ -5,6 +5,7 @@ class SimulatedSearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SearchBarWidget(
+      key: ValueKey('searchBar'),
       readOnly: true,
       hintText: 'O que deseja hoje?',
       onTap: () {

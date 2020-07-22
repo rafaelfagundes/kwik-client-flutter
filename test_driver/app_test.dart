@@ -75,7 +75,35 @@ void main() {
         await driver.enterText('123456');
         await takeScreenshot('login_data');
         await driver.tap(button);
-        await takeScreenshot('loading_animation');
+      });
+    }, skip: false);
+
+    group('Home -', () {
+      test('Searchbar to searchscreen', () async {
+        await takeScreenshot('home_screen');
+        var searchbar = find.byValueKey('searchBar');
+        await driver.tap(searchbar);
+        await takeScreenshot('search_screen');
+        var searchBackButton = find.byValueKey('searchBackButton');
+        await driver.tap(searchBackButton);
+      });
+    }, skip: false);
+
+    group('Tabbar Screens -', () {
+      var orders = find.byValueKey('tabIconOrders');
+      var cart = find.byValueKey('tabIconCart');
+      var notifications = find.byValueKey('tabIconNotifications');
+      var settings = find.byValueKey('tabIconSettings');
+
+      test('Switching screens', () async {
+        await driver.tap(orders);
+        await takeScreenshot('orders_screen');
+        await driver.tap(cart);
+        await takeScreenshot('cart_screen');
+        await driver.tap(notifications);
+        await takeScreenshot('notifications_screen');
+        await driver.tap(settings);
+        await takeScreenshot('settings_screen');
       });
     }, skip: false);
   });
