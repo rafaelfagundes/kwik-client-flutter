@@ -46,6 +46,7 @@ class App extends StatelessWidget {
 
     return Observer(
         builder: (_) => GestureDetector(
+              // This allows touching outside text fields and then remove focus
               onTap: () {
                 FocusScopeNode currentFocus = FocusScope.of(context);
                 currentFocus.unfocus();
@@ -70,7 +71,6 @@ class App extends StatelessWidget {
                 ],
                 theme: appStore.isDark ? darkTheme : lightTheme,
                 debugShowCheckedModeBanner: false,
-                initialRoute: authStore.isLogged ? '/' : '/auth',
                 localizationsDelegates: [
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
@@ -78,6 +78,7 @@ class App extends StatelessWidget {
                 ],
                 locale: Locale('pt', 'BR'),
                 supportedLocales: [const Locale('pt', 'BR')],
+                initialRoute: authStore.isLogged ? '/' : '/auth',
                 onGenerateRoute: (settings) {
                   switch (settings.name) {
                     case '/':

@@ -242,6 +242,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: 32),
                   CustomButtonWidget(
+                    key: ValueKey('signUpButton'),
                     buttonText: 'Cadastrar',
                     onPressed: () => _signUp(authStore),
                   )

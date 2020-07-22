@@ -24,10 +24,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _emailController =
-      TextEditingController(text: 'rafael@usuario.com');
-  final TextEditingController _passwordController =
-      TextEditingController(text: '123456');
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   bool loading = false;
 
@@ -160,6 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: CustomTextField(
+                key: ValueKey('emailTextField'),
                 textCapitalization: TextCapitalization.none,
                 labelText: 'Email',
                 controller: _emailController,
@@ -171,6 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: CustomTextField(
+                key: ValueKey('passwordTextField'),
                 labelText: 'Senha',
                 controller: _passwordController,
                 errorText: errors['password'],
@@ -183,6 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomButtonWidget(
+                key: ValueKey('enterButton'),
                 buttonText: 'Entrar',
                 onPressed: () => _login(authController, authStore),
               ),
