@@ -29,8 +29,6 @@ class _ForgottenPasswordScreenState extends State<ForgottenPasswordScreen> {
     var _errorsCopy = errors;
     int _errorsCount = 0;
 
-    print(_emailController.text);
-
     // Email
     if (!Validation.isValidEmail(_emailController.text)) {
       _errorsCount++;

@@ -32,7 +32,6 @@ class AuthService implements IAuth {
       String email, String accessToken, String type) async {
     try {
       String url = '${Api.baseUrl}/auth/sign-in';
-      // print('chamando: $url');
 
       var response = await http.post(url, body: {
         'email': email,

@@ -64,7 +64,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     // FirstName
     if (firstName.text.length < 2) {
-      print('firstName');
       _errorsCount++;
       _errorsCopy['firstName'] = 'O nome deve conter no mínimo 2 caracteres';
     }

@@ -1,6 +1,9 @@
 # Screenshots folder
 screenshots/
 
+# API Config File
+api_config.dart
+
 # Miscellaneous
 *.class
 *.log
