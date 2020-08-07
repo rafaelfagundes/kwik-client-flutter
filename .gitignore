@@ -4,6 +4,9 @@ screenshots/
 # API Config File
 api_config.dart
 
+# Build
+ios/build
+
 # Miscellaneous
 *.class
 *.log
