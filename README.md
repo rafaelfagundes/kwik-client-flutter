@@ -44,7 +44,7 @@ To run Kwik on your device, follow these steps:
 
 2. Clone the Kwik repository to your local machine using the following command:
    ```
-   git clone https://github.com/your-username/kwik.git
+   git clone https://github.com/rafaelfagundes/kwik-client-flutter.git
    ```
 
 3. Navigate to the project directory:
@@ -71,7 +71,3 @@ Contributions to Kwik are welcome! If you find any bugs or have suggestions for 
 ## License
 
 Kwik is released under the [MIT License](LICENSE).
-
-## Contact
-
-For any inquiries or support related to Kwik, you can reach out to the development team at [support@kwikapp.com](mailto:support@kwikapp.com).
