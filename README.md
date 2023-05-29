@@ -49,7 +49,7 @@ To run Kwik on your device, follow these steps:
 
 3. Navigate to the project directory:
    ```
-   cd kwik
+   cd kwik-client-flutter
    ```
 
 4. Install the required dependencies by running:
