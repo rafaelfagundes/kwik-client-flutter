@@ -22,12 +22,6 @@ Kwik comes with a range of features to enhance the food and groceries delivery e
 
 - **Ratings and Reviews**: Users can provide feedback on their orders by rating and reviewing the restaurants and grocery stores they ordered from, helping other users make informed decisions.
 
-## Screenshots
-
-![Screenshot 1](screenshots/screenshot1.png)
-![Screenshot 2](screenshots/screenshot2.png)
-![Screenshot 3](screenshots/screenshot3.png)
-
 ## Technologies Used
 
 Kwik is built using the following technologies:
